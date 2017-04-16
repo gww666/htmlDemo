@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>放大镜</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            /*display: flex;*/
+            /*width: 800px;*/
+            /*height:;*/
+            /*justify-content: space-between;*/
+            margin:100px 300px;
+            position: relative;
+            box-sizing: border-box;
+        }
+        img {
+            box-sizing: border-box;
+            float: left;
+            margin-right: 30px;
+            border: 1px solid #6c6c6c;
+        }
+        .active {
+            /*background: red;*/
+            border: 1px solid red;
+        }
+        img:last-child {
+            display: none;
+            position: absolute;
+            /*top: 200px;*/
+            border: 0;
+
+        }
+    </style>
+    <script>
+        onload = function () {
+            var img = document.getElementsByTagName("img");
+            var box = document.getElementById("box");
+            console.log(box.offsetLeft);
+            for (var i = 0; i < img.length - 1; i++) {
+                img[i].index = i;
+                img[i].onmousemove = function (event) {
+                    for (var j = 0; j < img.length - 1; j++) {
+                        img[j].className = "";
+                    }
+                    this.className = "active";
+                    img[img.length - 1].src = "img/shirt_" + (this.index + 1) + "_big.jpg";
+                    img[img.length - 1].style.display = "block";
+                    var x = event.pageX - box.offsetLeft + 10;
+//                    console.log(x);
+                    img[img.length - 1].style.left = x + "px";
+                    var y = event.pageY - box.offsetTop + 10;
+                    img[img.length - 1].style.top = y + "px";
+//                    console.log(event.pageX);
+
+                };
+
+                img[i].onmouseout = function () {
+                    img[img.length - 1].style.display = "none";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="box">
+    <img src="img/shirt_1.jpg" alt=""><img src="img/shirt_2.jpg" alt=""><img src="img/shirt_3.jpg" alt=""><img src="img/shirt_4.jpg" alt="">
+    <div style="clear: both;"></div>
+    <img src="img/shirt_1_big.jpg">
+</div>
+</body>
+</html>

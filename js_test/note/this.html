@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>this</title>
+    <script>
+        //纯粹的函数调用
+        function test() {
+            this.x = 1;
+            alert(x);
+        }
+        var x;
+//        test();
+
+        //call, apply
+//        function add(a, b) {
+//            return a + b;
+//        }
+        var old = {
+            a : 1,
+            b : 2,
+            add : function () {
+                console.log(this.a + this.b);
+            }
+        };
+
+        var obj = {
+            a : 2,
+            b : 2
+        };
+
+//        console.log(add.call(o));
+        old.add.call(obj);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>课堂练习duang</title>
+
+</head>
+<body>
+<input type="text" placeholder="姓名">
+<input type="text" placeholder="年龄">
+<input type="text" placeholder="职业">
+<input type="text" placeholder="兴趣">
+<input type="button" value="duang">
+</body>
+<script>
+    var input = document.getElementsByTagName("input");
+    input[input.length - 1].onclick = function () {
+        alert(input[0].value + "," + input[1].value + "," + input[2].value + "," + input[3].value);
+    };
+
+</script>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下拉菜单</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #menu {
+            background: #66ccff;
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 20px;
+            margin:100px auto;
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 0;
+
+        }
+        ul {
+            list-style: none;
+            background: #967cff;
+            width: 200px;
+            margin:0 auto;
+            border-bottom:1px solid #ccc5bd;
+            border-top: 0;
+            display: none;
+        }
+        li {
+            height: 40px;
+            line-height: 40px;
+            color: #ccc5bd;
+            text-align: center;
+            font-size: 20px;
+            border-bottom:1px solid #ccc5bd;
+
+        }
+        li:last-child {
+            border: 0;
+        }
+
+
+    </style>
+    <script>
+        onload = function () {
+            var menu = document.getElementById("menu");
+            var ul = document.getElementsByTagName("ul")[0];
+            var li = document.getElementsByTagName("li");
+            var timer = null;
+
+            menu.onmouseover = function () {
+                clearTimeout(timer);
+                ul.style.display = "block";
+            };
+            menu.onmouseout = function () {
+                timer = setTimeout(ulHidde, 300);
+            };
+
+            ul.onmouseover = function() {
+                clearTimeout(timer);
+            };
+            ul.onmouseout = function() {
+                timer = setTimeout(ulHidde, 300);
+            };
+
+            for (var i = 0; i < li.length; i++) {
+                li[i].onclick = function () {
+                    menu.innerHTML = this.innerHTML;
+                    clearTimeout(timer);
+                    ulHidde();
+                }
+            }
+
+            function ulHidde() {
+                ul.style.display = "none";
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div id="menu">请选择游戏</div>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+</ul>
+</body>
+</html>

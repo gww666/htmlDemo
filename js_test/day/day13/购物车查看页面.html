@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查看购物车页面</title>
+    <script src="../Utils.js"></script>
+    <script>
+
+        onload = function () {
+            var ul = document.getElementsByTagName("ul")[0];
+            if (cookieUtil.getCookie("shoppingCar")) {
+                //如果有cookie
+                var car = cookieUtil.getCookie("shoppingCar");
+                console.log(car);
+                var carArr = car.split("&");
+                carArr.forEach(function(element, index, array) {
+                    var carObj = JSON.parse(element);
+                    var li = document.createElement("li");
+                    var price = carObj.price.slice(1, carObj.price.length - 1);
+//                    var price = parseInt(carObj.price);
+                    console.log(parseInt(price));
+                    li.innerHTML = "商品名称：" + carObj.name + "，商品数量" + carObj.num + "，商品单价：" + carObj.price + "，商品总价：" + "￥" + parseInt(price) * parseInt(carObj.num);
+                    ul.appendChild(li);
+                });
+            }
+        }
+    </script>
+</head>
+<body>
+<ul>
+
+</ul>
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meat charaset="utf-8">
+<title>上海建桥大学</title>
+<style>
+	
+	.content_div {
+		width:1000px;
+		margin:0 auto;
+	}
+	* {
+		margin:0;
+		padding:0;
+	}
+	ul { list-style:none;}
+	a { text-decoration:none;}
+	img { border:0;}/* 重置ie6图片边框样式 */
+	.clear { clear:both;}
+
+	/* 头部样式 */
+	#header { height:35px;background:#e4e4e4;}
+	#header li{ float:left;}
+	.header_right {float:right;}
+	.header_left {float:left;}
+	.header_left li a { float:left;font-size:12px;color:black;padding-left:7px;padding-right:10px;border-left:1px solid white;border-right:1px solid #d6d5d5;height:14px;margin-top:11px;}
+	.header_left .li_first { border-left:0;}
+	.header_left .li_last { border-right:0;}
+
+	/* 头部样式(右部) */
+	.header_right li { font-size:12px;margin-right:19px;margin-top:11px;}
+	.header_right .right_last { margin-left:8px;background:url(img/search.png) no-repeat;width:23px;height:20px;margin-top:8px;}
+
+	/* logo样式 */
+	#logo { height:98px;}
+	.logo_left {margin-top:20px;float:left;}
+	.logo_right {float:right;}
+
+	/* nav样式 */
+	#nav { height:44px;background:#d92b34;}
+	#nav li {float:left;} 
+	#nav li a {padding:0 19px;color:white;font-size:16px;line-height:44px;float:left;} 
+
+	/*banner部分的样式*/
+	#banner img, #banner ul { float:left;}
+	#banner img {width:664px;height:328px;}
+	#banner ul { width:254px;padding:10px 39px 29px 39px;background:#eeeeee;border-bottom:3px solid #c8141e;height:286px;}
+	#banner ul li {display:inline;}
+	#banner ul li a { display:block; font-size:14px;line-height:20px;margin-top:7px;padding-bottom:10px;color:#444444;border-bottom:1px dashed #999999;}
+
+	/*main部分样式*/
+	#main {background:white;padding:50px 0 75px 0;}
+	.main_left, .main_right { float:left;}
+	.main_left {width:760px;}
+	.left_1, .left_2, .left_3, .left_4 { float:left;}
+	.left_1 {width:268px;margin-right:40px;height:223px;}
+	.left_2 {width:420px;height:223px;}
+	.left_3 {width:268px;margin-right:40px;height:223px;margin-top:40px;}
+	.left_4 {width:420px;height:223px;margin-top:40px;}
+	.left_title { font-size:18px;font-weight:bold;border-bottom:1px solid #cccccc;height:32px;}
+	.left_title span {display:inline-block;height:31px;margin-left:20px;}
+	.left_title .span_active {border-bottom:2px solid #c8141e;height:30px;}
+	.left_title .span_first {margin-left:0;}
+	/*left1样式*/
+	.left_d1, .left_d2, .left_d3, .left_d4 {margin-top:22px;}
+	.left_d1 {text-align:center;}
+	.left_d1 dd {}
+	.left_d1 .left_d1_dd {margin: 7px 0 9px;text-align: center;width: 100%;width:230px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+	.c_ul {width:53px;margin:0 auto;}
+	.c_ul li {width:11px;height:11px;background:url("img/img06.png") no-repeat;float:left;margin-left:10px;}
+	.c_ul .li_first {margin-left:0;}
+	.c_ul .li_active {background:url("img/img07.gif") no-repeat;}
+	/*四个点的宽度*/
+	.c_ul_four {width:84px;}
+	/*left2样式*/
+	.left_d2 {}
+	.left_d2_date {float:left;background:#c8141e;color:white;font-size:10px;width:60px;height:60px;text-align:center;line-height:30px;margin-right:15px;}
+	.left_d2_date span{font-size:20px;font-weight:bold;}
+	.left_d2_text {float:left;width:337px;color:#6e6f6f;font-size:12px;height:60px;}
+	.left_d2_text span {font-size:14px;color:black;}
+	/*left3样式*/
+	.left_d3_date {float:left;color:#666666;font-size:14px;width:57px;height:44px;border-right:1px dashed #cccccc;text-align:center;padding-top:17px;margin-right:12px;}
+	.left_d3_text {float:left;width:198px;font-size:12px;height:62px;line-height:20px;}
+	.d3_name {font-weight:bold;color:#666666;}
+	.d3_title {width:198px;overflow:hidden;color:#666666;}
+	.d3_loc {color:#999999;}
+	/*left4样式*/
+	.left_d4 ul li {position:relative;color:#333333;font-size:12px;line-height:24px;}
+	.left_d4 ul li span {position:absolute;right:0;}
+	.left_d4_p {width:420px;border:1px solid #cccccc;border-width:1px 0;height:26px;line-height:26px;overflow:hidden;font-size:12px;margin-top:5px;padding:2px 0;}
+	.left_d4_p span {margin-right:30px;}
+	/*main右部样式*/
+	.main_right {}
+	.right_img {background:url("img/img10.png") repeat;padding:10px;width:220px;font-size:0px;}
+	.right_img div {height:3px;background:url("img/img12.gif") repeat-x;margin:14px 0 10px;}
+	.right_img_m {margin-bottom:10px;}
+	/*右侧表单*/
+	.main_right form {width:240px;margin-top:20px;}
+	.main_right form input {width:209px;height:25px;border:1px solid #cccccc;outline:none;padding-left:5px;margin-bottom:5px;}
+	.main_right form a {display:inline-block;font-size:12px;color:black;}
+	.right_login {width:78px;height:22px;border:1px solid #cccccc;background:#ebe9ed;margin-right:50px;line-height:22px;text-align:center;}
+	.right_forget {height:24px;line-height:24px;}
+	/*以上为main部分的样式*/
+
+	
+	/*footer部分的样式*/
+	#footer {border-top:5px solid #ff9c00;}
+	#footer li, #footer a {float:left;}
+	
+	.footer_bg1 {height:20px;background:#ebebeb url("img/footer_bg.png") no-repeat 50% top;}
+	.footer_bg2 {background:#d4d4d4;height:43px;}
+	.footer_bg2 ul {width:850px;margin:0 auto;}
+	.footer_bg2 a {line-height:43px;color:black;font-size:14px;margin-right:152px;}
+	.footer_bg3 {background:#302728;height:133px;}
+	.footer_bg3 ul {width:881px;margin:0 auto;height:49px;}
+	.footer_bg3 a {padding:0 10px;border-right:1px solid white;color:white;font-size:14px;margin-top:17px;}
+	.footer_bg3 hr {border:0;border-bottom:1px solid #3e3637;}
+	.footer_bg3 p {text-align:center;line-height:23px;font-size:13px;color:#959292;}
+	
+</style>
+</head>
+
+<body>
+<!-- header部分 -->
+<div id="header">
+	<div class="content_div">
+		<ul class="header_left">
+			<li><a href="##" class="li_first">在校学生</a></li>
+			<li><a href="##">教职员工</a></li>
+			<li><a href="##">校友</a></li>
+			<li><a href="##">未来学生</a></li>
+			<li><a href="##" class="li_last">未来教职工</a></li>
+			<div class="clear"></div>
+		</ul>
+		<ul class="header_right">
+			<li>繁体中文</li>
+			<li>怀念旧版</li>
+			<li>English</li>
+			<li class="right_last"></li>
+			<div class="clear"></div>
+		</ul>
+		<div class="clear"></div>
+	</div>
+</div>
+<!-- header部分结束 -->
+<!-- logo部分开始 -->
+<div id="logo">
+	<div class="content_div">
+		<img src="img/img04.png" alt="logo_left"  class="logo_left" />
+		<img src="img/img03.png" alt="logo_right" class="logo_right" />
+	</div>
+</div>
+<!-- logo部分结束 -->
+<!-- nav部分开始 -->
+<div id="nav">
+	<div class="content_div" style="background:#c8141e;">
+		<ul>
+			<li><a href="##">剑桥概览</a></li>
+			<li><a href="##">剑桥概览</a></li>
+			<li><a href="##">剑桥概览</a></li>
+			<li><a href="##">剑桥概览</a></li>
+			<li><a href="##">剑桥概览</a></li>
+			<li><a href="##">剑桥概览</a></li>
+			<li><a href="##">剑桥概览</a></li>
+			<li><a href="##">剑桥概</a></li>
+			<li><a href="##">剑桥概</a></li>
+			<li><a href="##">剑桥概览</a></li>
+			<div class="clear"></div>
+		</ul>
+	</div>
+</div>
+<!-- nav部分结束 -->
+<div id="banner">
+	<div class="content_div" style="background:#e6e6e6;">
+		<img src="img/banner_s1.jpg" alt="banner" />
+		<ul>
+			<li><a href="##">上海建桥学院关于办学地址变更的公告（08-04）</a></li>
+			<li><a href="##">上海建桥学院关于办学地址变更的公告（08-04）</a></li>
+			<li><a href="##">上海建桥学院关于办学地址变更的公告（08-04）</a></li>
+			<li><a href="##">上海建桥学院关于办学地址变更的公告（08-04）</a></li>
+			<li><a href="##">上海建桥学院关于办学地址变更的公告（08-04）</a></li>
+		</ul>
+		<div class="clear"></div>
+	</div>
+</div>
+<!-- main部分开始 -->
+<div id="main">
+	<div class="content_div">
+		<div class=main_left>
+			<div class="left_1">
+				<p class="left_title"><span class="span_active span_first">图片</span><span>视频</span><span>特写</span><span>热点</span></p>
+				<div class="left_d1">
+					<dl>
+						<dt><img src="img/img05.png" alt="" /></dt>
+						<dd class="left_d1_dd">我校留学生参加第八届上海留学生活动</dd>
+						<dd><ul class="c_ul c_ul_four"><li class="li_active li_first"></li><li></li><li></li><li></li><div class="clear"></div></ul></dd>
+					</dl>
+				</div>
+			</div>
+			<div class="left_2">
+				<p class="left_title"><span class="span_active span_first">快讯</span><span>院部动态</span><span>媒体关注</span><span>专题报道</span></p>
+				<div class="left_d2">
+					<div style="margin-bottom:13px;">
+						<p class="left_d2_date"><span>28</span><br/>2015-07</p>
+						<p class="left_d2_text"><span>市教育综合改革领导小组来函感谢潘迎捷校长</span><br/>
+							近日，上海市教育综合改革领导小组来函我校，感谢潘迎捷校长参加市高校深化改革专家工作组，对市我校学生会当选全国学联第26届委员会团体委员…
+						</p>
+						<div class="clear"></div>
+						
+					</div>
+					<div style="margin-bottom:25px;">
+						<p class="left_d2_date"><span>28</span><br/>2015-07</p>
+						<p class="left_d2_text"><span>市教育综合改革领导小组来函感谢潘迎捷校长</span>
+						</p>
+						<div class="clear"></div>
+						
+					</div>
+					<ul class="c_ul"><li class="li_active li_first"></li><li></li><li></li><div class="clear"></div></ul>
+				</div>
+			</div>
+			<!-- 以上为left_2 部分 -->
+			<div class="left_3">
+				<p class="left_title"><span class="span_active span_first">讲座报告</span><span>校园活动</span><span>学校媒体</span></p>
+				<div class="left_d3">
+					<div style="margin-bottom:13px;">
+						<p class="left_d3_date"><span>2015</span><br/>06-25</p>
+						<div class=left_d3_text>
+							<p class="d3_name">市教育综合改革领导小组来函</p>
+							<p class="d3_title">市教育综合改革领导小组来函</p>
+							<p class="d3_loc">综合大楼602室</p>
+						</div>
+						<div class="clear"></div>
+						
+					</div>
+					<div style="margin-bottom:20px;">
+						<p class="left_d3_date"><span>2015</span><br/>06-25</p>
+						<div class=left_d3_text>
+							<p class="d3_name">市教育综合改革领导小组来函</p>
+							<p class="d3_title">市教育综合改革领导小组来函</p>
+							<p class="d3_loc">综合大楼602室</p>
+						</div>
+						<div class="clear"></div>
+						
+					</div>
+					<ul class="c_ul"><li class="li_active li_first"></li><li></li><li></li><div class="clear"></div></ul>
+				</div>
+			</div>
+			<!-- 以上为left_3 部分 -->
+			<div class="left_4">
+				<p class="left_title"><span class="span_active span_first">图片</span><span>视频</span><span>特写</span><span>热点</span></p>
+				<div class="left_d4">
+					<ul>
+						<li>关于网站暂停服务的公告<span>07-23</span></li>
+						<li>关于取消11、12日班车和做好防台防汛工作的紧急通知<span>07-23</span></li>
+						<li>关于表彰2013-2015学年度心理健康教育先进集体和先进个人的<span>07-23</span></li>
+						<li>关于妥善做好搬迁期间档案资料和涉密文件处理工作的紧急通知<span>07-23</span></li>
+						<li>关于临港新校区用餐、住宿安排的通知<span>07-23</span></li>
+					</ul>
+					<p class="left_d4_p">
+						<span>2015关于网站暂停服务的公告</span>
+						<span>2015关于网站暂停服务的公告</span>
+						<span>2015关于网站暂停服务的公告</span>
+					</p>
+				</div>
+			</div>
+			<!-- 以上为left_4部分 -->
+			<div class="clear"></div>
+		</div>
+		<!--  main右侧 -->
+		<div class=main_right>
+			<!--  main右侧图片 -->
+			<div class="right_img">
+				<img src="img/img_03.jpg" alt="" />
+				<div></div>
+				<img src="img/img_06.jpg" alt="" class="right_img_m" />
+				<img src="img/img_11.jpg" alt="" />
+			</div>
+			<!--  main右侧表单 -->
+			<p class="left_title" style="margin-top:40px;"><span class="span_active span_first">信息门户</span><span>剑桥邮箱</span></p>
+			<form action="" method="post">
+				<input type="text" value="用户名" />
+				<input type="password" value="00000" />
+				<a href="##" class="right_login">登录</a><a href="##" class="right_forget">忘记密码？</a>
+			</form>
+		</div>
+		<div class="clear"></div>
+		<!-- 以上为main右侧-->
+	</div>
+	<!-- 控制内容区域的盒子  -->
+</div>
+<!-- main部分结束 -->
+<div id="footer">
+	<div class="footer_bg1"></div>
+	<div class="footer_bg2">
+		<ul>
+			<li><a href="##">友情链接</a></li>
+			<li><a href="##" style="margin-right:124px;">友情链接</a></li>
+			<li><a href="##" style="margin-right:113px;">产学合作单位</a></li>
+			<li><a href="##">友情链接</a></li>
+			<li><a href="##" style="margin-right:0;">友情链接</a></li>
+			<div class="clear"></div>
+		</ul>
+	</div>
+	<div class="footer_bg3">
+		<div class="content_div">
+			<ul>
+				<li><a href="##">教育部</a></li>
+				<li><a href="##">上海市教育委员会</a></li>
+				<li><a href="##">上海建桥（集团）有限公司</a></li>
+				<li><a href="##">西南片高校联合办学</a></li>
+				<li><a href="##">应用技术大学（学院）联盟</a></li>
+				<li><a href="##" style="border-right:0;">非营利性民办高校联盟</a></li>
+			</ul>
+			<hr/>
+			<p style="margin-top:20px;">学校地址：上海市浦东新区沪城环路1111号 邮编：201306 学校地址：上海市浦东新区沪城环路1111号 邮编 201306</p>
+			<p>电话：021-58137788（校办）；021-58137880（招生办公室）沪ICP备05052066号</p>
+		</div>
+	</div>
+	
+</div>
+</body>
+</html>

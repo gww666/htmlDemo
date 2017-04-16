@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>day8</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background: pink;
+        }
+    </style>
+    <script>
+        onload = function () {
+            var div = document.getElementById("d1");
+            div.onclick = function () {
+                var r = parseInt((Math.random() * 256));
+                var g = parseInt((Math.random() * 256));
+                var b = parseInt((Math.random() * 256));
+                div.style.background = "rgb(" + r + "," + g + "," + b + ")";
+            };
+
+            function random() {
+                var r = parseInt((Math.random() * 256));
+                var g = parseInt((Math.random() * 256));
+                var b = parseInt((Math.random() * 256));
+                div.style.background = "rgb(" + r + "," + g + "," + b + ")";
+            }
+            var t = null;
+
+            var button = document.getElementsByTagName("input");
+            button.item(0).onclick = function () {
+//                clearInterval(t);
+                if (t == null) {
+                    t = setInterval(random, 200);
+                }
+
+            };
+
+            button.item(1).onclick = function () {
+                clearInterval(t);
+                t = null;
+//                t = setInterval(random, 200);
+            };
+
+
+        }
+    </script>
+</head>
+<body>
+<div id="d1"></div>
+<input type="button" value="start">
+<input type="button" value="stop">
+</body>
+</html>

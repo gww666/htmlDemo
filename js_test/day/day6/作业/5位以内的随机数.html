@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随机数</title>
+    <script>
+        function random(min, max) {
+            var num = parseInt(Math.random() * (max + min) - min);
+            num += "";
+            var num_length = num.length;
+            console.log("num length:" + num_length);
+            for (var i = 0; i < num_length; i++) {
+                console.log(num.charAt(i));
+            }
+        }
+        random(0, 10000);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

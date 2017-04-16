@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>课堂练习2</title>
+    <style>
+        div {
+            background: red;
+            width: 600px;
+            height: 300px;
+        }
+    </style>
+    <script src="../Utils.js"></script>
+    <script>
+        onload = function () {
+            var div = document.getElementsByTagName("div")[0];
+            div.onmouseenter = function () {
+                div.innerHTML = "鼠标移入";
+            };
+            div.onmouseleave = function () {
+                div.innerHTML = "鼠标移出";
+            };
+            div.onmousemove = function() {
+                randomColor(div);
+            }
+        }
+    </script>
+</head>
+<body>
+<div></div>
+</body>
+</html>

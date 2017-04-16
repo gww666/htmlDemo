@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹弹球</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body, html {
+            width: 100%;
+            height: 100%;
+        }
+        #d1, #d2 {
+            background: hotpink;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            position: fixed;
+            left: 0;
+            top: 0;
+
+        }
+        #d2 {
+            background: #8bdcd5;
+        }
+    </style>
+    <script>
+        onload = function () {
+//            var div = document.getElementsByTagName("div")[0];
+            var d1 = document.getElementById("d1");
+            var d2 = document.getElementById("d2");
+            console.log(document.body.offsetWidth);
+
+            var right = true;
+            var left = false;
+            var top = true;
+            var bottom = false;
+//            var change = true;
+            var dis = 5;
+            function move() {
+//                console.log("qqqq");
+                if (d1.offsetLeft + d1.offsetWidth >= 1440 && right) {
+//                    console.log("aaaa");
+                    dis = -5;
+                    right = false;
+                    left = true;
+
+                } else if (d1.offsetLeft <= 0 && left) {
+                    dis = 5;
+                    right = true;
+                    left = false;
+                }
+                var x1 = d1.offsetLeft + dis;
+                d1.style.left = x1 + "px";
+                setTimeout(move, 10);
+            }
+
+            function move2() {
+                if (d2.offsetTop + d2.offsetHeight >= document.body.offsetHeight && top) {
+                    console.log("aaaa");
+                    dis = -5;
+                    top = false;
+                    bottom = true;
+
+                } else if (d2.offsetTop <= 0 && bottom) {
+                    dis = 5;
+                    top = true;
+                    bottom = false;
+                }
+                var x1 = d2.offsetTop + dis;
+                d2.style.top = x1 + "px";
+//                setTimeout(move2, 20);
+            }
+            move();
+//            move2();
+            setInterval(move2, 20);
+
+        }
+    </script>
+</head>
+<body>
+<div id="d1">
+
+</div>
+<div id="d2">
+
+</div>
+</body>
+</html>

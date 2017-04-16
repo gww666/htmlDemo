@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>进度条</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            overflow: hidden;
+        }
+        #progress {
+            background: #000;
+        }
+    </style>
+    <script>
+        onload = function () {
+            var mCanvas = document.getElementById("progress");
+            var ctx = mCanvas.getContext("2d");
+            var speed = 3;
+            var x = 100;
+            var dotArray = [];
+            var arrayLength = 50;
+
+            //点对象
+            function Dot(x, y) {
+                this.x = x;//出生的位置X坐标
+                this.y = y;//出生的位置Y坐标
+                this.mx = Math.random() - 2;
+                this.my = Math.random() * 6 - 3;
+                this.radius = Math.random() + 1; //随机半径：1.0 ~ 2.0
+                this.color = 0;
+                this.alpha = 1;
+            }
+
+            Dot.prototype.drawDot = function () {
+                ctx.beginPath();
+                ctx.fillStyle = 'hsl('+this.color+',100%,50%)';
+                ctx.shadowBlur = 5;
+                ctx.shadowColor = 'white';
+                ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+                ctx.fill();
+                ctx.closePath();
+            };
+
+            //创建点实例并把点实例存进数组
+            function createDots(x, y) {
+                dotArray.push(new Dot(x, y));
+            }
+
+            //每次重绘页面时，移动每个点的位置
+            function moveDots() {
+                for (var i = 0; i < dotArray.length; i++) {
+                    dotArray[i].x += dotArray[i].mx;
+                    dotArray[i].y += dotArray[i].my;
+                    //改变透明度
+                    if (dotArray[i].alpha > 0) {
+                        dotArray[i].alpha -= 0.1;
+                    } else {
+                        dotArray.alpha = 0;
+                    }
+                    //改变颜色
+                    dotArray[i].color++;
+                }
+            }
+
+            //绘制每个点
+            function drawDots() {
+                for (var i = 0; i < dotArray.length; i++) {
+                    dotArray[i].drawDot();
+                }
+            }
+
+            //绘制进度条
+            function drawProgress() {
+//                if (mCanvas.getContext("2d")) {
+//                document.body.clientWidth = window.innerWidth;
+                    mCanvas.width = window.innerWidth;
+                    mCanvas.height = window.innerHeight;
+                    ctx.clearRect(0, 0, mCanvas.width, mCanvas.height);
+//                ctx.width = window.screen.width;
+//                ctx.height = window.screen.height;
+
+                    ctx.strokeStyle = "gray";
+                    ctx.lineWidth = 15;
+                    ctx.lineCap = "round"; //线条末端变为圆角
+                    ctx.beginPath();
+                    ctx.moveTo(100, mCanvas.height / 2);
+                    ctx.lineTo(mCanvas.width - 100, mCanvas.height / 2);
+                    ctx.stroke();
+                    ctx.closePath();
+
+                    if (x < (mCanvas.width - 100)) {
+                        x += speed;
+                    } else {
+                        x = 100;
+                    }
+                    ctx.strokeStyle = "white";
+//                    ctx.globalAlpha = 0.6;
+                    ctx.beginPath();
+                    ctx.moveTo(100, mCanvas.height / 2);
+                    ctx.lineTo(x, mCanvas.height / 2);
+                    ctx.stroke();
+                    ctx.closePath();
+
+//                    requestAnimationFrame(drawProgress);
+                }
+//            }
+
+//            requestAnimationFrame(drawProgress);
+            function animate() {
+                requestAnimationFrame(animate);
+                drawProgress();
+                createDots(x, mCanvas.height / 2);
+                moveDots();
+                drawDots();
+
+                //点的数量超过50个就开始从第一个删除
+                if (dotArray.length > 50) {
+                    dotArray.shift();
+//                    alert(">50");
+                }
+            }
+            animate();
+
+        }
+    </script>
+</head>
+<body>
+<canvas id="progress"></canvas>
+</body>
+</html>

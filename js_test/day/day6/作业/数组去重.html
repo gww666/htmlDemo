@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组去重</title>
+    <script>
+        //数组去重
+        var arr1 = ["a", "b", "c", null, null, undefined, "d", "f", undefined, "f", "g", "h","f","c"];
+        //var arr2 = ["v", "z", "h", "d", "k", "l", "p", "m"];
+
+        function qc(arr1) {
+            //var qcArr = [];
+            for (var i = 0; i < arr1.length; i++) {
+                for (var j = 0; j < arr1.length; j++) {
+                    if (j == i) {
+                        //console.log("执行");
+                        continue;
+                    }
+                    if (arr1[i] == arr1[j]) {
+                        //console.log(arr1[i]);
+                        arr1.splice(i, 1);
+                    }
+                    //console.log(arr1.length);
+                }
+            }
+            return arr1;
+        }
+        //qc(arr1);
+        //console.log(arr1);
+//        console.log(qc(arr1));
+
+        //对象去重
+        function qc1(arr) {
+            var obj = {};
+            var newArr = [];
+            arr.forEach(function (ele, index, arr) {
+               if (obj[ele] == undefined) {
+                   obj[ele] = 1;
+               }
+            });
+            for (var k in obj) {
+                newArr.push(k);
+            }
+            return newArr;
+        }
+        console.log(qc1(arr1));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

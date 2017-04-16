@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滑动解锁</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #bg {
+            width: 426px;
+            height: 640px;
+            background: url("img/iphone.jpg");
+            /*position: relative;*/
+            position: absolute;
+            left: 300px;
+
+        }
+
+        #range {
+            position: absolute;
+            bottom: 32px;
+            left: 0;
+            height: 62px;
+            width: 100%;
+        }
+
+        #range img {
+            position: absolute;
+            left: 30px;
+            /*left: 0;*/
+            top: 0;
+        }
+    </style>
+    <script>
+        onload = function () {
+            var img = document.getElementsByTagName("img")[0];
+            var range = document.getElementById("range");
+            var bg = document.getElementById("bg");
+            img.onmousedown = function (event) {
+                event.preventDefault();
+                var imgX = event.offsetX;
+
+                range.onmousemove = function (event) {
+                    var x = event.pageX - bg.offsetLeft - imgX;
+                    if (x <= 30) {
+                        x = 30;
+                    }
+                    if (x >= bg.offsetWidth - 30 - img.offsetWidth) {
+                        x = bg.offsetWidth - 30 - img.offsetWidth;
+                    }
+                    img.style.left = x + "px";
+//                    console.log("imgX" + imgX);
+//                    var rangeX = event.offsetX;
+//                    console.log("rangeX" + rangeX);
+//                    img.style.left = (rangeX - imgX + 30) + "px";
+//                    if (img.offsetLeft >= 30) {
+//                        img.style.left = (event.pageX - bg.offsetLeft - imgX) + "px";
+//                    }
+                    //判断方向
+                    var arrow = (event.offsetX - 30) - imgX;
+//                    if (arrow > 0 && img.offsetLeft >= 30 || arrow < 0 && img.offsetLeft >= 30) {
+//                        img.style.left = (event.pageX - bg.offsetLeft - imgX) + "px";
+//                    }
+//                    if (arrow < 0 && img.offsetLeft <= 305) {
+//                        img.style.left = (event.pageX - bg.offsetLeft - imgX) + "px";
+//                    }
+
+//                    if (img.offsetLeft >= 30 && img.offsetLeft <= 305) {
+//
+//                    }
+//                    if (arrow < 0 && left) {
+//                        img.style.left = (event.pageX - bg.offsetLeft - imgX) + "px";
+//                        if (img.offsetLeft == 30) {
+//                            left = false;
+//                            right = true;
+//                        }
+//                    } else if (arrow > 0 && right) {
+//                        img.style.left = (event.pageX - bg.offsetLeft - imgX) + "px";
+//                        if (img.offsetLeft == 305) {
+//                            left = true;
+//                            right = false;
+//                        }
+//                    }
+
+
+
+//                    }
+                };
+
+                document.onmouseup = function () {
+                    range.onmousemove = null;
+                    range.onmouseup = null;
+                }
+
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div id="bg">
+    <div id="range">
+        <img src="img/unlock_btn.jpg" alt="">
+    </div>
+</div>
+</body>
+</html>

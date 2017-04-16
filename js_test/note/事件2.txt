@@ -1,0 +1,90 @@
+EventUtil = {
+    addHandler : function(element, type, handler) {
+        if (element.addEventListener) {
+            element.addEventListener(type, handler, false);
+        } else if (element.attachEvent) {
+            element.attachEvent("on" + type, handler);
+        } else {
+            element["on" + type] = handler;
+        }
+    },
+    //获得事件
+    getEvent : function(event) {
+        return event ? event : window.event;
+    },
+    //获得目标元素
+    getTarget : function(event) {
+        return event.target || event.srcElement;
+    },
+    //阻止特定事件的默认行为
+    preventDefault : function(event) {
+        if (event.preventDefault) {
+            event.preventDefault();
+        } else {
+            event.returnValue = false;
+        }
+    },
+    //阻止事件在DOM层次中的传播，IE9以下只能阻止冒泡（因为IE9以下没有事件捕获）
+    stopPropagation : function (event) {
+        if (event.stopPropagation) {
+            event.stopPropagation();
+        } else {
+            event.cancelBubble = true;
+        }
+    },
+    //取得相关元素
+    getRelatedTarget : function (event) {
+        if (event.relatedTarget) {
+            return event.relatedTarget;
+        } else if (event.toElement) {
+            return event.toElement;
+        } else if (event.fromElement) {
+            return event.fromElement;
+        } else {
+            return null;
+        }
+    }
+
+};
+1、事件类型
+    1、load事件
+        1、有两种定义页面onload事件处理程序的方式
+            <1>EventUtil.addHandler(window, "load", function(){});
+               //通过第一种方式只能在window上添加load，不能在document.body上添加
+            <2><body onload=""></body>
+               //一般来说，在window上面发生的任何事件都可以在<body>元素中通过相应的特性来指定
+        2、img、script等标签的onload事件
+    2、unload事件
+    3、resize事件
+    4、焦点事件
+        blur和focus不会冒泡
+    5、鼠标与滚轮事件
+        mouseenter和mouseleave不会冒泡
+    6、客户端坐标位置
+        clientX clientY
+        这两个坐标是鼠标相对于浏览器窗口的位置，也就是说，不会加上滚动(scroll)距离
+    7、页面坐标位置
+        pageX pageY
+    8、屏幕坐标位置
+        screenX screenY
+    9、修改键
+    10、相关元素
+        注意IE9以下浏览器relatedTarget的差别
+    11、鼠标滚轮事件 mousewheel
+    12、document.implementation.hasFeature("MouseEvents", "2.0")
+    13、onclick/ondbclick
+        onmousedown / onmousemove / onmouseup 结合起来使用可实现拖拽效果
+        onmouseenter / onmouseleave 鼠标移入移出事件 子元素不会触发该事件
+        onmouseover / onmouseout 鼠标移入移出事件 子元素也会触发该事件
+    14、keydown / keypress / keyup
+    15、abort / error
+        abort 在用户停止下载过程时，如果嵌入的内容没有加载完成，则在<object>上触发
+        error img / object / 框架（iframe）
+    16、offsetX offsetY 鼠标点击位置离元素左上角的偏移量
+    17、shiftkey altkey ctrlkey
+    18、keyCode
+        0~9:48~57
+        charCode
+    19、blur / change
+
+

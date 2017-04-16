@@ -1,0 +1,8 @@
+1、作用域分为全局作用域和局部作用域
+2、递归——函数自己调用自己
+    function fun(n) {
+        if (n == 1) {
+            return 1;
+        }
+        return n * fun(n - 1);
+    }

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>课堂练习</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #d1 {
+            background: dodgerblue;
+            width: 380px;
+            height: 30px;
+            line-height: 30px;
+            padding: 10px;
+        }
+
+        #d2 {
+            background: rosybrown;
+            width: 400px;
+            height: 300px;
+        }
+        span {
+            float: right;
+            width: 60px;
+            height: 30px;
+            text-align: center;
+            background: #0F9C7C;
+            color: #ffffff;
+
+        }
+    </style>
+    <script>
+        onload = function () {
+            var d1 = document.getElementById("d1");
+            var d2 = document.getElementById("d2");
+            var box = document.getElementById("box");
+            var span = document.getElementsByTagName("span")[0];
+
+
+            d1.onmousedown = function (e) {
+                //去除元素的默认事件
+                if (e.preventDefault) {
+                    e.preventDefault();
+                } else {
+                    e.returnValue = false;
+                }
+
+                var event = e || window.event;
+                var disX = event.offsetX;
+                var disY = event.offsetY;
+
+                document.onmousemove = function (e) {
+                    var event = e || window.event;
+                    box.style.left = event.pageX - disX + "px";
+                    box.style.top = event.pageY - disY + "px";
+                };
+
+                document.onmouseup = function () {
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                }
+            };
+
+            span.onmousedown = function (e) {
+                var event = e || window.event;
+                event.stopPropagation();
+//                event.preventDefault();
+                span.onmouseup = function (e) {
+                    var event = e || window.event;
+//                    event.stopPropagation();
+                    box.style.display = "none";
+                };
+
+//                box.style.display = "none";
+            }
+
+
+
+        }
+    </script>
+</head>
+<body>
+<div id="box" style="position: absolute;">
+    <div id="d1">
+        <span>关闭</span>
+    </div>
+    <div id="d2"></div>
+</div>
+</body>
+</html>

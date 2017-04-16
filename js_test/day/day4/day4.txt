@@ -1,0 +1,28 @@
+1、是一个事件驱动或主动调用的可重复使用的代码块
+2、系统定义的方法——内置方法（系统方法）
+3、方法的优点：
+    1、节省时间，提升效率，定义一次反复调用
+    2、代码结构清晰，增强代码可读性
+    3、提高代码维护性
+4、任何函数都有返回结果，如果设置return则返回return的内容，否则返回undefined
+5、声明提升
+    console.log(n);
+    var n = 100; //相当于两条语句，var n; n = 100;
+    以上代码执行后会输出undefined，并不是报错。
+    这是因为js的机制使然，会把声明代码优先执行,而赋值语句并没有执行，所以输出undefined;
+    var function 都会声明提升
+    例：
+        <1>
+        fun();
+        function fun() {
+            alert("hello");
+        } //显示hello
+        <2>
+        fun();
+        var fun = function () {
+            alert("hello");
+        } //会报错，fun is not a function
+          //这是因为fun只声明了，并没有赋值，所以调用会报错。
+
+
+

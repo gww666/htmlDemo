@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>课堂练习2</title>
+    <script>
+        //1
+        var str1 = "WelcomeToQianfeng";
+        var arr = str1.split("");
+        arr.forEach(function (ele, index, arr) {
+
+        });
+        var obj = {};
+        for (var i = 0; i < str1.length; i++) {
+//            for (var j = i; j < str1.length; j++) {
+//                if (j != i && str1[i] == str1[j]) {
+//
+//                }
+                if (obj[str1[i]] == undefined) {
+                    obj[str1[i]] = 1;
+                } else {
+                    obj[str1[i]]++;
+                }
+//            }
+        }
+        console.log(obj);
+        var arr1 = ["a", 0];
+        for (var k in obj) {
+            if (arr1[1] < obj[k]) {
+                arr1[0] = k;
+                arr1[1] = obj[k];
+            }
+        }
+        console.log(arr1.join(""));
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>requestAnimationFrame</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .menu {
+            width: 200px;
+            height: 100%;
+            position: absolute;
+            right: -200px;
+            /*left: 10px;*/
+            top: 0;
+            background: #000;
+            /*z-css: 1;*/
+        }
+        .over {
+            position: absolute;
+            width: 30px;
+            height: 60px;
+            left: -15px;
+            top: 45%;
+            border-radius : 50% / 50%;
+            background: #cac1c1;
+            z-index: -1;
+        }
+    </style>
+    <script>
+        onload = function () {
+            var d1 = document.getElementsByTagName("div")[0];
+            var d2 = document.getElementsByTagName("div")[1];
+
+            var timer = null;
+
+            function move() {
+//                clearInterval(timer);
+//                var getStyle = window.getComputedStyle(element, null) ? window.getComputedStyle(element, null) : element.currentStyle;
+                var getStyle = window.getComputedStyle(d1, null) ? window.getComputedStyle(d1, null) : d1.currentStyle;
+
+                var right = parseInt(getStyle.right);
+
+                if (right >= 0) {
+                    clearInterval(timer)
+                } else {
+//                    console.log(getStyle.right);
+//                    var speed = Math.ceil((0 - right) / 10);
+                    var speed = (0 - right) / 10;
+                    speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+//                    speed *= 0.8;
+//                    if (speed < 1) {
+//                        d1.style.right = 0;
+//                    } else {
+                        d1.style.right = (parseInt(d1.style.right) || right) + speed + "px";
+//                    }
+
+                }
+            }
+            d2.onmouseover = function () {
+                timer = setInterval(move, 16.67);
+            };
+
+
+        };
+    </script>
+</head>
+<body>
+<div class="menu">
+    <div class="over"></div>
+</div>
+</body>
+</html>

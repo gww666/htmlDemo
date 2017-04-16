@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ctrl变色</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            width: 100px;
+            height: 100px;
+            background: #000;
+
+        }
+    </style>
+    <script src="../Utils.js"></script>
+    <script>
+        onload = function () {
+            var div = document.getElementsByTagName("div")[0];
+            function move(element, styleName, value) {
+                var current;
+                if (styleName == "left" || styleName == "right") {
+                    current = parseInt(element.style.left);
+                } else {
+                    current = parseInt(element.style.top);
+                }
+                switch (styleName) {
+                    case "bottom" :
+                        styleName = "top";
+                        element.style[styleName] = (current + value) + "px";
+                        break;
+                    case "left" :
+                        if (current >= 5)
+                            element.style[styleName] = (current - value) + "px";
+                        break;
+                    case "right" :
+                        styleName = "left";
+                            console.log(current + value);
+                        element.style[styleName] = (current + value) + "px";
+                        break;
+                    case "top" :
+                        element.style[styleName] = (current - value) + "px";
+                        break;
+                }
+            }
+            document.onkeydown = function (event) {
+//                if (event.shiftKey) {
+//                    alert("shift");
+//                }
+//                if (event.ctrlKey) {
+//                    alert("ctrlkey");
+//                }
+
+                if (event.ctrlKey && event.keyCode == 67) {
+                    randomColor(div);
+                }
+
+                //按键顺序无影响
+                if (event.ctrlKey && event.keyCode == 37) {
+                    //左
+                    move(div, "left", 20);
+                } else if (event.keyCode == 38 && event.ctrlKey) {
+                    //上
+                    move(div, "top", 20);
+
+                } else if (event.keyCode == 39) {
+                    //右
+                    move(div, "right", 5);
+                } else if (event.keyCode == 40) {
+                    //下
+                    move(div, "bottom", 5);
+                } else if (event.keyCode == 37) {
+                    //左
+                    move(div, "left", 5);
+                } else if (event.keyCode == 38) {
+                    //上
+                    move(div, "top", 5);
+
+                } else if (event.keyCode == 39) {
+                    //右
+                    move(div, "right", 5);
+                } else if (event.keyCode == 40) {
+                    //下
+                    move(div, "bottom", 5);
+                }
+            }
+        };
+    </script>
+</head>
+<body>
+<div style="position: absolute;left: 50px;right: 0;top: 0;bottom: 0;"></div>
+</body>
+</html>

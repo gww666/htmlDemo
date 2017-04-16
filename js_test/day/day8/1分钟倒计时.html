@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1fenzhongdaojishi</title>
+    <style>
+        #d1 {
+            width: 300px;
+            height: 300px;
+            text-align: center;
+            line-height: 300px;
+            font-weight: bold;
+            margin:100px auto;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+<div id="d1">1:00:000</div>
+</body>
+<script>
+    var d1 = document.getElementById("d1");
+    var ms = 1000;
+    var s = 59;
+    var m = 1;
+    var s_text = "";
+    var ms_text = "";
+    function countDown() {
+        ms = ms - 4;
+        if (ms != 0) {
+            s_text = s < 10 ? "0" + s : s;
+//            ms_text = ms < 100 ? "0" + ms : ms;
+            ms_text = ms;
+            if (ms < 100) {
+                ms_text = "0" + ms;
+                if (ms < 10) {
+                    ms_text = "00" + ms;
+                }
+            }
+//            ms_text = ms < 10 ? "00" + ms : ms;
+            console.log(ms_text);
+        } else {
+            s--;
+            ms = 1000;
+        }
+        if (m == 1) {
+            m = 0;
+        }
+        d1.innerHTML = m + ":" + s_text + ":" + ms_text;
+//        d1.innerHTML = "dddddddd";
+
+        timer = setTimeout(countDown, 4);
+
+        if (s == 0) {
+            clearTimeout(timer);
+            s_text = "00";
+            ms_text = "000";
+            d1.innerHTML = m + ":" + s_text + ":" + ms_text;
+        }
+
+    }
+    var timer = setTimeout(countDown, 4);
+//    setInterval(countDown, 1);
+</script>
+</html>

@@ -1,0 +1,152 @@
+html, body {
+
+
+}
+body {
+    /*display: flex;*/
+    /*flex-flow:column nowrap;*/
+    /*width: 100vw;*/
+}
+#top {
+    display: flex;
+    justify-content:space-between;
+    padding:0 4vw;
+    background: #3f454f;
+    color: #fff;
+    height: 11.7vw;
+    /*width: 100vw;*/
+}
+.top_left {
+    display: flex;
+    align-items:center;
+    height: 11.7vw;
+}
+.top_left i {
+    font-size: 5.6vw;
+    margin-right: 2.9vw;
+}
+.top_left a {
+    font-size: 4vw;
+    color: #fff;
+}
+.top_right {
+    width: 27.3vw;
+    display: flex;
+    justify-content:space-between;
+    height: 11.7vw;
+    align-items:center;
+}
+.top_right i {
+    font-size: 5.6vw;
+}
+/*导航样式*/
+#nav {
+    height: 30.7vw;
+    background: #3f454f;
+    display: flex;
+    justify-content:space-around;
+    /*align-items:center;*/
+}
+#nav dl {
+    width: 12vw;
+    color: #fff;
+    margin-top: 5.3vw;
+    /*display: flex;*/
+}
+#nav dl dt i {
+    font-size: 12vw;
+}
+#nav dl dt {
+    height: 12vw;
+    line-height: 12vw;
+    margin-bottom: 4vw;
+}
+#nav dl dd {
+    font-size: 4vw;
+    height: 4vw;
+    line-height: 4vw;
+    /*display: flex;*/
+}
+
+#main {
+    flex:1;
+    display: flex;
+    flex-flow:row wrap;
+    border-bottom:1px solid #e6e6e6;
+}
+
+#main dl {
+    width: 25vw;
+    border:1px solid #e6e6e6;
+    border-left:0;
+    box-sizing:border-box;
+    height: 24vw;
+    display: flex;
+    flex-direction:column;
+    /*padding-top: 6vw;*/
+    /*justify-content:center;*/
+    align-items:center;
+}
+
+#main dl dt {
+    margin-top: 6vw;
+    margin-bottom: 3.3vw;
+}
+
+#main dl dt i {
+    font-size: 6.7vw;
+
+}
+#main dl dd {
+    font-size: 3.3vw;
+}
+/*main更多样式*/
+#main span {
+    width: 25vw;
+    height: 24vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:1px solid #e6e6e6;
+    border-left: 0;
+    border-bottom: 0;
+}
+#main span i {
+    font-size: 5vw;
+    color: #dcdcdc;
+}
+
+/*底部样式*/
+#footer {
+    height: 13.3vw;
+    display: flex;
+    justify-content:space-around;
+    align-items:center;
+}
+#footer dl {
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+    align-items:center;
+}
+#footer dl dt i{
+    width: 6vw;
+    font-size: 6vw;
+    color: #00aaee;
+}
+#footer dl dt {
+    height: 6vw;
+    line-height: 6vw;
+    margin-bottom: 0.9vw;
+}
+#footer dl dd {
+    font-size: 2.7vw;
+    color: #00aaff;
+    height: 2.7vw;
+    line-height: 2.7vw;
+    /*margin-top: 0.9vw;*/
+}
+
+
+
+

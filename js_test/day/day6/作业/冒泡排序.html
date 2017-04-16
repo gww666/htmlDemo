@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>冒泡排序</title>
+    <script>
+        var arr = [12, 77, 89, 0, 1, 1, 2, 2, 88, 77];
+
+
+        function mp(arr) {
+            for (var i = 0; i < arr.length; i++) {
+                //比较次数
+                for (var j = 0; j < arr.length - i; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        var temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+            return arr;
+        }
+//        console.log(mp(arr));
+
+        //选择排序
+        function xz(arr) {
+            for (var i = 0; i < arr.length; i++) {
+                //外循环是循环开始的起始位置
+                for (var j = i + 1; j < arr.length; j++) {
+                    if (arr[i] > arr[j]) {
+                        var temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = temp;
+                    }
+                }
+            }
+            return arr;
+        }
+        console.log(xz(arr));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

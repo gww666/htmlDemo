@@ -1,0 +1,154 @@
+h6 {margin:0;padding:0;}
+/* banner样式开始 */
+#intro_banner {
+	height:270px;
+	width:1200px;
+}
+	#intro_banner img{
+		height:100%;
+		width:100%;
+	}
+/* banner样式结束 */
+
+/* 简介样式开始 */
+.map {
+		height:46px;
+		width:1000px;
+		line-height:46px;
+		border-bottom:1px solid #e1e1e1;
+		padding:0 100px;
+	}
+	.map img {
+		height:18px;
+		float:left;
+		margin:14px 5px 0 0;
+	}
+	.map p {
+		float:left;
+		color:#646464;
+		font-size:14px;
+	}
+#info {
+	width:1200px;
+	height:640px;
+	zoom:1;
+}
+#info:after {
+	
+}
+	/* 内容高度580px，内容宽度217px，实际高度600px，实际宽度225px*/
+	.content_aside {
+		float:left;
+		width:217px;
+		height:580px;
+		padding-top:20px;
+		background:#e6e6e6;
+		border-right:8px solid #f7f7f7;
+	}
+		.content_aside h2 {
+			font-weight:normal;
+			text-align:center;
+			width:217px;
+		}
+		.content_aside h6 {
+			font-weight:normal;
+			padding-left:95px;
+			width:217px;
+			color:#b7b7b7;
+			font-size:12px;
+		}
+		.content_aside ul {
+			margin-top:50px;
+		}
+		.content_aside li {
+			position:relative;
+			width:217px;
+			text-align:center;
+			font:16px/20px "微软雅黑", Arial;
+			height:20px;
+			color:#3d4550;
+			border-bottom:2px solid #d4d4d4;
+			padding:20px 0;
+			cursor:pointer;
+		}
+		.content_aside li:first-child {
+			border-top:2px solid #d4d4d4;
+			
+		}
+		
+		.content_aside .li_active {
+			background:#f15a23;
+			color:white;
+		}
+		.content_aside .li_active:after {
+			content:"";
+			background:#fd9c57;
+			position:absolute;
+			top:0;
+			right:-8px;
+			width:8px;
+			height:60px;
+			
+		}
+		
+		.content_aside li:hover {
+			background:#f15a23;
+			color:white;
+		}
+		.content_aside li:hover:after {
+			content:"";
+			background:#fd9c57;
+			position:absolute;
+			top:0;
+			right:-8px;
+			width:8px;
+			height:60px;
+		}
+	/* 内容高度560px，内容宽度695px，实际高度600px，实际宽度775px*/
+	.content_main {
+		width:695px;
+		height:560px;
+		float:left;
+		padding:20px 40px;
+	}
+		.content_main h1 {
+			float:left;
+			font-size:20px;
+			background:url("../img/triangle.jpg") no-repeat 10px center;
+			padding-left:30px;
+			width:150px;
+			border-bottom:2px solid #f15a25;
+			line-height:40px;
+			height:40px;
+		}
+		
+		.content_main h1:nth-child(2) {
+			background:none;
+			border-bottom:1px dashed #c9c9c9;
+			width:485px;
+			height:41px;
+		}
+		.content_main p {
+			font-size:16px;
+			text-indent:32px;
+			margin-top:40px;
+		}
+		.content_main span {
+			color:#f05e23;
+		}
+	
+	/* 清除浮动 */
+	#info .info_content:after {
+		content:".";
+		visibility:hidden;
+		height:0;
+		display:block;
+		clear:both;
+	}
+/* 简介部分样式结束 */
+	
+	
+	
+	
+		
+	

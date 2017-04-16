@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //斐波那契数列
+        function fun1(n) {
+            if (n == 1 || n == 2) {
+                return 1;
+            }
+            return fun1(n - 1) + fun1(n - 2);
+        }
+//        alert(fun1(10));
+
+        function fun2(n) {
+            if (n == 0 || n == 1 || n == 2 || n == 3) {
+                return 1;
+            }
+            return fun2(n - 1) + fun2(n - 4);
+        }
+
+        alert(fun2(10));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

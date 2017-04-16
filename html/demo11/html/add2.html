@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>add2</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <style>
+        body {
+            color: #dddddd;
+            font-size: 0.86rem;
+        }
+        form {
+            padding:0 0.95rem;
+        }
+        .province {
+            display: flex;
+            justify-content: space-between;
+            align-items:center;
+            height:1.97rem;
+        }
+        .province select {
+            box-sizing:border-box;
+            border:1px solid #dddddd;
+            border-right: 0;
+            width: 7.86rem;
+            height: 1.97rem;
+            -webkit-appearance:none;
+            text-align: center;
+            color: #dddddd;
+            font-size: 0.86rem;
+
+        }
+        .select {
+            display: flex;
+        }
+        .text {
+            /*width: 4.5rem;*/
+        }
+        .img {
+            width: 1.3rem;
+            box-sizing:border-box;
+            border:1px solid #dddddd;
+            border-left: 0;
+            display: flex;
+            align-items:center;
+            height: 1.97rem;
+        }
+        .img img {
+            width: 0.67rem;
+            height: 0.53rem;
+        }
+        /*.province*/
+    </style>
+</head>
+<body>
+<form>
+    <label class="province">
+        <span class="text">所在省市：</span>
+        <span class="select">
+            <select>
+                <option>--省--</option>
+            </select>
+            <span class="img"><img src="../img/arrow-down.png" alt=""></span>
+        </span>
+        <span class="select">
+            <select>
+                <option>--市--</option>
+            </select>
+            <span class="img"><img src="../img/arrow-down.png" alt=""></span>
+        </span>
+    </label>
+</form>
+</body>
+</html>

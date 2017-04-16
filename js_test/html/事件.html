@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件</title>
+    <script src="../js/事件.js"></script>
+    <!--<script src="../js/eventPhase.js"></script>-->
+    <!--<script>-->
+        <!--onload = function () {-->
+            <!--var test1 = document.getElementById("test1").value;-->
+            <!--console.log(test1 === document.getElementById("test1").value);-->
+        <!--};-->
+    <!--</script>-->
+    <style>
+        body {
+            height: 2000px;
+        }
+    </style>
+</head>
+<body>
+<input type="text" value="这是一个框" onclick="alert(this.value)"><br/>
+<input type="text" value="这是一个框" name="input1" onclick="alert(event.type)"><br/>
+<input type="text" value="这是一个框" onclick="alert(value)"><br/>
+<input type="text" value="这是一个框" onclick="alert(input1.value)"><br/>
+<form action="">
+    <input type="text" value="qwq" name="username" id="u_name" /><br/>
+    <input type="text" value="ovo" name="pass" onclick="alert(username.value)" /><br/>
+
+</form>
+<input type="button" value="按钮" id="btn1"><br/>
+<input type="button" value="按钮2" id="btn2"><br/>
+
+<input type="button" value="按钮3" id="btn3"><br/>
+<a href="index.html" id="a1">跳转</a><br/>
+<div id="d4">
+
+
+<input type="button" value="eventPhase" id="btn4"><br/>
+</div>
+
+<input type="text" id="test1"><br/>
+<input type="button" id="btn5" value="IE9+event"><br/>
+<input type="button" id="btn6'" value="IE9-event"><br/>
+
+</body>
+
+</html>

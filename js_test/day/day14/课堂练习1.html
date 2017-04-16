@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练习1</title>
+    <style>
+        textarea {
+            resize: none;
+        }
+    </style>
+    <script>
+        onload = function () {
+            var p = document.getElementsByTagName("p")[0];
+            var p1 = document.getElementsByTagName("p")[1];
+            var ip1 = document.getElementById("ip1");
+            var btn = document.getElementsByTagName("button")[0];
+            var btn1 = document.getElementsByTagName("button")[1];
+            var btn2 = document.getElementsByTagName("button")[2];
+            var ta = document.getElementsByTagName("textarea")[0];
+            btn.onclick = function () {
+                var reg = /beg|bag|big|bog/gi;
+                p.innerHTML = p.innerHTML.replace(reg, "bug");
+            };
+            btn1.onclick = function () {
+                var reg = /really(\sreally)*/gi;
+                p1.innerHTML = p1.innerHTML.replace(reg, "very");
+            };
+            btn2.onclick = function () {
+//                alert(ta.value);
+                var regText = ip1.value;
+                var reg = new RegExp(regText, "g");
+                var value = ta.value;
+                ta.value = value.replace(reg, "**");
+//                var reg = /really(\sreally)*/gi;
+//                p1.innerHTML = p1.innerHTML.replace(reg, "very");
+            }
+
+        }
+    </script>
+</head>
+<body>
+<p>I am a Big man, I have so mach bag, so veryone call me beg man, bog bog bog, I hate you!</p>
+<button>替换</button>
+<p>Billy tried really hard Sally tried really really hard Timmy tried really really really
+    hard Johnny tried really really really really hard</p>
+<button>替换</button>
+<br/>
+<input id="ip1" placeholder="替换值"><button>替换</button><br/>
+<textarea name="" id="" cols="30" rows="10"></textarea>
+</body>
+</html>

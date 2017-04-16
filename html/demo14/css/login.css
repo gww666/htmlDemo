@@ -1,0 +1,106 @@
+html,body {
+    background: #f4f4f4 !important;
+}
+
+
+#header {
+    height: 3.65rem;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    padding:0 1rem;
+    background: #fafafa;
+}
+#header h2 {
+    font-size: 1.4rem;
+    height: 1.4rem;
+    line-height: 1.4rem;
+    /*font-size: 17px;*/
+}
+#header i {
+    font-size: 1.1rem !important;
+
+}
+
+article {
+    background: #fff;
+}
+#form1 {
+    display: flex;
+    flex-flow:column nowrap;
+    box-sizing:border-box;
+    border:1px solid #aaaaaa;
+}
+
+.account, .password {
+    padding-left: 1.25rem;
+    padding-right: 1rem;
+    height: 3.71rem;
+    display: flex;
+    align-items:center;
+}
+.account {
+    border-bottom:1px solid #aaaaaa;
+}
+
+#form1 span {
+    font-size: 1.08rem;
+    color: #6c6c6c;
+    width: 7.2rem;
+}
+
+#form1 input[type="text"] {
+    height: 100%;
+    box-sizing:border-box;
+    outline:none;
+    border:0;
+    width: 16.67rem;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.46rem;
+    background: #f4f4f4;
+}
+
+.login input{
+    background: #ff5000;
+    font-size: 1.5rem;
+    color: #ff834a;
+    width: 25rem;
+    height: 4.17rem;
+    border:0;
+    outline:none;
+    border-radius:5px;
+}
+
+#forget {
+    height: 4.42rem;
+    padding:0 0.83rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f4f4f4;
+
+}
+
+#forget span {
+    font-size: 1.17rem;
+    color: #5f646e;
+}
+
+#register {
+    background: #f4f4f4;
+    justify-content: center;
+    display: flex;
+}
+#register input[value="注册"] {
+    width: 8.96rem;
+    height: 2.75rem;
+    border:1px solid #ff5000;
+    color: #ff5000;
+    background: #f4f4f4;
+    font-size: 1.25rem;
+    outline:none;
+}

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        canvas {
+            background: pink;
+            /*width: 800px;*/
+            /*height: 600px;*/
+            margin:auto;
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+        }
+    </style>
+    <script>
+        onload = function () {
+            var drawing = document.getElementById("dw");
+            var date2 = new Date();
+            var text = "当前时间:";
+            var year = date2.getFullYear();
+            var month = date2.getMonth() + 1;
+            var dt = date2.getDate();
+            var hour;
+            var minute;
+            var second;
+            function drawClock() {
+                if (drawing.getContext) {
+
+                    var context = drawing.getContext("2d");//取得2d上下文
+//                alert(context);
+                    context.clearRect(0, 0, 800, 600);
+                    context.fillStyle = "black";
+                    context.strokeStyle = "black";
+                    context.lineWidth = 3;
+                    context.lineJoin = "round";
+                    context.lineCap = "round";
+//                context.strokeStyle
+//                context.fillRect(10, 10, 100, 100); //四个参数：x坐标，y坐标，宽，高
+//                context.fillRect(50, 50, 100, 100); //四个参数：x坐标，y坐标，宽，高
+//                context.strokeRect(10, 10, 300, 300); //描边绘制矩形
+//                context.strokeRect(110, 110, 300, 300); //描边绘制矩形
+//                context.clearRect(70, 70, 20, 20);
+                    context.beginPath(); //开始路径
+                    context.arc(300, 300, 160, 0, 2 * Math.PI, true);
+                    context.stroke();
+                    context.closePath();
+
+//                context.moveTo(407, 300);
+//                context.arc(300, 300, 107, 0, 2 * Math.PI, true);
+                    //绘制文字
+                    context.font = "bold 20px Arial";
+//                context.textBaseline = "middle";
+                    context.textAlign = "center";
+//                context.fillText("12", 300, 180);
+//                context.rotate(30 * Math.PI / 360);
+//                context.fillText("12", 300, 140);
+                    //绘制小时刻度
+                    for ( var i = 0; i < 12; i++) {
+//                    context.fillText((i + 1) + "", 300 + 40 * i, 220 + i * 40);
+                        context.save();
+//                    context.strokeStyle = "black";
+//                    context.lineWidth = 5;
+                        context.translate(300, 300);
+                        context.rotate(-30 * i * Math.PI / 180);
+                        context.beginPath();
+                        context.moveTo(0, -140);
+                        context.lineTo(0, -160);
+                        context.fillText((12 - i) + "", 0, -130);
+                        context.stroke();
+                        context.closePath();
+                        context.restore();
+                    }
+                    //绘制分钟刻度
+                    for ( i = 0; i < 60; i++) {
+//                    context.fillText((i + 1) + "", 300 + 40 * i, 220 + i * 40);
+                        context.save();
+//                    context.strokeStyle = "black";
+//                    context.lineWidth = 5;
+                        context.translate(300, 300);
+                        context.rotate(6 * i * Math.PI / 180);
+                        context.beginPath();
+                        context.moveTo(0, -150);
+                        context.lineTo(0, -160);
+                        context.stroke();
+                        context.closePath();
+                        context.restore();
+                    }
+
+                    //绘制分针
+//                context.beginPath();
+//                context.moveTo(300, 300);
+//                context.lineTo(300, 180);
+//                context.stroke();
+
+                    //绘制时针
+//                context.moveTo(300,300);
+//                context.lineTo(200, 300);
+//                context.stroke();
+//                context.closePath();
+
+                    //绘制秒针
+                    //秒针是红的
+//                context.save();
+//                context.translate(300, 300);
+//                context.rotate(76 * Math.PI / 180);
+//                context.beginPath();
+//                context.strokeStyle = "red";
+//                context.moveTo(0,0);
+//                context.lineTo(-140, 0);
+//                context.stroke();
+//                context.closePath();
+//                context.restore();
+
+                    //获取时间
+                    var date = new Date();
+                    var date1 = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+                    var hour = date.getHours();
+
+                    if (hour > 12 ) {
+                        //转换成12小时制
+                        hour = Math.abs(hour - 12);
+                    }
+                    var minutes = date.getMinutes();
+                    hour += minutes / 60.0;
+                    var seconds = date.getSeconds();
+//                alert(minutes);
+                    //确定时针位置
+                    context.save();
+                    context.beginPath();
+                    context.translate(300, 300);
+                    context.rotate(30 * hour * Math.PI / 180);
+                    context.moveTo(0, 0);
+                    context.lineTo(0, -120);
+                    draw(context);
+                    context.restore();
+
+                    //确定分针位置
+                    context.save();
+                    context.beginPath();
+                    context.translate(300, 300);
+                    context.rotate(6 * minutes * Math.PI / 180);
+                    context.moveTo(0, 0);
+                    context.lineTo(0, -140);
+                    draw(context);
+                    context.restore();
+//                alert(-6 * minutes);
+
+                    //确定秒钟位置
+                    context.save();
+                    context.beginPath();
+                    context.translate(300, 300);
+                    context.rotate(6 * seconds * Math.PI / 180);
+                    context.strokeStyle = "red";
+                    context.moveTo(0, 0);
+                    context.lineTo(0, -140);
+                    draw(context);
+                    context.restore();
+
+//                    alert(hour);
+                    //绘制提示时间
+                    hour = date2.getHours();
+                    minute = date2.getMinutes();
+                    second = date2.getSeconds();
+//                    context.textAlign = "center";
+//                    context.textBaseline = "middle";
+                    if (second < 10) {
+                        second = "0" + second;
+                    }
+                    text = "当前时间：" + year + "-" + month + "-" + dt + " " + hour + ":" + minute + ":" + second;
+                    context.fillText(text, 290, 50);
+                }
+            }
+            function draw(context) {
+//                context.save();
+//                context.beginPath();
+                context.stroke();
+                context.closePath();
+            }
+//            drawClock();
+            setInterval(drawClock, 1000);
+
+
+        };
+
+    </script>
+
+</head>
+<body>
+<canvas id="dw" width="800" height="600">A drawing of something.</canvas>
+
+</body>
+</html>

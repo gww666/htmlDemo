@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>秒表</title>
+    <style>
+        #d1 {
+            width: 300px;
+            height: 300px;
+            text-align: center;
+            line-height: 300px;
+            font-weight: bold;
+            margin:100px auto;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+<div id="d1">00:00:000</div>
+<input type="button" value="开始" id="start">
+<input type="button" value="暂定" id="pause">
+<input type="button" value="清零" id="reset">
+</body>
+<script>
+    var d1 = document.getElementById("d1");
+    var start = document.getElementById("start");
+    var pause = document.getElementById("pause");
+    var reset = document.getElementById("reset");
+    var ms = 0;
+    var s = 0;
+    var m = 0;
+    var s_text = "00";
+    var ms_text = "000";
+    var m_text = "00";
+    function clock() {
+        ms += 4;
+        if (ms != 1000) {
+            ms_text = ms;
+            if (ms < 100) {
+                ms_text = "0" + ms;
+                if (ms < 10) {
+                    ms_text = "00" + ms;
+                }
+            }
+//            console.log(ms_text);
+        } else {
+            s++;
+            if (s == 10) {
+                s = 0;
+                m++;
+                m_text = m < 10 ? "0" + m : m;
+            }
+            s_text = s < 10 ? "0" + s : s;
+            ms = 0;
+        }
+        d1.innerHTML = m_text + ":" + s_text + ":" + ms_text;
+        setTimeout(clock, 4);
+    }
+    setTimeout(clock, 4);
+</script>
+</html>

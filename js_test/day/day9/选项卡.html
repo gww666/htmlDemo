@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            height: 300px;
+            width: 600px;
+
+            box-sizing: border-box;
+            margin:150px auto;
+        }
+        input {
+            height: 40px;
+            width: 100px;
+            color: #000;
+            border: 0;
+            /*border-bottom: 1px solid coral;*/
+            margin-bottom: -1px;
+            outline: none;
+            /*box-sizing: border-box;*/
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+        }
+        #d1,#d2 {
+            border:1px solid coral;
+            height: 260px;
+            width: 100%;
+            padding: 30px 0 0 30px;
+            box-sizing: border-box;
+        }
+        #d2 {
+
+            display: none;
+        }
+        .active {
+            border:1px solid coral;
+            border-bottom: 1px solid white;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <input type="text" value="科技" class="active"><input type="text" value="探索">
+    <div id="d1">kkkkkkkkkkk</div>
+    <div id="d2">ttttttttttt</div>
+</div>
+</body>
+<script>
+    var input = document.getElementsByTagName("input");
+    var d1 = document.getElementById("d1");
+    var d2 = document.getElementById("d2");
+
+    input[0].onclick = function () {
+
+        input[0].setAttribute("class", "active");
+        input[1].removeAttribute("class");
+
+        d1.style.display = "block";
+        d2.style.display = "none";
+    };
+
+    input[1].onclick = function () {
+        input[1].setAttribute("class", "active");
+        input[0].removeAttribute("class");
+        d1.style.display = "none";
+        d2.style.display = "block";
+    }
+</script>
+</html>

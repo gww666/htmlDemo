@@ -1,0 +1,132 @@
+input {
+    border:0;
+    outline:none;
+
+}
+.title {
+    display: flex;
+    width: 100%;
+    height:7vh;
+    background: #098fe4;
+    color: #fff;
+    flex-flow:column wrap;
+
+    /*align-items:center;*/
+    /*align-content:center;*/
+    justify-content:center;
+
+
+}
+.title img {
+    height: 4.29vh;
+    width: 4.26vw;
+    /*align-self:center;*/
+}
+.title h1 {
+    font-size:2.9vh;
+    /*align-self:flex-start;*/
+}
+main {
+    padding:4.18vh 3.7vw;
+}
+.personal_msg label {
+    /*width: 100%;*/
+    border-radius:0.1vw;
+    padding:1.88vh 5vw;
+    border:1px solid #dcdedd;
+    display: flex;
+    align-items:center;
+    margin-bottom:1.66vh;
+}
+.else_msg label:nth-of-type(1) {
+    /*width: 30.18vw;*/
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    font-size: 1.93vh;
+
+}
+.else_msg label:nth-of-type(1) span {
+    /*width: 35.06vw;*/
+    display: flex;
+    align-items:center;
+}
+.else_msg label:nth-of-type(1) span:nth-child(1) {
+    /*width: 17.6vw;*/
+}
+.else_msg label:nth-of-type(1) span:nth-child(1) ~ span {
+    display:flex;
+}
+.else_msg label:nth-of-type(1) span:nth-child(1) {
+    /*margin-right: 5vw;*/
+}
+.else_msg label:nth-of-type(1) span select {
+    appearance:none;
+    -webkit-appearance:none;
+    padding-left:11.1vw;
+    padding-right:10.28vw;
+    position: relative;
+    border:1px solid #dcdedd;
+    border-right:0;
+    height: 4.3vh;
+    outline:none;
+    box-sizing:border-box;
+}
+
+
+/*包裹小图片的span*/
+.else_msg label:nth-of-type(1) span span {
+    width: 4.8vw;
+    height: 4.3vh;
+    border:1px solid #dcdedd;
+    border-left:0;
+    display: flex;
+    align-items:center;
+    box-sizing:border-box;
+}
+
+.else_msg label:nth-of-type(1) span img[alt="arrow_down"] {
+    width: 2.5vw;
+    height: 1.1vh;
+}
+
+.else_msg label:nth-of-type(1) input {
+
+    flex:1;
+}
+
+/*病状描述*/
+.else_msg label:nth-of-type(2) {
+    display: flex;
+    font-size: 1.93vh;
+    justify-content:space-between;
+    margin-top: 4.01vw;
+}
+.else_msg label:nth-of-type(2) textarea{
+    resize:none;
+    width: 71vw;
+    height: 15.45vh;
+    outline:none;
+    border:1px solid #dcdedd;
+    /*flex-grow:1;*/
+
+}
+/*上传附件*/
+.else_msg label:nth-of-type(3) {
+    display: flex;
+    margin-top: 3vw;
+    font-size: 1.93vh;
+}
+.else_msg label:nth-of-type(3) span:last-child {
+    width: 14.8vw;
+    height: 14.8vw;
+    border:1px solid #dcdedd;
+    background: url(../img/add.png) no-repeat center;
+    background-size:47.5% 47.5%;
+}
+.else_msg label:nth-child(3) span:first-child {
+    /*width: 17.6vw;*/
+
+}
+
+

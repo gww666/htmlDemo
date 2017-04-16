@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单验证</title>
+    <style>
+        .active {
+            background: #ffe7b7;
+            height: 40px;
+            width: 400px;
+            line-height: 40px;
+            border-radius: 10px;
+            padding-left: 10px;
+        }
+        input::-webkit-input-placeholder {
+            color: hotpink;
+        }
+        .grade {
+            display: inline-block;
+            background: #c6c6c6;
+            width: 180px;
+            height: 30px;
+        }
+        .grade span {
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            visibility: hidden;
+        }
+        .grade span:nth-child(1) {
+            background: red;
+
+        }
+        .grade span:nth-child(2) {
+            background: coral;
+        }
+        .grade span:nth-child(3) {
+            background: limegreen;
+        }
+        .grade .s_active {
+            visibility: visible;
+        }
+
+
+    </style>
+    <script>
+        onload = function () {
+            var p = document.getElementsByTagName("p")[0];
+            var login = document.getElementById("login");
+            var pass = document.getElementsByName("pass")[0];
+            var grade = document.getElementsByClassName("grade")[0];
+            login.onclick = function () {
+                var u_reg = /\w{6,}/;
+                var p_reg = /.{8,16}/;
+                var ph_reg = /1[0-9]{10}/;
+                var id_reg = /\d{17}\d|X/;
+
+                var u_value = document.getElementsByName("user_name")[0].value;
+                var p_value = document.getElementsByName("pass")[0].value;
+                var ph_value = document.getElementsByName("phone")[0].value;
+                var id_value = document.getElementsByName("idd")[0].value;
+                var cf_value = document.getElementsByName("confirm")[0].value;
+                //判断用户名
+                if (!u_reg.test(u_value)) {
+                    p.className = "active";
+                    p.innerHTML = "用户名只能包含字母数字下划线，并且最少六位";
+                    return false;
+                }
+                //判断密码
+                if (!p_reg.test(p_value)) {
+                    p.className = "active";
+                    p.innerHTML = "密码最短8位，最长16位";
+                    return false;
+                }
+                //判断两次密码是否一致
+                if (p_value != cf_value) {
+                    p.className = "active";
+                    p.innerHTML = "两次密码不一致";
+                    return false;
+                }
+                //判断身份证
+                if (!id_reg.test(id_value)) {
+                    p.className = "active";
+                    p.innerHTML = "非法的身份证";
+                    return false;
+                }
+                //判断手机号
+                if (!ph_reg.test(ph_value)) {
+                    p.className = "active";
+                    p.innerHTML = "phone number error！";
+                    return false;
+                }
+//                if (u_name)
+            };
+
+            //实时监控密码显示强弱
+//            pass.onkeyup = function () {
+//                var span = grade.getElementsByTagName("span");
+////                console.log(pass.value);
+//                //弱：8~12位
+//                //中：
+//                // 13位以上
+//                // 10~12位包含大写字母
+//                //强：
+//                //12位以上包含大写字母
+//                var ruo = /^.{1,12}$/;
+//                var zhong1 = /.[^A-Z]{12,16}/;
+//                var zhong2 = /(.[A-Z]){10,12}/;
+//                var qiang = /[.[^A-Z]|[A-Z]]{12,16}/;
+//                function removeClass() {
+//                    for (var i = 0; i < span.length; i++) {
+//                        span[i].className = "";
+//                    }
+//                }
+//                if (pass.value.length <= 0 || pass.value.length >= 16) {
+//                    removeClass();
+//                    return false;
+//                }
+//                //弱
+//                if (ruo.test(pass.value)) {
+////                    console.log(zhong2.test(pass.value));
+//                    if (zhong2.test(pass.value)) {
+//                        console.log("中2");
+//                        removeClass();
+//                        span[1].className = "s_active";
+//                        return false;
+//                    }
+//                    console.log("弱");
+//                    removeClass();
+//                    span[0].className = "s_active";
+//                    return false;
+//                }
+////                console.log(zhong1.test(pass.value));
+//                //中
+//                if (zhong1.test(pass.value) || zhong2.test(pass.value)) {
+//                    if (qiang.test(pass.value)) {
+//                        console.log("强");
+//                        removeClass();
+//                        span[2].className = "s_active";
+//                        return false;
+//                    }
+//                    console.log("中");
+//                    removeClass();
+//                    span[1].className = "s_active";
+//                    return false;
+//                }
+//                //强
+//
+//
+//
+//            };
+
+//            var reg = /^(?:([a-z])|([A-Z])|([0-9])|(.)){6,}|(.)+$/;
+            pass.onkeyup = function () {
+//                var len = reg.exec(pass.value).length;
+//                console.log(len);
+                var span = grade.getElementsByTagName("span");
+                var s = 0;
+                var r1 = /^[0-9a-z]{1,10}$/;
+                var r2 = /[A-Z]+/;
+                var r3 = /^[0-9a-z]{11,16}$/;
+                var r4 = /[^\w]+/;
+                var r5 = /_+/;
+                var r6 = /\w^_{1,16}/;
+                function removeClass() {
+                    for (var i = 0; i < span.length; i++) {
+                        span[i].className = "";
+                    }
+                }
+                if( /[a-zA-Z]/.test(pass.value) ){
+                    s++;
+                }
+                if( /[0-9]/.test(pass.value) ){
+                    s++;
+                }
+                if( /[^0-9a-zA-Z]/.test(pass.value) ){
+                    s++;
+                }
+                if(pass.value.length < 8 && pass.value.length > 0){
+                    s = 0;
+                }
+                if(pass.value.length <= 0 || pass.value.length > 16){
+                    removeClass();
+                    return false;
+                }
+//                console.log(s);
+                if (s < 2) {
+                    removeClass();
+                    span[0].className = "s_active";
+                    return false;
+                }
+                if (s == 2) {
+                    removeClass();
+                    span[1].className = "s_active";
+                    return false;
+                }
+                if (s == 3) {
+                    removeClass();
+                    span[2].className = "s_active";
+                    return false;
+                }
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+<form action="">
+    <fieldset>
+        <legend>注册</legend>
+        <label for="">
+            用户名
+            <input type="text" name="user_name" placeholder="用户名">
+        </label><br/>
+        <label for="">
+            密&nbsp;&nbsp;&nbsp;码
+            <input type="password" name="pass">
+        </label><br/>
+        <label for="">
+            密码级别
+            <div class="grade">
+                <span>弱</span><span>中</span><span>强</span>
+            </div>
+        </label><br/>
+        <label for="">
+            确认密码
+            <input type="password" name="confirm">
+        </label><br/>
+        <label for="">
+            身份证
+            <input type="text" name="idd">
+        </label><br/>
+        <label for="">
+            手机号
+            <input type="text" name="phone">
+        </label><br/>
+        <label for="">
+            验证码
+            <input type="text" name="yzm"><div class="ma"></div>
+        </label><br/>
+
+        <label for="">
+            <input type="button" value="登录" id="login">
+            <input type="reset" value="重置">
+        </label>
+    </fieldset>
+</form>
+<p></p>
+</body>
+</html>

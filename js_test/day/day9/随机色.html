@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随机色</title>
+</head>
+<body>
+<p>这是一段很长很长很长很长很长很长很长很长很长很长很长很长很长的话。</p>
+<p>这是一段很长很长很长很长很长很长很长很长很长很长很长很长很长的话。</p>
+<p>这是一段很长很长很长很长很长很长很长很长很长很长很长很长很长的话。</p>
+<p>这是一段很长很长很长很长很长很长很长很长很长很长很长很长很长的话。</p>
+<p>这是一段很长很长很长很长很长很长很长很长很长很长很长很长很长的话。</p>
+<p>这是一段很长很长很长很长很长很长很长很长很长很长很长很长很长的话。</p>
+<p>这是一段很长很长很长很长很长很长很长很长很长很长很长很长很长的话。</p>
+<p>这是一段很长很长很长很长很长很长很长很长很长很长很长很长很长的话。</p>
+<p>这是一段很长很长很长很长很长很长很长很长很长很长很长很长很长的话。</p>
+<p>这是一段很长很长很长很长很长很长很长很长很长很长很长很长很长的话。</p>
+</body>
+<script>
+    var p = document.getElementsByTagName("p");
+    var t = null;
+    function change() {
+        for (var i = 0; i < p.length; i++) {
+            var r = parseInt((Math.random() * 256));
+            var g = parseInt((Math.random() * 256));
+            var b = parseInt((Math.random() * 256));
+            p[i].style.background = "rgb(" + r + "," + g + "," + b + ")";
+            p[i].style.color = "rgb(" + b + "," + r + "," + g + ")";
+        }
+
+        t = setTimeout(change, 200);
+
+
+    }
+    change();
+</script>
+</html>

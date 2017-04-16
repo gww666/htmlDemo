@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>切换图片</title>
+    <style>
+        img:first-child {
+            position: absolute;
+            z-index: -1;
+        }
+        img:nth-of-type(2) {
+            position: absolute;
+            z-index: -2;
+        }
+
+
+    </style>
+</head>
+<body>
+<div>
+    <img src="images/1.jpg" alt="">
+    <img src="images/2.jpg" alt="">
+    <input type="button" value="切换">
+</div>
+</body>
+<script>
+    var img = document.getElementsByTagName("img");
+    var input = document.getElementsByTagName("input")[0];
+    img[0].style.zIndex = "-2";
+    img[1].style.zIndex = "-1";
+    input.onclick = function () {
+        console.log(img[0].style.zIndex);
+        if (img[0].style.zIndex == "-1") {
+            img[0].style.zIndex = "-2";
+            img[1].style.zIndex = "-1";
+        } else {
+            img[1].style.zIndex = "-2";
+            img[0].style.zIndex = "-1";
+        }
+    }
+</script>
+</html>

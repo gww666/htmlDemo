@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cookie实现购物车</title>
+    <script src="../Utils.js"></script>
+    <script>
+        //JSON.parse
+        //JSON.stringify
+
+        onload = function () {
+            var date = new Date();
+            date.setDate(date.getDate() + 10); //保存十天
+            var input = document.getElementsByTagName("input");
+            var car;
+            for (var i = 0; i < input.length; i++) {
+                input[i].onclick = function () {
+                    var goodsName = this.parentNode.children[0].innerHTML;
+                    var goodsPrice = this.parentNode.children[1].innerHTML;
+
+                    if (cookieUtil.getCookie("shoppingCar")) {
+                        //如果已经存在cookie
+                        var flag = false; //用以判断cookie中是否已经存在该商品
+
+                        car = cookieUtil.getCookie("shoppingCar");
+
+                        var carArr = car.split("&");
+//                        console.log(carArr);
+//                        for (var k = 0; k < carArr.length; k++) {
+//                            console.log(carArr[k]);
+//                        }
+                        var newCar = "";
+                        var tempCar = "";
+                        for (var j = 0; j < carArr.length; j++) {
+//                            console.log(carArr[j]);
+                            var carObj = JSON.parse(carArr[j]);
+                            if (carObj.name == goodsName) {
+                                var num = (parseInt(carObj.num) + 1) + "";
+                                flag = true;
+                                carArr[j] = '{"name":"'+ goodsName +'","price":"' + goodsPrice +'","num":"' + num + '"}';
+//                                break;
+//                                newCar +=  "&" + carArr[j];
+//                                tempCar = newCar;
+                                break;
+                            }
+//                            console.log(newCar);
+                            //更新cookie
+                        }
+                        if (!flag) {
+                            newCar += '&{"name":"'+ goodsName +'","price":"' + goodsPrice +'","num":"1"}';
+                        }
+                        for (var k = 0; k < carArr.length; k++) {
+                            tempCar +=  "&" + carArr[k];
+                        }
+                        tempCar += newCar;
+                        //把字符串末尾的,去掉
+                        if (tempCar.indexOf("&") == 0) {
+                            tempCar = tempCar.slice(1, tempCar.length);
+                        }
+                        cookieUtil.setCookie("shoppingCar", tempCar, date);
+                        console.log(cookieUtil.getCookie("shoppingCar"));
+
+//                        if (!flag) {
+//                            //cookie中不存在该商品，进行添加
+//                            //获取商品价格
+//                            car += '&{"name":"'+ goodsName +'","price":"' + goodsPrice +'","num":"0"}';
+//                        }
+//                        cookieUtil.setCookie("shoppingCar", newCar, date);
+                    } else {
+                        //当前页面第一次添加cookie
+
+                        car = '{"name":"'+ goodsName +'","price":"' + goodsPrice +'","num":"1"}';
+                        cookieUtil.setCookie("shoppingCar", car, date);
+
+                    }
+                }//这里是点击事件结束代码
+            }
+        }
+    </script>
+</head>
+<body>
+<ul>
+    <li><span>shdfi</span><span>￥98.00</span><input type="button" value="加入购物车"></li>
+    <li><span>fbvfgdb</span><span>￥698.00</span><input type="button" value="加入购物车"></li>
+    <li><span>dfdfi</span><span>￥988.00</span><input type="button" value="加入购物车"></li>
+    <li><span>sssi</span><span>￥998.00</span><input type="button" value="加入购物车"></li>
+    <li><span>yyu</span><span>￥98.00</span><input type="button" value="加入购物车"></li>
+    <li><span>sheri</span><span>￥598.00</span><input type="button" value="加入购物车"></li>
+    <li><span>dsfcdhdfi</span><span>￥498.00</span><input type="button" value="加入购物车"></li>
+    <li><span>sbnm,</span><span>￥698.00</span><input type="button" value="加入购物车"></li>
+</ul>
+<a href="购物车查看页面.html">查看购物车</a>
+</body>
+</html>

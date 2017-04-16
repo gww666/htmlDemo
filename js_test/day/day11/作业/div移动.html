@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>div移动</title>
+    <script src="../../Utils.js"></script>
+    <script>
+        onload = function () {
+            var input = document.getElementsByTagName("input");
+            var div = document.getElementsByTagName("div")[0];
+            var arr = ["top", "right", "bottom", "left"];
+            for (var i = 0; i < input.length; i++) {
+
+                input[i].index = i;
+                input[i].onclick = function () {
+                    console.log(this.index);
+                    move(div, arr[this.index], 10);
+                };
+            }
+
+        };
+
+
+    </script>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+
+
+    </style>
+</head>
+<body>
+<input type="button" value="上">
+<input type="button" value="右">
+<input type="button" value="下">
+<input type="button" value="左">
+<div style="position: absolute;left: 20px;top: 30px;"></div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字变颜色</title>
+    <style>
+        div {
+            color: #000;
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    这是一个字
+</div>
+</body>
+<script>
+    var d1 = document.getElementById("box");
+    var fs = 40;
+    var flag = 1; //1代表变大，0代表变小
+    function animate() {
+        if (flag) {
+            //变大
+            fs += 10;
+            if (fs == 100) {
+                flag = 0;
+            }
+        } else {
+            fs -= 10;
+            if (fs == 40) {
+                flag = 1;
+            }
+        }
+
+
+        var r = parseInt((Math.random() * 256));
+        var g = parseInt((Math.random() * 256));
+        var b = parseInt((Math.random() * 256));
+        d1.style.color = "rgb(" + r + "," + g + "," + b + ")";
+        d1.style.fontSize = fs + "px";
+
+        setTimeout(animate, 100);
+    }
+
+    animate();
+
+
+
+//    d1.style.color = ""
+</script>
+</html>

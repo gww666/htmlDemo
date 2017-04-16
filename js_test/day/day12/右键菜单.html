@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>阻止右键菜单</title>
+    <script src="../Utils.js"></script>
+    <script>
+        onload = function () {
+            document.oncontextmenu = function (e) {
+                var event = EventUtil.getEvent(e);
+                event.preventDefault();
+            };
+
+            document.onmousedown = function (e) {
+                var event = EventUtil.getEvent(e);
+                //如果是鼠标右键
+                if (event.button == 2) {
+                    console.log("aaa");
+//                    return false;
+                    event.preventDefault();
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

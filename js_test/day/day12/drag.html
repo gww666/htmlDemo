@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>drag</title>
+    <style>
+        body {
+            background: #000;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script>
+        onload = function () {
+            var img = document.getElementsByTagName("img")[0];
+            img.onmousedown = function (e) {
+                var evt = e || event;
+                evt.preventDefault();
+                //自己计算当前鼠标相对于拖拽元素的偏移量
+                console.log(img.offsetLeft);
+                var disX = evt.pageX - img.offsetLeft;
+                var disY = evt.pageY - img.offsetTop;
+
+                document.onmousemove = function (e1) {
+                    var evt1 = e1 || event;
+                    img.style.left = evt1.pageX - disX + "px";
+                    img.style.top = evt1.pageY - disY + "px";
+                };
+
+                document.onmouseup = function () {
+                    //清除move事件和up事件
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                };
+            };
+        }
+    </script>
+</head>
+<body>
+<img src="img/girl.gif" alt="" style="position: absolute;">
+</body>
+</html>

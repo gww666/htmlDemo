@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>加密</title>
+    <script>
+        onload = function() {
+            var num1 = document.getElementById("num1");
+            var show = document.getElementById("show");
+            var res = document.getElementById("res");
+            show.onclick = function () {
+                res.value = jm(parseInt(num1.value));
+            };
+            /**
+             * 加密方法
+             * @param num
+             * @returns {string}
+             */
+            function jm(num) {
+
+                var a = parseInt(num / 1000);//获取千位
+                var b = parseInt(num / 100) % 10;//获取千位
+                var c = parseInt(num / 10) % 10;//获取千位
+                var d = num % 10;//获取千位
+
+                a = (a + 5) % 10;
+                b = (b + 5) % 10;
+                c = (c + 5) % 10;
+                d = (d + 5) % 10;
+
+                var tem1 = a;
+                var tem2 = b;
+                a = d;
+                d = tem1;
+                b = c;
+                c = tem2;
+
+                return a + "" + b + "" + c + "" +d;
+            }
+        };
+    </script>
+</head>
+<body>
+<label>加密前：<input type="text" id="num1"></label>
+<input type="button" id="show" value="加密"><br/>
+<label>加密后：<input type="text" id="res"></label>
+</body>
+</html>

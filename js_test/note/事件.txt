@@ -1,0 +1,82 @@
+1、事件流
+    1、事件冒泡
+        事件开始时由最具体的元素接收，然后逐级向上传播到较为不具体的节点。
+        例：
+        div
+        body
+        html
+        document
+        事件冒泡会由div逐渐传播到document（IE5.5以及更早的版本中，事件冒泡会跳过html元素直接跳到document对象）
+        IE9+会继续冒泡到window
+        另外需要注意的是，当为div和body都设置了相同的事件时（比如onclick），那么点击div会导致div和body都触发事件，如果为div和body设置了不同的事件，那么点击div时，body不会触发事件。
+    2、事件捕获
+        IE9+支持这种事件流，IE9以下只有事件冒泡
+        不太具体的节点应该更早接收到事件，最具体的节点应该最后接收到事件。
+        document
+        html
+        body
+        div
+        所有浏览器都支持事件捕获的事件流模型，但这些浏览器都是从window对象开始捕获事件的（DOM2级事件规范应该从document开始捕获）。
+    3、DOM事件流
+        1、DOM2级事件规定事件流三个阶段：事件捕获阶段、处于目标阶段和事件冒泡阶段。
+        2、元素可以根据事件流触发它的父节点的事件，而父节点不能根据事件流来触发子元素的事件。这也比较好理解，因为当你的某个动作（点击、移动等）触发了某个元素的事件时，这个元素就是该事件流里最具体（最底层）的那个元素，虽然理论上这个元素可能还包含子元素，但在事件流里的DOM层次关系里，它就是最具体（最底层）的元素。（例：day12.html）
+
+2、事件处理程序
+    1、通过HTML指定事件处理程序
+        特点：作用域
+        缺点：1、
+             2、
+             3、
+    2、DOM0级事件处理程序
+        1、var btn = document.getElementById("btn");
+           btn.onclick = function() {};
+        2、这种事件处理的赋值方法有两个优点：简单；跨浏览器的优势。
+        3、以这种方式添加的事件处理程序会在事件流的冒泡阶段被处理。
+        4、bth.onclick = null; //删除事件处理程序
+        5、DOM0级对每个事件只支持一个事件处理程序
+
+    3、DOM2级事件处理程序
+        1、addEventListener() //指定事件处理程序
+           removeEventListener() //删除事件处理程序
+        2、所有DOM节点中都包含这两个方法，并且都接收3个参数。
+        3、var btn = document.getElementById("btn");
+           btn.addEventListener("click", function(), false);
+           第三个bool参数如果是true表示在事件捕获阶段调用事件处理程序，
+           使用这种方式指定事件处理程序的好处：
+           * 可以添加多个事件处理程序。
+        4、通过addEventListener()添加的只能通过removeEventListener来移除
+        5、addEventListener()添加的匿名函数将无法移除
+        6、IE9以上支持！！！！！！
+    4、IE事件处理程序
+        1、为IE8及以上的版本提供了添加事件处理的方法
+        2、attachEvent()
+           detachEvent()
+        3、注意：attachEvent()作用域的问题！！！！！！
+            var btn = document.getElementById("btn");
+            btn.attachEvent("onclick", function(){
+                alert(this === window); //true
+            });
+        4、IE和Opera浏览器支持IE事件处理程序
+        5、在不支持该方法的浏览器里使用会报错！
+
+3、事件对象
+    1、DOM中的事件对象
+        1、event(应该是一个全局对象)
+        2、event.stopPropagation() //停止事件在DOM层次中的传播，即取消进一步的事件捕获或冒泡
+        3、event.preventDefault() //阻止特定事件的默认行为
+        4、event.eventPhase
+            事件捕获:1
+            处于目标阶段:2
+            冒泡阶段:3
+            需要注意的是：尽管“处于目标阶段”发生在冒泡阶段，但eventPhase依然是2
+            对于最具体的元素只有在处于目标阶段才能触发注册的事件，但是对于其父元素，则有两个阶段可以触发注册的事件。
+        5、只有在事件处理程序执行阶段，event对象才会存在；一旦事件处理程序执行完成，event对象就会被销毁。
+    2、IE中的事件对象(是指IE9以下，IE9及以上都符合现代浏览器的行为)
+
+
+
+
+
+
+
+

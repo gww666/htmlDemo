@@ -1,0 +1,232 @@
+/* CSS Document */
+hr{margin:0;padding:0;}
+/* banner样式开始 */
+#intro_banner {
+	height:270px;
+	width:1200px;
+}
+	#intro_banner img{
+		height:100%;
+		width:100%;
+	}
+/* banner样式结束 */
+
+/* 简介样式开始 */
+.map {
+		height:46px;
+		width:1000px;
+		line-height:46px;
+		border-bottom:1px solid #e1e1e1;
+		padding:0 100px;
+	}
+	.map img {
+		height:18px;
+		float:left;
+		margin:14px 5px 0 0;
+	}
+	.map p {
+		float:left;
+		color:#646464;
+		font-size:14px;
+	}
+/* 简介内容区域宽高1200px * 1460px */
+#info {
+	width:1200px;
+	height:1460px;
+	zoom:1;
+}
+.add_div {
+	width:1040px;
+}
+#info:after {
+	
+}
+	/* 内容高度1410px，内容宽度217px，实际高度1430px，实际宽度225px*/
+	.content_aside {
+		float:left;
+		width:217px;
+		height:1410px;
+		padding-top:20px;
+		background:#e6e6e6;
+		border-right:8px solid #f7f7f7;
+	}
+		.content_aside h2 {
+			font-weight:normal;
+			text-align:center;
+			width:217px;
+		}
+		.content_aside h6 {
+			font-weight:normal;
+			padding-left:60px;
+			width:217px;
+			color:#b7b7b7;
+			font-size:12px;
+		}
+		.content_aside ul {
+			margin-top:50px;
+			list-style:none;
+		}
+		.content_aside li {
+			position:relative;
+			width:217px;
+			text-align:center;
+			font:16px/20px "微软雅黑", Arial;
+			height:20px;
+			color:#3d4550;
+			border-bottom:2px solid #d4d4d4;
+			padding:20px 0;
+			cursor:pointer;
+		}
+		.content_aside li:first-child {
+			border-top:2px solid #d4d4d4;
+			
+		}
+		
+		.content_aside .li_active {
+			background:#f15a23;
+			color:white;
+		}
+		.content_aside .li_active:after {
+			content:"";
+			background:#fd9c57;
+			position:absolute;
+			top:0;
+			right:-8px;
+			width:8px;
+			height:60px;
+			
+		}
+		
+		.content_aside li:hover {
+			background:#f15a23;
+			color:white;
+		}
+		.content_aside li:hover:after {
+			content:"";
+			background:#fd9c57;
+			position:absolute;
+			top:0;
+			right:-8px;
+			width:8px;
+			height:60px;
+		}
+	/* 内容高度1390px，内容宽度735px，实际高度1430px，实际宽度815px*/
+	
+	.content_main {
+		width:735px;
+		height:1390px;
+		float:left;
+		padding:20px 40px;
+	}
+		/* 这里是右部标题和下划线样式 */
+		.content_main h1 {
+			float:left;
+			font-size:20px;
+			background:url("../img/triangle.jpg") no-repeat 10px center;
+			padding-left:30px;
+			width:150px;
+			border-bottom:2px solid #f15a25;
+			line-height:40px;
+			height:40px;
+		}
+		.content_main h1:nth-child(2) {
+			background:none;
+			border-bottom:1px dashed #c9c9c9;
+			width:485px;
+			height:41px;
+		}
+		/* 这里是内训图片div的样式 */
+		.content_main .train_img {
+			width:725px;
+			height:93px;
+			margin-top:25px;
+		}
+			.train_img img {
+				float:left;
+				width:129px;
+				height:100%;
+				margin-right:20px;
+			}
+			.train_img img[alt="t5"] {
+				margin-right:0;
+				
+			}
+			.train_img ol {
+				width:725px;
+				height:35px;
+			}
+			.train_img ol:after {
+				content:".";
+				display:block;
+				visibility:hidden;
+				height:0;
+				clear"both;
+			}
+			.train_img ol li{
+				float:left;
+				width:129px;
+				margin-right:20px;
+				height:35px;
+				font:bold 14px/35px "宋体";
+				color:black;
+				text-align:center;
+				
+			}
+			.train_img ol li[class] {
+				margin-right:0;
+			}
+		/* 这里是内训新闻的样式 */
+		.content_main ul {
+			width:735px;
+			margin-top:10px;
+		}
+		.content_main ul li {
+			position:relative;
+			width:735px;
+			color:#f05c58;
+			font:16px/40px "黑体";
+			border-bottom:1px dashed #d4d4d4;
+		}
+		.content_main ul span {
+			position:absolute;
+			right:0;
+			font:14px/40px Arial;
+			color:black;
+		}
+		
+		/*  */
+		.content_main img[alt="内训流程"] {
+			width:525px;
+			height:425px;
+			margin-left:73px;
+		}
+		/* 这是品牌展示图片的样式 */
+		.pro_img {
+			width:705px;
+			padding:0 15px;
+			margin-top:130px;
+		}
+			.pro_img img {
+				width:173px;
+				height:63px;
+				margin-right:11px;
+				float:left;
+				border:1px solid #d3d3d3;
+				margin-bottom:11px;
+			}
+			.pro_img img[alt="p1"], .pro_img img[alt="p5"] {
+				width:143px;
+			}
+			.pro_img img[alt="p4"], .pro_img img[alt="p8"] {
+				margin-right:0;
+			}
+	
+	/* 清除浮动 */
+	#info .info_content:after {
+		content:".";
+		visibility:hidden;
+		height:0;
+		display:block;
+		clear:both;
+	}
+/* 简介部分样式结束 */

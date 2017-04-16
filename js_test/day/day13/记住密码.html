@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>记住密码</title>
+    <script src="../Utils.js"></script>
+    <script>
+        onload = function () {
+            //获取控件
+            var input = document.getElementsByTagName("input");
+            //检查是否已经存在username
+            if(cookieUtil.getCookie("username") && cookieUtil.getCookie("password")) {
+                input[0].value = cookieUtil.getCookie("username");
+                input[1].value = cookieUtil.getCookie("password");
+                alert(cookieUtil.getCookie("username"));
+                input[2].checked = "checked";
+            }
+
+            input[3].onclick = function () {
+                if (input[2].checked) {
+                    var date = new Date();
+                    date.setDate(date.getDate() + 10);
+                    cookieUtil.setCookie("username", input[0].value, date);
+                    cookieUtil.setCookie("password", input[1].value, date);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<form action="">
+    <input type="text" id="name" value="用户名"><br/>
+    <input type="password" id="pass" value="密码"><br/>
+    <input type="checkbox" id="check">十天内免登录<br/>
+    <input type="button" value="登录"><input type="button" value="注册">
+
+
+</form>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>烟花</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script>
+        window.addEventListener("load", function () {
+            var mCanvas = document.getElementById("canvas");
+            var ctx = mCanvas.getContext("2d");
+            var width = window.innerWidth;
+            var height = window.innerHeight;
+//            var pageX = width / 2; //点击X坐标
+            var pageX; //点击X坐标
+//            var pageY = height / 2; //点击Y坐标
+            var pageY; //点击Y坐标
+            var startX = width / 2;
+            var startY = height;
+            var lineArray = [];
+            //Boom参数设置
+            var boomMax = 50;
+            var boomMin = 30;
+            var boomArray = [];
+            var hue;
+
+            var mouse = {
+
+            };
+
+
+            init(); //初始化canvas画布
+
+
+            /**
+             * 初始化画布操作
+             */
+            function init() {
+                mCanvas.width = width;
+                mCanvas.height = height;
+                document.body.style.background = "black";
+                document.body.style.overflow = "hidden";
+            }
+
+            //烟花弹道实例
+            function Line(sx, sy, tx, ty) {
+                this.sx = sx;///开始点
+                this.sy = sy;
+                this.cx = sx;//当前点
+                this.cy = sy;
+                this.tx = tx;//结束点
+                this.ty = ty;
+                this.r = 30; //斜边长度
+                this.xl = (this.ty - this.sy) / (this.tx - this.sx); //90度的时候是Infinity
+
+//                alert("开始X：" + this.sx + "，开始Y：" + this.sy + "结束X：" + this.tx
+//                + ",结束Y：" + this.ty);
+                console.log("开始X：" + this.sx + "，开始Y：" + this.sy + "结束X：" + this.tx
+                        + ",结束Y：" + this.ty);
+
+//                this.angle = Math.atan((this.ty - this.sy) / (this.tx - this.sx));
+                this.angle = Math.atan(this.xl);
+//                alert(this.xl);
+                console.log(this.xl);
+                console.log(this.angle);
+
+//                this.ex =
+                this.ex = this.angle ? (this.cx + Math.cos(this.angle) * this.r) : (this.cx - Math.cos(this.angle) * this.r);
+                this.ey = this.cy - Math.abs(Math.sin(this.angle) * this.r);
+//                this.ex = 0;
+//                this.ey = 0;
+                this.color = hue;
+                this.brightness = Math.random() * 20 + 40;//40 ~ 60
+                this.animateEnd = false;
+                this.mouse = mouse;
+
+            }
+
+            //烟花弹道绘制方法
+            Line.prototype.drawLine = function () {
+                ctx.strokeStyle = "hsla(" + this.color + ", 100%, " + this.brightness + "%, 1";;
+                ctx.lineWidth = 3;
+                ctx.shadowBlur = 0;
+                ctx.lineCap = "round";
+                ctx.beginPath();
+                ctx.moveTo(this.cx, this.cy);
+                ctx.lineTo(this.ex, this.ey);
+                ctx.stroke();
+                ctx.closePath();
+            };
+
+            //创建烟花弹道的方法
+            function createLine() {
+                lineArray.push(new Line(startX, startY, pageX, pageY))
+            }
+
+            //烟花弹道每次变化
+            function animateLine() {
+                for (var i = 0; i < lineArray.length; i++) {
+//                    if (lineArray[i].animateEnd) {
+//                        continue;
+//                    }
+                    lineArray[i].cx += (lineArray[i].tx - lineArray[i].sx) / 40;
+                    lineArray[i].cy = lineArray[i].sy + lineArray[i].xl * (lineArray[i].cx - lineArray[i].sx);
+
+                    if (lineArray[i].ey <= lineArray[i].ty) {
+                        lineArray[i].ey = lineArray[i].ty;
+                        lineArray[i].ex = lineArray[i].tx;
+                        if (lineArray[i].cy <= lineArray[i].ty) {
+                            createBoom(lineArray[i].tx, lineArray[i].ty);
+                            lineArray.splice(i, 1);
+                            i--;
+                        }
+                    } else {
+                        lineArray[i].ex += (lineArray[i].tx - lineArray[i].sx) / 40;
+                        lineArray[i].ey = lineArray[i].sy + lineArray[i].xl * (lineArray[i].ex - lineArray[i].sx);
+                    }
+                }
+            }
+
+            //绘制所有烟花弹道
+            function drawLine() {
+                for (var i = 0; i < lineArray.length; i++) {
+                    lineArray[i].drawLine();
+                }
+            }
+
+            //Boom(烟花爆炸)实例
+            function Boom(x, y) {
+                this.x = x;
+                this.y = y;
+//                this.max = boomMax;
+//                this.min = boomMax;
+                this.radius = Math.random() * 2 + 1; //1 ~ 3
+//                this.color = hue;
+                this.color = Math.random() * 360;
+
+//                this.color = 200;
+                this.alpha = 1;
+                this.gravity = 0.05;
+                this.mx = Math.random() * 10 - 5; //-5 ~ 5
+                this.my = Math.random() * 10 - 5; //-5 ~ 5
+                this.brightness = Math.random() * 130 - 50;
+            }
+
+            Boom.prototype.draw = function() {
+                ctx.beginPath();
+                ctx.fillStyle = "hsla(" + this.color + ", 100%, " + this.brightness + "%, " + this.alpha + ")";
+                ctx.lineWidth = 1;
+//                ctx.shadowColor = "pink";
+                ctx.shadowBlur = 0;
+//                ctx.shadowOffsetX = 0;
+//                ctx.shadowOffsetY = 20;
+                ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+                ctx.fill();
+//                ctx.closePath();
+            };
+
+            //创建Boom点
+            function createBoom(x, y) {
+                for (var i = 0; i < boomMax; i++) {
+                    boomArray.push(new Boom(x, y));
+                }
+            }
+
+
+            function animateBoom() {
+                for (var i = 0; i < boomArray.length; i++) {
+                    boomArray[i].alpha -= 0.02;
+                    boomArray[i].my += boomArray[i].gravity;
+                    boomArray[i].y += boomArray[i].my;
+                    boomArray[i].x += boomArray[i].mx;
+                    if (boomArray[i].alpha <= 0.05) {
+                        boomArray.splice(i, 1);
+                        i--;
+                    }
+                }
+            }
+
+            function boomDraw() {
+                for (var i = 0; i < boomArray.length; i++) {
+                    boomArray[i].draw();
+                }
+            }
+
+            //动画总事件
+            function animate() {
+                hue = Math.random() * 360;
+//                ctx.clearRect(0, 0, width, height);
+                ctx.fillStyle = 'rgba(0,0,0,0.2)';
+//                 ctx.clearRect(0,0,canvas.width,canvas.height);
+                ctx.fillRect(0,0,width,height);
+                animateLine();
+                drawLine();
+
+                animateBoom();
+                boomDraw();
+
+                requestAnimationFrame(animate);
+            }
+
+//            mCanvas.onclick = function (event) {
+//
+//            };
+
+            mCanvas.onmousedown = function (event) {
+                mCanvas.onmousemove = function(event) {
+                    pageX = event.clientX;
+                    pageY = event.clientY;
+                    createLine();
+                };
+            };
+            mCanvas.onmouseup = function (event) {
+                pageX = event.clientX;
+                pageY = event.clientY;
+                createLine();
+                mCanvas.onmousemove = function(event) {
+
+                };
+            };
+
+//            mCanvas.onmousemove = function(event) {
+//            };
+
+            requestAnimationFrame(animate);
+
+
+        }, false);
+    </script>
+</head>
+<body>
+<canvas id="canvas">
+
+</canvas>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        canvas {
+            width: 600px;
+            height: 300px;
+        }
+    </style>
+    <script>
+        onload = function () {
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+            var img1 = document.createElement("img");
+            var img2 = document.createElement("img");
+            img1.src = "img/bg_05.jpg";
+            img1.style.width = 100 + "px";
+            img1.style.height = 50 + "px";
+
+            ctx.drawImage(img1, 0, 0, 300, 150);
+            img2.src = "img/hero.png";
+            ctx.drawImage(img2, 10, 10, 60, 40);
+        }
+    </script>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+</body>
+</html>

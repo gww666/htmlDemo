@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>day12</title>
+    <style>
+        div {
+            background: #000;
+            width: 100px;
+            height: 100px;
+        }
+        #d2 {
+            background: red;
+            height: 50px;
+            width: 50px;
+        }
+    </style>
+    <script>
+        onload = function () {
+            var div = document.getElementById("d1");
+            var div2 = document.getElementById("d2");
+//            div.onclick = function () {
+//                alert("div");
+//            };
+//            window.onclick = function () {
+//                alert("window");
+//            };
+//            window.addEventListener("click", function(event) {
+//                alert("window" + event.eventPhase);
+//
+//            }, true);
+            document.addEventListener("click", function(event) {
+                alert("document" + event.eventPhase);
+
+            }, true);
+
+            div.addEventListener("click", function() {
+                alert("div1");
+//                console.log("ddd");
+            }, true);
+
+            div2.addEventListener("click", function() {
+                alert("div2");
+            }, false)
+        }
+    </script>
+</head>
+<body>
+<div id="d1">
+    <div id="d2">
+    </div>
+</div>
+</body>
+</html>

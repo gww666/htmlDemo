@@ -1,0 +1,295 @@
+body, ul, li, p, h1, h2, dl, dt, dd, hr {
+    margin:0;
+    padding:0;
+}
+.clear {
+    clear:both;
+}
+ul, ol, li {
+    list-style:none;
+}
+a {
+    text-decoration:none;
+}
+body {
+    background:#f1f5f8;
+}
+.content_div {
+    width:1070px;
+    margin:0 auto;
+}
+/*logo栏样式*/
+#logo {
+    background:#f1f5f8;
+}
+#logo img, span {
+    float:left;
+}
+#logo img {
+    height:77px;
+}
+.logo_line {
+    color:#cfd3d7;
+    font-size:38px;
+    margin:0 20px;
+    line-height:77px;
+}
+.logo_choose {
+    color:#333333;
+    font-size:20px;
+    background:url("../img/m_triangle.png") no-repeat right center;
+    padding-right:20px;
+    line-height:77px;
+
+}
+
+/*通知栏样式*/
+#state {
+    width:100%;
+    background:#fff url("../img/arrow_down.png") no-repeat 695px bottom;
+
+}
+#state p {
+    width:1050px;
+    background:url("../img/broadcast.png") no-repeat;
+    padding-left:30px;
+    line-height:38px;
+    margin-left:30px;
+}
+
+/*精品课程样式*/
+/*定义公共样式*/
+.lesson_title {
+    font-size:16px;
+    background:url("../img/m_icon1.png") no-repeat 0 -1px;
+    padding-left:30px;
+    height:16px;
+    position:relative;
+    width:273px;
+    line-height:16px;
+}
+.lesson_title span {
+    font-size:10px;
+    color:#b4b4b4;
+    position:absolute;
+    right:0;
+    top:0;
+}
+.lesson_underline {
+    width:303px;
+    border-bottom:1px solid #dddddd;
+    margin-top:8px;
+    margin-bottom:20px;
+}
+.lesson_p1 {
+    font-size:16px;
+    color:black;
+    margin-top:16px;
+    margin-bottom:14px;
+    width:303px;
+}
+.lesson_p2 {
+    font-size:14px;
+    color:#888888;
+    width:303px;
+}
+/*公共样式结束*/
+#lesson {
+    background:#f1f1f1;
+    overflow:hidden;
+}
+.lesson_content {
+    background:white;
+    padding:10px 22px 28px 22px;
+    width:1026px;
+}
+.content1, .content2, .content3 {
+    float:left;
+}
+.content2 {
+    margin:0 58px;
+}
+.lesson_t2_bg {
+    background:url("../img/m_icon2.png") no-repeat 0 -2px;
+}
+.lesson_t3_bg {
+    background:url("../img/m_icon3.png") no-repeat 0 -2px;
+}
+/*精品课程标题样式*/
+.lesson_t {
+    background:url("../img/camera.png") no-repeat;
+    font-size:20px;
+    padding-left:30px;
+    margin-top:20px;
+    margin-bottom:10px;
+}
+
+/*精品课程样式结束*/
+
+/*线下培训样式*/
+#train {
+    background:#f1f1f1;
+    margin-top:20px;
+
+}
+
+.train_left, .train_right {
+    float:left;
+    background:white;
+    border-bottom:1px solid #bababa;
+}
+.train_left {
+    width:738px;
+    padding:22px;
+
+}
+.left_title, .left_line, .left_more {
+    display:inline-block;
+    line-height:63px;
+}
+.left_title {
+    font-size:22px;
+    background:url("../img/m_star.png") no-repeat 0 46%;
+    padding-left:30px;
+    height:63px;
+
+}
+.left_line {
+    background:url("../img/m_line.png") repeat-x;
+    font-size:12px;
+    width:570px;
+    height:12px;
+    /*margin-top:25px;*/
+    margin:25px 10px 0 10px;
+}
+.left_more {
+    font-size:12px;
+    height:12px;
+
+}
+.left_more a {
+    color:#b3b3b3;
+}
+.left_p_title {
+    color:black;
+    font-size:14px;
+    margin:10px 0 10px 0;
+}
+.left_p_text {
+    color:#888888;
+    font-size:14px;
+}
+
+.train_right {
+    width:226px;
+    margin-left:20px;
+    padding:20px;
+}
+.right_title {
+    font-size:18px;
+}
+
+.right_text {
+    font-size:14px;
+    color:#333333;
+    line-height:24px;
+    margin-top:15px;
+}
+
+/*底部栏样式*/
+#footer {
+    background:#f6f6f6;
+    padding-top:30px;
+    padding-bottom:65px;
+}
+.footer_left, .footer_right {
+    float:left;
+}
+/*底部栏左边样式*/
+.f_left_title {
+    font-size:14px;
+    margin-top:30px;
+    margin-bottom:10px;
+}
+.left_img li {
+    float:left;
+}
+.left_img {
+    width:710px;
+    margin-left:14px;
+}
+.f_li_more {
+    width:125px;
+    height:29px;
+    font-size:13px;
+    line-height:29px;
+    color:#3f3f3f;
+}
+
+.left_partner {
+    width:647px;
+    font-size:13px;
+    color:#3f3f3f;
+}
+.left_partner li {
+    float:left;
+    padding:0 14px;
+}
+/*footer右部样式*/
+.footer_right {
+    margin-left:100px;
+}
+.footer_right p {
+    font-size:14px;
+    font-family:"微软雅黑";
+    color:#3f3f3f;
+}
+.footer_right .right_p1 {
+    margin-top:34px;
+}
+.footer_right .right_p2, .footer_right .right_p4 {
+    height:27px;
+    font:12px/27px "微软雅黑";
+    background:url("../img/weibo.png") no-repeat;
+    padding-left:25px;
+    margin:15px 40px;
+}
+.footer_right .right_p4 {
+    background:url("../img/kj.png") no-repeat;
+}
+
+/*版权样式*/
+#copyright {
+    padding:32px 0;
+    background:#bababa;
+    text-align:center;
+}
+#copyright p {
+    font-size:14px;
+    margin-bottom:10px;
+}
+#copyright .c_p1 span {
+    padding:0 13px;
+    float:none;
+}
+#copyright a {
+    color:black;
+}
+/*彩色样式栏样式*/
+.colour_1, .colour_2, .colour_3, .colour_4 {
+    width:25%;
+
+}
+
+.colour_1 {
+    border-bottom:4px solid #1fc0ef;
+}
+.colour_2 {
+    border-bottom:4px solid #f6a544;
+}
+.colour_3 {
+    border-bottom:4px solid #8cbe00;
+}
+.colour_4 {
+    border-bottom:4px solid #ff6c00;
+}

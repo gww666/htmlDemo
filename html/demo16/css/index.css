@@ -1,0 +1,37 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-content: space-between;
+    flex-flow: row wrap;
+}
+#header {
+    background: #00abf3;
+    height: 48.9vw;
+    width: 100vw;
+    padding:0 2.4vw;
+}
+.h_top {
+    display: flex;
+    justify-content:space-between;
+}
+.h_left {
+    width: 6.1vw;
+    height: 6.7vw;
+}
+
+.h_right {
+
+}
+
+#main {
+    flex: 1;
+    overflow: auto;
+}
+
+#footer {
+    height: 15.37vw;
+    width: 100vw;
+    background: #f8f8f8;
+    border-top:2px solid #d9d9d9;
+}

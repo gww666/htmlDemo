@@ -1,0 +1,593 @@
+body, ul, li, p, h1, h2, dl, dt, dd {
+    margin:0;
+    padding:0;
+}
+/*body {*/
+    /*background:#d6dae3;*/
+/*}*/
+.clear {
+    clear:both;
+}
+ul, ol, li {
+    list-style:none;
+}
+a {
+    text-decoration: none;
+}
+/*img {*/
+    /*display: block;*/
+/*}*/
+/*外围大盒子*/
+#box {
+    width:100%;
+
+}
+/*控制1070px区域的盒子*/
+.content_div {
+    width:1070px;
+    margin:0 auto;
+}
+
+
+#header {
+    width:100%;
+    height:80px;
+    /*background:url("../img/logo.png") no-repeat;*/
+    color:#c0b7b0;
+}
+
+.logo_img, #header ul, #header .search{
+    float:left;
+}
+
+.logo_img {
+    margin-top: 22px;
+    margin-left: -57px;
+}
+.header_p {
+    color: #707070;
+    font-size: 14px;
+    width: 148px;
+    height: 29px;
+    line-height: 29px;
+    margin-top: 28px;
+    text-align: center;
+    margin-left: 10px;
+    border-left:1px solid black;
+    float: left;
+}
+#header ul {
+    height:100%;
+    width:608px;
+    display:flex;
+    align-items:flex-end;
+    margin-left:66px;
+    margin-right: 90px;
+
+}
+#header ul li {
+    flex-grow:1;
+    text-align:center;
+    font-size:15px;
+    height: 100%;
+}
+#header ul li img {
+    float: none;
+}
+#header ul li a {
+    color: #867b70;
+    font-size: 14px;
+    display: inline-block;
+    width: 100%;
+    height: 64px;
+    padding-top: 16px;
+}
+/*导航hover样式*/
+#header ul li .home_active {
+    color:#17b8e6;
+}
+    .search {
+        padding-top:15px;
+        font-size:12px;
+        width: 130px;
+        margin-right: -70px;
+    }
+    .search_img {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .search a {
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        color: #a1968c;
+    }
+    .search span {
+        font-size: 31px;
+        line-height: 46px;
+        margin:0 20px;
+        display: inline-block;
+        vertical-align: middle;
+
+    }
+    .search input[type="button"] {
+        border:1px solid #ccb6a1;
+        background:url("../img/search.png") no-repeat;
+        border-left:0;
+        margin-left:-4px;
+        margin-top:10px;
+        width: 20px;
+        float: left;
+    }
+    .search input[type="text"] {
+        outline:none;
+        border:1px solid #ccb6a1;
+        border-right:0;
+        width:116px;
+        margin-top: 10px;
+        float: left;
+    }
+/*这是banner部分的样式    */
+#banner {
+    width:100%;
+}
+#banner img {
+    width: 100%;
+    height: 100%;
+}
+/*这是状态栏的样式*/
+#state {
+    width:100%;
+    background:url("../img/arrow_down.png") no-repeat 695px bottom;
+
+}
+#state p {
+    width:1050px;
+    background:url("../img/broadcast.png") no-repeat;
+    padding-left:30px;
+    line-height:38px;
+    margin-left:30px;
+}
+
+/*这是content区域的样式*/
+#content {
+    width:1080px;
+    display:flex;
+    justify-content:space-between;
+    background:#d6dae3;
+    margin:0 auto;
+}
+
+    #content #main {
+        width:780px;
+        height:100%;
+        background:#d6dae3;
+        display:flex;
+        flex-flow:column nowrap;
+        justify-content:center;
+        padding: 25px 0;
+    }
+    /*内容宽度为240，实际宽度280*/
+    #content #aside {
+        width:240px;
+        background:#fcfafb;
+        padding:20px;
+        margin:25px 0;
+        font-size:0;
+    }
+    /*主要内容区域样式开始*/
+        .hot_b {
+            height:353px;
+            width:100%;
+            margin-bottom:22px;
+            background:#f2f1ef;
+            display:flex;
+            flex-direction:column;
+        }
+
+        #share {
+            width:100%;
+            margin-bottom:15px;
+            background: #f2f1ef;
+        }
+
+        #activity {
+            height:452px;
+            width:100%;
+            background: #f2f1ef;
+        }
+            /*这是热门课程的样式*/
+            /*热门课程头部样式（公共样式，下面三个模块都使用这个样式）*/
+            .title {
+                display:flex;
+                flex-flow:row nowrap;
+                height:60px;
+                width:100%;
+                justify-content:space-between;
+            }
+                .title div {
+                    display:flex;
+                    height:60px;
+                    align-items:center;
+                    margin-left:20px;
+                }
+                .title img {
+                    width:22px;
+                    height:24px;
+                    margin-right:12px;
+                }
+                .title p {
+                    font-size:18px;
+                    line-height:18px;
+                    width:80px;
+                    height:18px;
+                }
+
+                .title span {
+                    font-size:12px;
+                    line-height:12px;
+                    width:34px;
+                    align-self:center;
+                    margin-right:15px;
+                }
+            /*热门课程的介绍样式    */
+            .hot_b .lesson_intro {
+                display:flex;
+                width:100%;
+                height:275px;
+                justify-content:space-around;
+            }
+                .lesson_intro dl {
+                    width:228px;
+                    height:100%;
+                    background:white;
+                }
+                .lesson_intro dd {
+                    width:200px;
+                    margin:0 auto;
+                }
+                .lesson_intro h2 {
+                    font-weight:normal;
+                    width:200px;
+                    overflow:hidden;
+                    white-space:nowrap;
+                    text-overflow:ellipsis;
+                    font:15px/15px "黑体";
+                    margin:16px 0 10px;
+                }
+                .lesson_intro p {
+                    color:#898989;
+                    font-size:14px;
+                }
+            /*这是干货分享课程介绍的样式    */
+            .share_intro {
+                display:flex;
+                width:700px;
+                /*background:white;*/
+                height:128px;
+                align-items:center;
+                padding:0 20px;
+                margin-left:20px;
+                margin-bottom: 20px;
+            }
+            .share_intro:nth-of-type(2) {
+                background: white url("../img/share_bg_03.png") no-repeat right top;
+            }
+            .share_intro:nth-of-type(3) {
+                background: white url("../img/share_bg_07.png") no-repeat right top;
+            }
+            .share_intro:nth-of-type(4) {
+                background: white url("../img/share_bg_10.png") no-repeat right top;
+            }
+                .share_intro img {
+                    margin:0 20px;
+                }
+                .share_intro h2{
+                    font-weight:normal;
+                    font-size:20px;
+
+                }
+                .share_intro .p1 {
+                    margin:10px 0;
+                    color:#878787;
+                    font-size:12px;
+                    line-height:14px;
+                    background:url("../img/share_time.png") no-repeat;
+                    padding-left:18px;
+                }
+                .share_intro .p2 {
+                    font-size:15px;
+
+                }
+            /*干货课程分享的样式结束     */
+            #activity .activity_1, #activity .activity_2{
+                width:700px;
+                height:160px;
+                padding:0 20px;
+                display:flex;
+            }
+            #activity hr {
+                width:740px;
+                margin:20px;
+                border:1px solid #e4e3e1;
+            }
+            .activity_1 div, .activity_2 div {
+                margin-left:20px;
+
+            }
+            .activity_1 h2, .activity_2 h2 {
+                font-weight:normal;
+                font-size:20px;
+            }
+            .activity_1 .p1, .activity_2 .p1 {
+                margin:10px 0;
+                color:#878787;
+                font-size:12px;
+                line-height:14px;
+                background:url("../img/share_time.png") no-repeat;
+                padding-left:18px;
+            }
+            /*精品课程*/
+            .greatest {
+                background: #f2f1ef;
+            }
+            .g_content {
+                /*background: #ffffff;*/
+                padding:0 20px;
+            }
+            .g_content dl img {
+                display: block;
+            }
+            .g_1,.g_2,.g_3,.g_4 {
+                float: left;
+                margin-bottom: 30px;
+                width: 350px;
+            }
+            .g_1 {
+                margin-right: 30px;
+            }
+            .g_3 {
+
+                margin-right: 30px;
+            }
+            .greatest_t {
+                font-size: 16px;
+                color: #51cbf0;
+                position: relative;
+                background: url("../img/img_98.png") no-repeat left center;
+                padding-left: 30px;
+                height: 26px;
+                line-height: 26px;
+                margin-bottom: 18px;
+
+            }
+            .t_line {
+                display: block;
+                border-bottom: 3px solid #d3ecf2;
+                width: 296px;
+                position: absolute;
+                top: 22px;
+                left: 24px;
+            }
+            .greatest_t .t_more {
+                position: absolute;
+                right: 0;
+                font-size: 8px;
+                color: #a1a1b4;
+                top: 7px;
+            }
+            .greatest_dt {
+                font-size: 14px;
+                margin-top: 18px;
+            }
+            .greatest_dd {
+                font-size: 14px;
+                color: #888888;
+                line-height: 22px;
+            }
+            .greatest_p {
+                background: url("../img/img_200.png") no-repeat left center;
+                padding-left: 15px;
+                font-size: 14px;
+                line-height: 14px;
+                height: 14px;
+                margin-top: 20px;
+            }
+            /*g_2的标题和边框颜色*/
+            .g_2 .greatest_t {
+                color: #f5a544;
+                background: url("../img/img_101.png") no-repeat left center;
+            }
+            .g_2 .t_line {
+                border-color: #f3d2aa;
+            }
+            .g_3 .greatest_t {
+                color: #f5a544;
+                background: url("../img/img_118.png") no-repeat left center;
+            }
+            .g_3 .t_line {
+                border-color: #f7bb8f;
+            }
+            .g_4 .greatest_t {
+                color: #a5be00;
+                background: url("../img/img_120.png") no-repeat left center;
+            }
+            .g_4 .t_line {
+                border-color: #c9dc8f;
+            }
+    /*主要内容区域样式结束*/
+    /*侧边栏样式*/
+        /*#aside .top_div {*/
+            /*width:100%;*/
+            /*height:40px;*/
+            /*background:#d6dae3;*/
+        /*}*/
+        #aside .top, #aside .qq {
+            background:url("../img/top.png") no-repeat;
+            font-size:22px;
+            height:22px;
+            line-height:22px;
+            padding-left:30px;
+        }
+
+        .hot {
+            height:68px;
+            font:14px/68px "黑体";
+        }
+        #aside img {
+            margin-bottom:20px;
+        }
+        /*侧边栏新闻列表样式*/
+        .aside_ul a {
+            display: inline-block;
+            background: url("../img/img_83.png") no-repeat left center;
+            padding-left: 30px;
+            font-size: 12px;
+            line-height: 20px;
+            width: 160px;
+            white-space:nowrap;
+            text-overflow:ellipsis;
+            overflow: hidden;
+            color: #000;
+            margin-bottom: 10px;
+        }
+        .p_title {
+            font-size:18px;
+            margin:10px 0 16px;
+        }
+        .p_content {
+            font-size:14px;
+            line-height:24px;
+        }
+        #aside hr {
+            border:1px solid #e4e3e1;
+            margin:15px 0;
+        }
+        #aside .qq {
+            background:url("../img/tel.png") no-repeat;
+        }
+        .qq_email {
+            font-size:14px;
+            margin:24px 0 10px;
+        }
+        .qq_qq {
+            font-size:14px;
+        }
+        .test_enter {
+            display: inline-block;
+            width: 200px;
+            margin:26px 0 0 14px;
+            text-align: center;
+            font-size: 36px;
+            background: #d4d4d4;
+            /*margin-top: 26px;*/
+            color: #000;
+        }
+        .test_enter img {
+            margin-top: 8px;
+            /*margin: 0;*/
+        }
+
+    /*侧边栏样式结束*/
+
+/*底部样式开始*/
+#footer {
+    width:100%;
+    height:267px;
+    display:flex;
+    justify-content:center;
+    background:#f6f6f6;
+}
+    .footer_left {
+        width:780px;
+        margin-right:20px;
+        background:#f6f6f6;
+
+    }
+    .footer_right {
+        width:280px;
+        background:#f6f6f6;
+        padding-left:20px;
+    }
+        .left_ptimg {
+            display:flex;
+            flex-flow:row wrap;
+            justify-content:flex-start;
+            margin-left:15px;
+            align-content:space-between;
+            height:75px;
+
+        }
+            .left_title {
+                font-size:16px;
+                margin:30px 0 15px 20px;
+            }
+            .left_ptimg img {
+                margin:0 23px;
+                width:80px;
+                order:2;
+            }
+            .left_ptimg img[alt="pt2"] {
+                 order:1;
+            }
+            .left_ptimg img[alt="pt1"] {
+                 order:3;
+
+            }
+            .left_ptimg img[alt="pt8"], .left_ptimg img[alt="pt9"], .left_ptimg img[alt="pt10"]  {
+                order:4;
+            }
+
+        .footer_left ul {
+            display:flex;
+            flex-flow:row wrap;
+            font-size:12px;
+            padding:0 25px;
+            line-height:26px;
+
+        }
+        .footer_left ul li {
+            padding:0 19px;
+        }
+        /*这是底部的右部样式*/
+        .footer_right p {
+            font-size:15px;
+            font-family:"微软雅黑";
+        }
+        .footer_right .right_p1 {
+            margin-top:34px;
+        }
+        .footer_right .right_p2, .footer_right .right_p4 {
+            height:27px;
+            font:12px/27px "微软雅黑";
+            background:url("../img/weibo.png") no-repeat;
+            padding-left:25px;
+            margin:15px 10px;
+        }
+        .footer_right .right_p4 {
+            background:url("../img/kj.png") no-repeat;
+        }
+/*版权样式*/
+#copyright {
+    background: #bababa;
+    height: 128px;
+    font-size: 14px;
+    overflow: hidden;
+}
+#copyright ul {
+    width: 307px;
+    margin:0 auto;
+    margin-top: 33px;
+}
+#copyright ul a {
+    float: left;
+    color: #000;
+    border-right:1px solid black;
+    padding-left: 15px;
+    padding-right: 12px;
+    line-height: 14px;
+}
+#copyright p {
+    text-align: center;
+    margin-top: 10px;
+}

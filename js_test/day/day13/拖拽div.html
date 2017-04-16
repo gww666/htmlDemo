@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>div</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            background: #000;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <script src="../Utils.js"></script>
+    <script>
+        onload = function () {
+            var date = new Date();
+            date.setDate(date.getDate() + 1);
+            var div = document.getElementsByTagName("div")[0];
+            //判断有无记录位置的cookie
+            if (cookieUtil.getCookie("posX") && cookieUtil.getCookie("posY")) {
+                div.style.left = cookieUtil.getCookie("posX");
+                div.style.top = cookieUtil.getCookie("posY");
+            }
+//            function drag1() {
+//
+//            }
+            div.onmousedown = function (e) {
+                var event = e || event;
+                var disX = event.offsetX;
+                var disY = event.offsetY;
+                document.onmousemove = function (e) {
+                    var event = e || event;
+//                    console.log(event.pageX - disX);
+
+                    div.style.left = event.pageX - disX + "px";
+                    console.log(div.offsetLeft);
+                    div.style.top = event.pageY - disY + "px";
+                    cookieUtil.setCookie("posX", div.style.left, date);
+                    cookieUtil.setCookie("posY", div.style.top, date);
+                };
+                document.onmouseup = function () {
+                    document.onmousemove = document.onmouseup = null;
+                }
+            };
+//            drag(div, document);
+        }
+    </script>
+</head>
+<body>
+<div></div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0;padding:0;}
+        #zone ul{float:left;width: 100px;height: 10px;}
+        .clear{clear:both;}
+        #zone{width:500px;height:500px;border:1px solid red;}
+        input{width:90px;height:30px;border:none;background:#ccc;float:left;}
+    </style>
+    <script>
+        onload = function () {
+            var oUL = document.getElementsByTagName('ul');
+            var oli1 = oUL[0].getElementsByTagName('li');
+            var oli2 = oUL[1].getElementsByTagName('li');
+            function part1(){
+                var oli1 = oUL[0].getElementsByTagName('li');
+                for (var i = 0;i < oli1.length;i++){
+//                    oli1[i].innerHTML = 'Innovation';
+                }
+            }
+            function part2(){
+                var oli2 = oUL[1].getElementsByTagName('li');
+                for (var i = 0;i < oli2.length;i++){
+//                    oli2[i].innerHTML = 'Innovation';
+                }
+            }
+            var obtn = document.getElementsByTagName('input');
+            obtn[0].onclick = function (){
+                part1();
+            }
+
+            obtn[1].onclick = function (){
+                part2();
+            }
+        }
+    </script>
+</head>
+<body>
+<div id = 'nav'>
+    <input type="button" value = 'Technology'/>
+    <input type="button" value = 'Explore'/>
+</div>
+<div class='clear'></div>
+<div id = 'zone'>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+</html>

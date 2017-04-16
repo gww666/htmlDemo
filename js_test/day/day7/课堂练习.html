@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>课堂练习</title>
+    <script>
+        //1
+        var str1 = "Hello";
+        var str2 = "World";
+        alert(str1.concat(str2));
+
+        //2
+        var str3 = "I Love Beijing";
+        for (var i = 0; i < str3.length; i++) {
+            if (str3.slice(i, i+4) == "Love") {
+                alert("Love的范围是第" + (i+1) + "到" + (i+4) + "位");
+            }
+        }
+
+        //3
+        var str4 = "I Hate Beijing";
+        alert(str4.slice(2, 5));
+
+        //4
+        var str5 = "When I was young, I love a girl in neighbor class.";
+        alert(str5.slice(str5.indexOf("young"), str5.indexOf("girl") + 4));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

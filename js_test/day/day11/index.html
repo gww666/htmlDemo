@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body,html {
+            background: #000;
+            width: 100%;
+            height: 100%;
+        }
+        img {
+            width: 208px;
+            height: 208px;
+        }
+    </style>
+    <script>
+        onload = function () {
+            var img = document.getElementsByTagName("img")[0];
+//            var w = parseInt(img.style.width);
+//            console.log(img.style.width);
+            document.body.onmousemove = function (event) {
+//                img.style.position = "absolute";
+                img.style.marginLeft = (event.clientX - 104) + "px";
+                img.style.marginTop = (event.clientY - 104) + "px";
+//                console.log(event.clientX);
+            }
+        }
+    </script>
+</head>
+<body>
+<img src="girl.gif" alt="">
+</body>
+</html>

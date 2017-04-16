@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滑块跟随鼠标移动</title>
+    <style>
+        div {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: paleturquoise;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <script>
+        onload = function () {
+            var div = document.getElementsByTagName("div");
+            console.log(div.length);
+            document.onmousemove = function (event) {
+                for (var i = (div.length - 1); i >= 0; i-- ) {
+                    console.log(div[i]);
+                    if (i != 0) {
+                        div[i].style.left = div[i - 1].offsetLeft + "px";
+                        div[i].style.top = div[i - 1].offsetTop + "px";
+                    } else {
+                        div[i].style.left = event.pageX - 15 + "px";
+                        div[i].style.top = event.pageY - 15 + "px";
+                    }
+                }
+//                div[0].style.left = event.pageX - 15 + "px";
+//                div[0].style.top = event.pageY - 15 + "px";
+            };
+
+        }
+    </script>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>

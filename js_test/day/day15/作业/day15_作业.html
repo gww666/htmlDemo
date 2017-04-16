@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				border: none;
+			}
+			ul, li {
+				list-style: none;
+			}
+			
+			body {
+				background: #ddd;
+				font-family: "微软雅黑";
+				overflow: hidden;
+			}
+			
+			#push {
+				width: 120px;
+				height: 40px;
+				margin: 10px auto;
+				border: 1px solid #ddd;
+				border-radius: 3px;
+				background: green;
+				color: white;
+				text-align: center;
+				line-height: 40px;
+				display: block;
+				font-size: 20px;
+				cursor: pointer;
+			}
+			
+			#list {
+				width: 400px;
+				margin: 10px auto;
+			}
+			li {
+				background: white;
+				border: 1px solid #ddd;
+				margin-bottom: 10px;
+				border-radius: 4px;
+				padding: 10px;
+			}
+			
+			#boxBg {
+				background: black;
+				width: 100%;
+				height: 100%;
+				filter: alpha(opacity=30);
+				opacity: 0.3;
+				position: absolute;
+				left: 0;
+				top: 0;
+				display: none;
+			}
+			#box {
+				width: 500px;
+				height: 280px;
+				background: white;
+				position: absolute;
+				left: 200px;
+				top: 100px;
+				border-radius: 5px;
+				display: none;
+				font-size: 16px;
+			}
+			#box_top {
+				height: 40px;
+				background: green;
+				border-top-left-radius: 5px;
+				border-top-right-radius: 5px;
+				cursor: move;
+			}
+			#box_top #close {
+				width: 50px;
+				height: 40px;
+				line-height: 40px;
+				position: absolute;
+				right: 5px;
+				cursor: pointer;
+			}
+			
+			#textarea {
+				width: 470px;
+				height: 150px;
+				border: 2px solid orange;
+				margin: 0 10px;
+				padding: 5px;
+				font-size: 16px;
+			}
+			
+			#submit_btn {
+				width: 160px;
+				height: 40px;
+				margin: 5px auto;
+			}
+			
+			#submit_btn input {
+				width: 200px;
+				height: 35px;
+				background: #090;
+				color: white;
+				font-size: 16px;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+		</style>
+		<script>
+			onload = function() {
+			    function $(id) {
+			        return document.getElementById(id);
+                }
+                var width = window.innerWidth;
+			    var height = window.innerHeight;
+			    console.log(width);
+			    console.log(height);
+                function show() {
+                    $("box").style.display = "block";
+                    $("box").style.left = width / 2 - $("box").offsetWidth / 2 + "px";
+                    $("box").style.top = height / 2 - $("box").offsetHeight / 2 + "px";
+                    $("boxBg").style.display = "block";
+                }
+                function close() {
+                    $("box").style.display = "none";
+                    $("boxBg").style.display = "none";
+                    $("textarea").value = "";
+                }
+
+                //打开发布框
+                $("push").onclick = function () {
+                    show();
+                };
+
+                //关闭发布框
+                $("close").onmousedown = function (e) {
+                    var evt = e || event;
+                    evt.stopPropagation();
+                    $("close").onmouseup = function () {
+                        close();
+                    };
+                };
+
+                //发布帖子
+				$("submit_btn").onclick = function () {
+				    if ($("textarea").value == "") {
+				        alert("发布内容不能为空！");
+				        return false;
+					}
+				    var li = document.createElement("li");
+				    li.innerHTML = $("textarea").value;
+				    $("list").appendChild(li);
+				    close();
+                };
+
+                //对发布框进行拖拽
+				$("box_top").onmousedown = function (e) {
+				    var evt = e || event;
+				    var disX = evt.offsetX;
+				    var disY = evt.offsetY;
+					document.onmousemove = function (e) {
+                        var evt = e || event;
+						$("box").style.left = evt.pageX - disX + "px";
+						$("box").style.top = evt.pageY - disY + "px";
+                    };
+                    document.onmouseup = function () {
+                        document.onmousemove = document.onmouseup = null;
+                    }
+                }
+			}
+		</script>
+	</head>
+	<body>
+		<input id="push" type="button" value="发布" />
+		<ul id="list">
+		</ul>
+		
+		<div id="boxBg">
+		</div>
+		
+		<div id="box">
+			<div id="box_top">
+				<div id="close">关闭</div>
+			</div>
+			请输入你想要输入的文字: <br />
+			<textarea id="textarea" cols="40"></textarea>
+			<div id="submit_btn">
+				<input type="button" value="确定" />
+			</div>
+		</div>
+	</body>
+</html>

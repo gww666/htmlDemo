@@ -1,0 +1,16 @@
+1、数组，使用数组结构存放大量数据
+2、数组是对象，所以有自己的属性和方法
+    1、常用数组属性：
+        array.length
+    2、常用数组方法：
+        push()
+        unshift()
+        pop()
+        shift()
+        concat()
+        sort()
+        reverse()
+        slice()不会修改原数组
+        splice()会修改原数组
+        join()
+3、for in

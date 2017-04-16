@@ -1,0 +1,405 @@
+body, ul, li, p, h1, h2, dl, dt, dd,hr {
+    margin:0;
+    padding:0;
+}
+a {
+    text-decoration:none;
+}
+.clear {
+    clear:both;
+}
+ul, ol, li {
+    list-style:none;
+}
+
+#box {
+    width:1126px;
+    margin:0 auto;
+}
+
+/*头部样式*/
+#header {
+    font-size:12px;
+    height:36px;
+    line-height:36px;
+    background:#ecf0f1;
+    width:1086px;
+    padding:0 20px;
+}
+
+#header p {
+    float:left;
+
+}
+#header div {
+    float:right;
+}
+
+#header div .span_middle {
+    margin:0 10px;
+}
+
+/*logo区域的样式*/
+#logo {
+    height:110px;
+    width:1086px;
+    padding:0 20px;
+}
+#logo img[alt="logo"] {
+    margin-right:20px;
+    float:left;
+    margin-top:18px;
+}
+/*logo左部区域的样式*/
+.logo_left {
+    float:left;
+}
+.logo_left .left_title {
+    font-size:32px;
+    height:32px;
+    color:#2880b2;
+    margin-top:25px;
+}
+.logo_left .left_en {
+    font-size:12px;
+    height:12px;
+    color:#dcdddf;
+    font-weight:bold;
+    margin-top:10px;
+}
+/*logo右部区域的样式*/
+.logo_right {
+    float:right;
+
+}
+.logo_right img, .logo_right div {
+    float:left;
+    /*margin-top:*/
+}
+.logo_right div {
+    margin-top:32px;
+    margin-left:10px;
+}
+.logo_right img {
+    margin-left:55px;
+    margin-top:30px;
+}
+
+.logo_right .right_title {
+
+    color:#767676;
+    font-size:16px;
+    line-height:16px;
+    height:16px;
+}
+
+.logo_right .right_tel {
+    color:#dd4d44;
+    font-size:20px;
+    line-height:20px;
+    margin-top:10px;
+    height:20px;
+}
+
+/*导航栏样式*/
+#nav {
+    width:100%;
+    height:50px;
+    background:#3598db;
+}
+
+#nav li {
+    float:left;
+    color:white;
+    font-size:15px;
+    line-height:50px;
+    text-align:center;
+    width:152px;
+}
+
+#nav ul {
+    margin-left:25px;
+}
+
+#nav ul:after {
+    content:".";
+    display:block;
+    height:0;
+    visibility:hidden;
+    clear:both;
+
+}
+
+#banner {
+    font-size:0;
+}
+#banner img {
+    width:100%;
+    height:400px;
+    margin-top:-2px;
+}
+
+/*通知栏的样式*/
+#notice {
+    height:50px;
+    padding:30px 25px;
+
+}
+.notice_p {
+    height:48px;
+    border:1px solid #d6d6d6;
+    font-size:14px;
+    line-height:48px;
+
+    padding:0 20px;
+    overflow:hidden;
+
+}
+.notice_p ul {
+    width:2000px;
+}
+.notice_p li {
+    background:url("../img/trangle.png") no-repeat 0 50%;
+    float:left;
+    margin-right:28px;
+    padding-left:15px;
+}
+.notice_p .notice_first {
+    padding-left:20px;
+    margin-right:15px;
+    color:#eb4d42;
+    background:url("../img/vol.png") no-repeat 0 50%;
+}
+
+/*快捷区、新闻、关于的样式*/
+/*定义公共样式*/
+.con_title {
+    font-size:14px;
+    height:14px;
+    line-height:14px;
+}
+
+.con_title span {
+    font-size:12px;
+    color:#a8a8a8;
+    line-height:14px;
+    margin-left:5px;
+}
+
+.con_underline {
+    border-bottom:3px solid #3398de;
+    width:58px;
+    margin-top:15px;
+    margin-bottom:22px;
+}
+
+.button_more {
+    width:88px;
+    height:34px;
+    position:absolute;
+    right:20px;
+    top:30px;
+    color:#b1b1b1;
+    border:1px solid #b1b1b1;
+    line-height:34px;
+    text-align:center;
+    font-size:14px;
+}
+/*内容高度为370px，实际高度为405px*/
+#content, #videos {
+    height:370px;
+    background:#f8f8f8;
+    padding:35px 20px 0 20px;
+    width:1086px;
+
+}
+
+.shortcut, .news, .about {
+    float:left;
+    margin-right:20px;
+    height:335px;
+}
+.shortcut {
+    width:306px;
+
+}
+
+.news {
+    width:348px;
+    position:relative;
+
+}
+.news .news_list {
+    background:white;
+    width:308px;
+    height:263px;
+    padding:20px 20px 0;
+}
+.news li {
+    width:100%;
+    height:40px;
+    border-bottom:1px dashed #cfcfcf;
+    color:#5e5e5e;
+    font-size:12px;
+    line-height:40px;
+    position:relative;
+
+}
+.news li span {
+    position:absolute;
+    right:0;
+}
+.about {
+    width:387px;
+    margin-right:0;
+}
+
+/*这是产品部分的样式*/
+
+#products {
+    height:360px;
+    width:1086px;
+    padding:35px 20px 0 20px;
+    position:relative;
+}
+#products img {
+    border:1px solid #d5d5d5;
+    width:187px;
+    height:235px;
+    font-size:0;
+    margin-right:35px;
+}
+
+#products img[alt="p5"] {
+    margin-right:0;
+}
+
+/*视频区域的样式*/
+#videos {
+    height:320px;
+}
+#videos .shortcut, #videos .news, #videos .about {
+    height:292px;
+}
+
+#videos .about .contact {
+    height:219px;
+    background:white;
+    padding-top:20px;
+}
+.contact p {
+    font-size:14px;
+    color:#959595;
+    background:url("../img/phone.png") no-repeat;
+    padding-left:30px;
+    margin-left:20px;
+
+}
+.contact p span {
+    color:#5A5555;
+}
+.contact .c_p2 {
+    background:url("../img/qie.png") no-repeat;
+    margin-left:15px;
+    padding-left:33px;
+}
+.contact .c_p3 {
+    background:url("../img/location.png") no-repeat;
+    margin-left:15px;
+}
+.contact hr {
+    margin:10px 20px;
+    border:1px solid #f1f1f1;
+}
+
+.contact div, .contact img {
+    float:left;
+
+}
+.contact img {
+    margin-top:-20px;
+    margin-left:14px;
+}
+
+/*友情链接*/
+#f_link {
+    width:1076px;
+    padding:30px 25px;
+
+}
+/*内容宽度为1009，实际宽度为1076*/
+#f_link .link_div {
+    border:1px solid #d8d8d8;
+    border-left:0;
+    width:1009px;
+    height:72px;
+    background:url("../img/f_link.png") no-repeat;
+    padding-left:67px;
+
+}
+.link_div {
+
+}
+.link_div li {
+    float:left;
+    margin:0 15px;
+    line-height:72px;
+}
+
+.link_div li a{
+    float:left;
+    color:#5A5555;
+}
+
+/*底部导航区域*/
+#footer_nav {
+    height:50px;
+    background:#34495e;
+    padding-left:66px;
+}
+#footer_nav a {
+    float:left;
+    color:#ccc5bd;
+    width:134px;
+    line-height:50px;
+    position:relative;
+    text-align:center;
+}
+#footer_nav li {
+    float:left;
+
+}
+#footer_nav a:before {
+    content:"|";
+    color:#657181;
+    position:absolute;
+    left:-1.5px;
+    top:0;
+}
+#footer_nav a:after {
+    content:"|";
+    color:#ccc5bd;
+    position:absolute;
+    right:0;
+    top:0;
+}
+
+#footer_nav .f_a1:before {
+    content:none;
+}
+#footer_nav .f_a7:after {
+    content:none;
+}
+
+/*底部版权样式*/
+#footer {
+    height:75px;
+    background:#2d3e50;
+    padding-top:25px;
+}
+
+#footer p {
+    color:white;
+    font-size:12px;
+    margin-left:104px;
+}

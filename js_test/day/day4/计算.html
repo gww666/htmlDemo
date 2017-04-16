@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算</title>
+    <script>
+        onload = function () {
+            var num1 = document.getElementById("num1");
+            var o_ipt = document.getElementById("o_ipt");
+            var num2 = document.getElementById("num2");
+            var o_btn = document.getElementById("o_btn");
+            o_btn.onclick = function () {
+              alert(add(Number(num1.value), Number(num2.value), o_ipt.value));
+            };
+            function add(num1, num2, operator) {
+                var result;
+                switch (operator) {
+                    case "+":
+                        result = num1 + num2;
+                        break;
+                    case "-":
+                        result = num1 - num2;
+                        break;
+                    case "*":
+                        result = num1 * num2;
+                        break;
+                    case "/":
+                        result = num1 / num2;
+                        break;
+                }
+                return result;
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="text" value="" id="num1">
+<input type="text" id="o_ipt">
+<input type="text" id="num2">
+<input type="button" id="o_btn" value="计算">
+</body>
+</html>

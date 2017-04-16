@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹弹球2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div:nth-child(1) {
+            background: #000;
+            width: 600px;
+            height: 600px;
+            /*position: relative;*/
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        div:nth-child(2) {
+            background: red;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            position: absolute;
+            left: 10px;
+            top: 10px;
+        }
+        div:nth-child(3) {
+            background: lightcoral;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            position: absolute;
+            left: 10px;
+            top: 10px;
+        }
+    </style>
+    <script>
+        onload = function () {
+            var div = document.getElementsByTagName("div");
+            console.log(div[2].offsetWidth);
+            console.log(div[2].offsetHeight);
+            console.log(div[0].offsetHeight);
+            var speedX = 5;
+            var speedY = 2;
+            function move() {
+
+
+                if (div[2].offsetLeft >= div[0].offsetWidth - div[2].offsetWidth || div[2].offsetLeft <= 0) {
+                    speedX *= (-1);
+                }
+                if (div[2].offsetTop >= div[0].offsetHeight - div[2].offsetHeight || div[2].offsetTop <= 0) {
+                    speedY *= (-1);
+                }
+                div[2].style.left = div[2].offsetLeft + speedX + "px";
+                div[2].style.top = div[2].offsetTop + speedY + "px";
+//                console.log("aaaa");
+//                console.log(div[1].offsetLeft);
+//                console.log(div[1].offsetWidth);
+//                console.log(div[2].offsetTop);
+            }
+            setInterval(move, 16.7);
+        }
+    </script>
+</head>
+<body>
+<div>
+    <div></div>
+    <div></div>
+</div>
+</body>
+</html>

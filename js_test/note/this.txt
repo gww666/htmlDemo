@@ -1,0 +1,12 @@
+var x = 2;
+function test()
+{
+　　　　	this.x = 1;
+}
+var o = new test();
+alert("o.x: " + o.x); //1
+o.x = 3;
+test();
+x*=10;
+　　alert("o.x: " + o.x); //3
+alert("x: " + x); //10

@@ -1,0 +1,277 @@
+/* CSS Document */
+html,body,ol,ul,li,h1,h2,h6,dl,dd,dt,p,th {
+	margin:0;
+	padding:0;
+}
+ul,ol,li{list-style:none;}
+.clear {
+	clear:both;
+}
+a {
+	text-decoration:none;
+	color:white;
+}
+#box {
+	width:1200px;
+	margin:0 auto;
+	font-family:"微软雅黑";
+}
+.add_div {
+	width:1000px;margin:0 auto;
+}
+
+#nav, #banner, news, #market, #intro, #footer {
+	width:1200px;
+}
+
+/** 导航栏样式开始 **/
+#nav {
+	height:60px;
+	background:#202326;
+	
+}
+	#nav img {
+		float:left;
+	}
+	#nav ul {
+		float:right;
+		margin-right:20px;
+		cursor:pointer;
+	}
+	#nav li {
+		position:relative;
+		list-style:none;
+		float:left;
+		color:white;
+		line-height:60px;
+		font-family:"微软雅黑";
+		padding:0 10px;
+	}
+	#nav li:before {
+		position:absolute;
+		content:"|";
+		color:black;
+		left:-2.5px;
+		text-shadow: 0 0 1px white;
+	}
+	
+	.li_active_bg {
+		background:#f15a23;
+	}
+	.li_active:before {
+		position:absolute;
+		content:"|";
+		color:black;
+		left:-2.5px;
+		text-shadow: 0 0 1px white;
+		opacity:0;
+	}
+	
+/** 导航栏样式开始 **/
+
+#banner {
+	height:420px;
+}
+	#banner img {
+		height:420px;
+		width:1200px;
+	}
+
+/* 千锋介绍样式开始 */
+#intro {
+	height:350px;
+	background:#f5f5f5;
+	
+}
+	#intro .add_div div {
+		width:250px;
+		height:300px;
+		text-align:center;
+		padding-top:40px;
+		float:left;
+	}
+	/* 千锋介绍自定义列表样式 */
+	#intro dd {
+		color:#a4c3df;
+		font-size:13px;
+	}
+	#intro .dd_first {
+		color:#4b7196;
+		font-size:14px;
+		padding-bottom:15px;
+	}
+	
+	#intro h1 {
+		color:black;
+		margin: 15px 0;
+		font-weight:normal;
+	}
+	
+
+/* 千锋介绍样式结束 */
+
+/* 千锋新闻模块样式开始 */
+#news {
+	height:225px;
+	background:white;
+	padding:43px 0;
+	
+}
+/* 千锋新闻模块左部样式（新闻） */
+#news_left {
+	width:655px;
+	height:225px;
+	float:left;
+}
+	#news_left img{
+		width:300px;
+		height:225px;
+		float:left;
+	}
+	.news_text {
+		float:left;
+		width:325px;
+		padding:0 15px;
+	}
+	/* 千锋新闻模块文字样式（自定义列表和无序列表） */
+	.left_title {
+		height:114px;
+		width:325px;
+		border-bottom:1px dashed #989696;
+			
+	}
+		.left_title p {
+			font-size:20px;
+			height:20px;
+			line-height:20px;
+			margin-bottom:15px;
+		}
+		/* 千锋新闻模块自定义列表样式 */
+		.left_title dt {
+			font-size:18px;
+			height:18px;
+			line-height:18px;
+			margin-bottom:10px;
+		}
+		.left_title dd {
+			text-indent:28px;
+			height:40px;
+			line-height:20px;
+			font-size:14px;
+			color:#999999;
+			overflow:hidden;
+		}
+		
+	.left_list {
+		height:100px;
+		width:325px;
+		
+	}
+		/* 千锋新闻模块无序列表样式 */
+		.left_list li {
+			background:url("../img/arrow.jpg") no-repeat;
+			padding-left:15px;
+			margin-top:10px;
+			list-style:none;
+			overflow:hidden;
+			white-space:nowrap;
+			text-overflow:ellipsis;
+			font-size:16px;
+			line-height:16px;
+			color:#626763;
+		}
+/* 千锋新闻模块右部样式（联系方式） */
+#news_right {
+	width:324px;
+	height:225px;
+	float:left;
+	padding:0 10px;
+	border-left:1px solid #989696;
+	
+}
+	#news_right h2{
+		height: 20px;
+		font-size: 20px;
+		line-height: 20px;
+		font-weight: normal;
+		margin-bottom: 15px;
+	}
+	/* 清除浮动 */
+	.chat_img {zoom:1;}
+	.chat_img:after {
+		display:block;
+		content:".";
+		height:0;
+		visibility:hidden;
+		clear:both;
+	}
+	#news_right img {
+		float:left;
+	}
+	#news_right p {
+		font-size:30px;
+		height:30px;
+		line-height:30px;
+		color:#696a6e;
+		margin:20px 0 15px 0;
+	}
+	
+	#news_right li{
+		list-style:none;
+		color:#626763;
+		margin-bottom:5px;
+		font-size:14px;
+	}
+/* 千锋新闻模块样式结束 */
+
+/* 千锋市场模块样式开始 */
+#market {
+	height:215px;
+	background:#222222;
+	
+}
+	/* 市场模块左部div高225px，padding-top为30px，实际高度为185px */
+	.market_left {
+		width:500px;
+		height:185px;
+		padding-top:30px;
+		float:left;
+		
+	}
+	.market_left table {
+		
+	}
+	.market_left td {
+		text-align:center;
+		font-size:12px;
+		color:#969696;
+		padding:5px 20px;
+	}
+	.market_left th {
+		padding:10px;
+		font-size:14px;
+		color:white;
+		font-weight:normal;
+	}
+	
+	.market_right {
+		width:500px;
+		height:215px;
+		background:url("../img/market.jpg");
+		float:left;
+	}
+/* 千锋市场模块样式结束 */
+
+#footer {
+	height:45px;
+	background:#101010;
+	width:1200px;
+	
+}
+ #footer p {
+	 color:#969696;
+	 font-size:12px;
+	 text-align:center;
+	 width:1200px;
+	 line-height:45px;
+ }

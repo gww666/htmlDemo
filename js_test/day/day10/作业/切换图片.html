@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>切换图片</title>
+    <style>
+        img {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+    <script>
+        onload = function () {
+            var td = document.getElementsByTagName("td")[0];
+            var target = document.getElementById("target");
+            var img = td.getElementsByTagName("img");
+            for (var i = 0; i < img.length; i++) {
+                img[i].onclick = function () {
+                    target.src = this.src;
+                }
+            }
+        };
+
+
+
+    </script>
+</head>
+<body>
+<table>
+    <tr>
+        <td>
+            <img src="../img/2.jpg" alt="">
+            <img src="../img/3.jpg" alt="">
+            <img src="../img/bg2.jpg" alt="">
+        </td>
+    </tr>
+</table>
+<img src="../img/1.jpg" alt="" id="target">
+</body>
+</html>

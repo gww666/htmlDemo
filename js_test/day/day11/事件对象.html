@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件对象</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: #000;
+        }
+    </style>
+    <script>
+        onload = function () {
+            var div = document.getElementsByTagName("div")[0];
+            div.onclick = function (event) {
+                alert(event);
+            }
+        };
+    </script>
+</head>
+<body>
+<div></div>
+</body>
+</html>

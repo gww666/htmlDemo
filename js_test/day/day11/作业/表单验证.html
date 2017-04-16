@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单验证</title>
+    <script>
+        onload = function () {
+            var input = document.getElementsByTagName("input");
+            input[0].onblur = function () {
+                var reg = /^[0-9]{6,16}$/;
+//                var value = input[0].value;
+                if (input[0].value.length < 6) {
+                    alert("用户名长度不能低于6位");
+                }
+                if (!reg.test(input[0].value)) {
+                    alert("用户名只能由数字和字母组成");
+                }
+
+
+            };
+            input[1].onblur = function () {
+                if (input[1].value < 8) {
+                    alert("用户名长度不能低于8位");
+                }
+            };
+
+            input[2].onclick = function () {
+                alert(input[0].value + "," + input[1].value);
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="text" placeholder="用户名"><br/>
+<input type="text" placeholder="密码"><br/>
+<input type="button" value="提交">
+
+</body>
+</html>

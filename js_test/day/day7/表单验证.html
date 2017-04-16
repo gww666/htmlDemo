@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+    <style>
+        body {
+            font-family:Arial;
+        }
+    </style>
+    <script>
+        onload = function () {
+            var name = document.getElementById("name");
+            var pass = document.getElementById("pass");
+            var submit = document.getElementById("submit");
+            submit.onclick = function () {
+                if (name.value[0] >= 0 && name.value[0] <= 9) {
+                    alert("用户名第一位不能为数字");
+                    return false;
+                }
+                if (name.value.length < 6) {
+                    alert("用户名不能少于6位");
+                    return false;
+                }
+                if (name.value.length > 20) {
+                    alert("用户名不能多于20位");
+                    return false;
+                }
+                if (pass.value == "") {
+                    alert("密码不能为空");
+                    return false;
+                }
+                alert("提交成功");
+            }
+
+        }
+    </script>
+</head>
+<body>
+<label>用户名：<input type="text" placeholder="用户名" id="name"></label><br/>
+<label>密&nbsp;&nbsp;&nbsp;码：<input type="password" placeholder="密码" id="pass"></label>
+<label><input type="submit" value="提交" id="submit"></label>
+</body>
+</html>

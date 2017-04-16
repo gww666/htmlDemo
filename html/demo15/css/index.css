@@ -1,0 +1,253 @@
+.content_div {
+    width: 1200px;
+    margin:0 auto;
+}
+
+#logo {
+
+}
+
+.logo {
+    float: left;
+}
+
+.line {
+    float: left;
+    padding: 10px;
+    color: #dddddd;
+    height: 36px;
+    display: block;
+    font-size: 36px;
+    margin-top: 27px;
+}
+.logo_info {
+    float: left;
+    margin-top: 27px;
+}
+.info_1 {
+    font-size: 12px;
+    color: #898989;
+}
+.info_2 {
+    font-size: 12px;
+    color: #898989;
+    /*background: url("../img/info_2.png");*/
+    /*padding-left: 40px;*/
+}
+.info_2 span, .info_2 img {
+    float: left;
+}
+
+.nav {
+    float: right;
+}
+.nav li {
+    float: left;
+    padding: 13px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #5e5e5e;
+    height: 85px;
+    line-height: 85px;
+}
+
+/*banner样式*/
+#banner img {
+    width: 100%;
+}
+
+/*解决方案*/
+#project {
+    background: #f8fafd;
+    padding-top: 30px;
+    padding-bottom: 35px;
+}
+.p_title_img {
+    margin: 0 auto ;
+}
+.p_title {
+    margin: 12px auto 40px;
+    color: #444;
+    font-size: 14px;
+    text-align: center;
+}
+.p_info {
+    background: #ffffff;
+    width: 378px;
+    float: left;
+    margin-right: 33px;
+    padding-bottom: 25px;
+    border-bottom:4px solid #eef2f7;
+}
+.p_info dl {
+    text-align: center;
+
+}
+.p_info dt {
+    font-weight: bold;
+    color: #5e5e5e;
+    font-size: 28px;
+    margin: 20px 0;
+}
+.p_info dd {
+    margin-bottom: 8px;
+    color: #444444;
+    font-size: 14px;
+}
+.p_button {
+    margin-top: 22px;
+}
+.p_button input {
+    border: 0;
+    float: left;
+    background: #0187e6;
+    text-align: center;
+    width: 115px;
+    height: 32px;
+    font-size: 14px;
+    color: #ffffff;
+    border-radius: 3px;
+    margin-left: 67px;
+    margin-right: 14px;
+}
+.p_button .p_button_2 {
+    width: 113px;
+    height: 30px;
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    color: #000;
+    margin: 0;
+}
+#intro {
+    /*margin-top: 35px;*/
+    padding-bottom: 35px;
+}
+
+.i_title {
+    font-size: 34px;
+    color: #504f4f;
+    text-align: center;
+    padding-top: 55px;
+    margin-bottom: 40px;
+}
+
+#intro dl {
+    text-align: center;
+    float: left;
+    width: 333px;
+    margin-right: 100px;
+}
+#intro dt {
+    margin-bottom: 24px;
+}
+#intro dt img {
+    display: inline-block;
+}
+#intro dd {
+    margin-bottom: 12px;
+    color: #444444;
+    font-size: 14px;
+}
+
+#intro .dl_second {
+    margin-top: 54px;
+}
+
+#brand {
+    background: #f8fafd;
+    padding-top: 55px;
+    margin-top: 40px;
+}
+
+.b_title {
+    font-size: 34px;
+    color: #504f4f;
+    text-align: center;
+    padding-top: 55px;
+    margin-bottom: 40px;
+}
+.b_img img{
+    width: 239px;
+    height: 154px;
+    border-bottom:1px dashed #dddddd;
+    border-right:1px dashed #dddddd;
+    float: left;
+}
+.more {
+    width: 185px;
+    height: 45px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    background: url("../img/arrow_right.png") no-repeat 120px center;
+    margin:30px 0 45px 505px;
+    border:2px solid #ecebeb;
+    outline:none;
+}
+
+/*footer样式*/
+#footer {
+    background: #535353;
+}
+
+.f_logo, .phone, .address {
+    float: left;
+}
+
+.phone {
+    margin-left: 105px;
+    margin-top: 42px;
+}
+
+.phone_1 {
+    background: url("../img/img10.png") no-repeat;
+    padding-left: 30px;
+    color: #b5b5b5;
+    font-size: 22px;
+    height: 24px;
+    line-height: 24px;
+}
+.phone_2 {
+    font-size: 22px;
+    color: #63a7e2;
+    margin-top: 23px;
+    margin-bottom: 20px;
+
+}
+.phone_3 {
+    font-size: 14px;
+    color: #b5b5b5;
+
+}
+
+.address {
+    margin-left: 117px;
+    margin-top: 54px;
+}
+
+.address_1 {
+    background: url("../img/img11.png") no-repeat;
+    padding-left: 30px;
+    font-size: 14px;
+    color: #b5b5b5;
+    line-height: 14px;
+}
+.address_2 {
+    margin-top: 24px;
+    background: url("../img/img12.png") no-repeat;
+    padding-left: 30px;
+    font-size: 14px;
+    color: #b5b5b5;
+    line-height: 18px;
+    height: 18px;
+}
+
+.f_bottom {
+    text-align: center;
+    font-size: 14px;
+    color: #b5b5b5;
+}
+
+
+
+

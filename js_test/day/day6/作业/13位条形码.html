@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>13位条形码</title>
+    <script>
+//        var arr = [6,9,0,1,2,3,4,5,6,7,8,9];
+        function fun(str) {
+            var arr = str.split("");
+            console.log(arr);
+            var even = 0;
+            var odd = 0;
+            var sum;
+            var ma;
+            for (var i = 0; i < arr.length; i++) {
+                if ((i + 1) % 2 == 0) {
+                    //奇数位
+                    even += parseInt(arr[i]);
+                } else {
+                    odd += parseInt(arr[i]);
+                }
+            }
+            sum = odd + even * 3;
+//            alert(sum);
+//            alert(odd);
+//            alert(even);
+            if (sum % 10 == 0) {
+                ma = 0;
+            } else {
+                ma = 10 - (sum % 10);
+            }
+//            arr.push(ma);
+            return str + ma;
+        }
+
+        var str = "690123456789";
+        alert(fun(str));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

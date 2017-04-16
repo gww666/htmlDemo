@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>课堂练习</title>
+    <style>
+        div {
+            background: red;
+            width: 300px;
+            height: 200px;
+        }
+    </style>
+    <script>
+        onload = function () {
+            var input = document.getElementsByTagName("input")[0];
+            var div = document.getElementsByTagName("div")[0];
+            input.onselect = function () {
+                div.innerHTML = "文本被选中";
+            };
+            input.onchange = function () {
+                div.innerHTML = "文本被修改";
+            }
+
+        }
+    </script>
+</head>
+<body>
+<input type="text" value="这是初始化字符串">
+<div></div>
+</body>
+</html>

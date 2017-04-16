@@ -1,0 +1,256 @@
+/* CSS Document */
+/* 简介样式开始 */
+.map {
+		height:46px;
+		width:1000px;
+		line-height:46px;
+		border-bottom:1px solid #e1e1e1;
+		padding:0 100px;
+	}
+	.map img {
+		height:18px;
+		float:left;
+		margin:14px 5px 0 0;
+	}
+	.map p {
+		float:left;
+		color:#646464;
+		font-size:14px;
+	}
+/* 简介内容区域宽高1200px * 960px */
+#info {
+	width:1200px;
+	height:960px;
+	zoom:1;
+}
+#info:after {
+	
+}
+	/* 内容高度910px，内容宽度217px，实际高度930px，实际宽度225px*/
+	.content_aside {
+		float:left;
+		width:217px;
+		height:910px;
+		padding-top:20px;
+		background:#e6e6e6;
+		border-right:8px solid #f7f7f7;
+	}
+		.content_aside h2 {
+			font-weight:normal;
+			text-align:center;
+			width:217px;
+		}
+		.content_aside h6 {
+			font-weight:normal;
+			padding-left:67px;
+			width:217px;
+			color:#b7b7b7;
+			font-size:12px;
+		}
+		.content_aside ul {
+			margin-top:50px;
+			list-style:none;
+		}
+		.content_aside li {
+			position:relative;
+			width:217px;
+			text-align:center;
+			font:16px/20px "微软雅黑", Arial;
+			height:20px;
+			color:#3d4550;
+			border-bottom:2px solid #d4d4d4;
+			padding:20px 0;
+			cursor:pointer;
+		}
+		.content_aside li:first-child {
+			border-top:2px solid #d4d4d4;
+			
+		}
+		
+		.content_aside .li_active {
+			background:#f15a23;
+			color:white;
+		}
+		.content_aside .li_active:after {
+			content:"";
+			background:#fd9c57;
+			position:absolute;
+			top:0;
+			right:-8px;
+			width:8px;
+			height:60px;
+			
+		}
+		
+		.content_aside li:hover {
+			background:#f15a23;
+			color:white;
+		}
+		.content_aside li:hover:after {
+			content:"";
+			background:#fd9c57;
+			position:absolute;
+			top:0;
+			right:-8px;
+			width:8px;
+			height:60px;
+		}
+	/* 内容高度890px，内容宽度695px，实际高度930px，实际宽度775px*/
+	.content_main {
+		width:695px;
+		height:890px;
+		float:left;
+		padding:20px 40px;
+	}
+		/* 这里是右部标题和下划线样式 */
+		.content_main h1 {
+			float:left;
+			font-size:20px;
+			background:url("../img/triangle.jpg") no-repeat 10px center;
+			padding-left:30px;
+			width:150px;
+			border-bottom:2px solid #f15a25;
+			line-height:40px;
+			height:40px;
+		}
+		.content_main h1:nth-child(2) {
+			background:none;
+			border-bottom:1px dashed #c9c9c9;
+			width:485px;
+			height:41px;
+		}
+		
+		.content_main .lc_img {
+			width:550px;
+			height:200px;
+			margin-left:72.5px;
+			margin-top:30px;
+		}
+		/* 这是表单部分的样式 */
+		/* 实际宽高735px*385px，内容宽度为733px */
+		.service_form {
+			width:733px;
+			height:383px;
+			border:1px dashed #999;
+			margin-top:40px;
+		}
+			/* 表单左部内容宽度255px，实际宽度315px */
+			.form_left {
+				position:relative;
+				width:255px;
+				padding:20px 30px;
+				float:left;
+			}
+				.form_left h2 {
+					clear:both;
+					background:none;
+				}
+				.form_left img[alt="form_title"] {
+					height:58px;
+					width:160px;
+				}
+				.form_left img[alt="form_phone"] {
+					height:55px;
+					width:55px;
+					margin-left:100px;
+				}
+				.form_left li {
+					padding:10px 20px;
+					color:#636363;
+					font-size:14px;
+					
+				}
+				.form_left hr {
+					margin:20px;
+					color:#999;
+					
+				}
+				.form_left p {
+					width:255px;
+					text-align:center;
+					font-size:14px;
+					margin-top:20px;
+				}
+				.form_left span {
+					color:#f05e23;
+				}
+				.form_left img[alt="line"] {
+					position:absolute;
+					right:0;
+					top:40px;
+				}
+			/* 表单部分的样式 */
+			/* 实际宽度418px */
+			.form_right {
+				width:418px;
+				float:left;
+				padding-top:40px;
+			}
+				.form_right label {
+					width:110px;
+					margin-bottom:20px;
+					padding-right:10px;
+					text-align:right;
+					font:14px/32px "宋体";
+					color:#9a9a9a;
+					height:32px;
+					display:block;
+					float:left;
+				}
+				.input_div {
+					width:260px;
+					position:relative;
+					float:left;
+				}
+					.input_div img {
+						position:absolute;
+						right:15px;
+						top:7.5px;
+					}
+				.form_right input {
+					outline:none;
+					height:30px;
+					width:258px;
+					border:1px solid #9a9a9a;
+				}
+				.form_right input[type="button"] {
+					width:260px;
+					height:40px;
+					background:#ff7721;
+					margin-left:120px;
+					color:white;
+					font:bold 18px/40px "宋体";
+					border:0;
+				}
+		/* 品牌图片样式 */
+		.pro_img {
+			width:705px;
+			padding:0 15px;
+			margin-top:70px;
+		}
+			.pro_img img {
+				width:173px;
+				height:63px;
+				margin-right:11px;
+				float:left;
+				border:1px solid #d3d3d3;
+				margin-bottom:11px;
+			}
+			.pro_img img[alt="p1"], .pro_img img[alt="p5"] {
+				width:143px;
+			}
+			.pro_img img[alt="p4"], .pro_img img[alt="p8"] {
+				margin-right:0;
+			}
+	
+	/* 清除浮动 */
+	#info .info_content:after {
+		content:".";
+		visibility:hidden;
+		height:0;
+		display:block;
+		clear:both;
+	}
+/* 简介部分样式结束 */
+
+

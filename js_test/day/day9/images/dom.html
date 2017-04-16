@@ -1,0 +1,43 @@
+<!--<!DOCTYPE html>-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dom</title>
+    <style>
+        html {
+            height: 200px;
+            background: red;
+        }
+        body {
+            /*background: #000;*/
+            height: 100px;
+        }
+        ul {
+            height: 200px;
+            width: 200px;
+            background: yellow;
+        }
+    </style>
+    <script>
+        onload = function () {
+            document.documentElement.style.background = "green";
+            document.body.style.background = "blue";
+            var ul = document.getElementsByTagName("ul");
+//            ul.item(0).style.background = "pink";
+            var d1 = document.getElementById("d1").lastChild;
+            console.log(d1);
+            console.log(d1.nodeType);
+            console.log(d1.nodeName);
+            console.log(d1.nodeValue);
+
+        };
+    </script>
+</head>
+<body>
+<!--<ul></ul>-->
+<!--<ul></ul>-->
+<div id="d1">
+    zheshiy
+</div>
+</body>
+</html>

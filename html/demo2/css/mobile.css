@@ -1,0 +1,212 @@
+/* CSS Document */
+#banner1 {
+	width:1200px;
+	height:645px;
+}
+
+#banner2 {
+	width:1200px;
+	height:710px;
+}
+
+/* 这是案例展示部分的样式 */
+#eg_show {
+	width:1200px;
+	height:1125px;
+	padding-top:60px;
+}
+	
+	/* 每个栏目上方的标题样式（文字+图片） */
+	.eg_title_h1 {
+		width:1000px;
+		text-align:center;
+		font:normal 30px/30px "黑体";
+	}
+	.eg_title {
+		width:1000px;
+		margin-top:15px;
+	}
+		.eg_title div{
+			float:left;
+			width:460px;
+			height:11px;
+			border-bottom:1px dashed #d3d3d3;
+		}
+		.eg_title img {
+			float:left;
+			width:24px;
+			height:22px;
+			margin:0 28px;
+		}
+	/* 清除浮动 */
+	.eg_title:after {
+		content:".";
+		display:block;
+		visibility:hidden;
+		height:0;
+		clear:both;
+	}
+	/* 切换按钮样式 */
+	.eg_button {
+		width:790px;
+		margin:60px auto 0;
+	}
+	.eg_button:after {
+		content:".";
+		display:block;
+		visibility:hidden;
+		height:0;
+		clear:both;
+	}
+		.eg_button div {
+			width:113px;
+			height:43px;
+			border:1px solid #cacaca;
+			border-radius:5px;
+			float:left;
+			background:#eaeaea;
+			font:20px/43px "微软雅黑";
+			color:#192823;
+			margin-right:20px;
+			text-align:center;
+		}
+		.eg_button .eg_button_last {
+			margin-right:0;
+		}
+		.eg_button .eg_button_active {
+			background:#007bc8;
+			color:white;
+			border:1px solid #007bc8;
+		}
+	/* 案例详情样式 */
+	/* 内容宽高为910*485，实际宽高为1000*555 */
+	.eg_detail {
+		width:910px;
+		height:485px;
+		background:#ededed;
+		margin-top:30px;
+		padding:35px 45px;
+	}
+	.eg_detail:after {
+		content:".";
+		display:block;
+		visibility:hidden;
+		height:0;
+		clear:both;
+	}
+		.eg_detail_title div {
+			float:left;
+			margin-right:20px;
+		}
+		.eg_detail img[alt="图标"] {
+			width:60px;
+			height:60px;
+		}
+		.eg_detail_title p {
+			font-size:14px;
+			height:15px;
+			line-height:15px;
+			color:#393337;
+			margin-top:10px;
+		}
+		.eg_detail img[alt="项目详情"] {
+			width:100%;
+			height:345px;
+			margin-top:30px;
+		}
+	/* 更多案例部分的样式 */
+	.eg_more {
+		width:1000px;
+		height:330px;
+		padding-top:50px;
+	}
+		.eg_more_title {
+			width:500px;
+			margin:0 auto;
+			height:30px;
+		}
+			.eg_more_title hr{
+				width:90px;
+				float:left;
+				border:1px solid #a7a7a7;
+				margin-top:10px;
+			}
+			.eg_more_title p{
+				width:320px;
+				float:left;
+				text-align:center;
+				font:22px/30px "微软雅黑";
+			}
+		.eg_more img {
+			margin-top:30px;
+			width:1000px;
+			height:180px;
+		}
+/* 案例展示部分的样式结束 */
+
+/* 优势部分的样式开始 */
+#advantage {
+	width:1200px;
+	height:665px;
+	margin-top:55px;
+}
+	#advantage dl {
+		width:313px;
+		float:left;
+		margin-right:30px;
+		text-align:center;
+		margin-top:40px;
+	}
+	#advantage dd {
+		font-size:18px;
+		line-height:47px;
+		height:47px;
+	}
+	#advantage dl[class] {
+		margin-right:0;
+	}
+	#advantage dl img {
+		width:313px;
+		height:155px;
+	}
+
+/* 合作部分的样式 */
+#hezuo {
+	width:1200px;
+	height:530px;
+	padding-top:55px;
+	background:#fafafa;
+}
+	
+	#hezuo img[alt="合作示例"] {
+		width:1000px;
+		height:460px;
+	}
+	
+/* 合作伙伴部分的样式 */
+#partner {
+	width:1200px;
+	height:705px;
+	padding-top:55px;
+}
+	#partner .add_div {
+		width:1001px;
+	}
+	.partner_img {
+		width:1000px;
+		height:510px;
+		margin-top:40px;
+		border-left:1px solid #cecece;
+		border-bottom:1px solid #cecece;
+		
+	}
+		.partner_img img {
+			float:left;
+			width:199px;
+			height:169px;
+			border-top:1px solid #cecece;
+			border-right:1px solid #cecece;
+		}
+		
+			
+	

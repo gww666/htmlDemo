@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件流</title>
+    <style>
+        #d1 {
+            background: #000;
+            width: 100px;
+            height: 100px;
+
+        }
+    </style>
+    <script>
+        onload = function () {
+            var d1 = document.getElementById("d1");
+            var d2 = document.getElementById("d2");
+            d1.onmousedown = function () {
+                alert("d1");
+            };
+            document.onmouseup = function () {
+                alert("doc");
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="d1">
+    <div id="d2"></div>
+</div>
+</body>
+</html>

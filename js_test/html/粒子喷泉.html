@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>粒子喷泉</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+
+        }
+    </style>
+    <script>
+//        window.addEventListener("load", function () {
+        onload = function () {
+            var mCanvas = document.getElementById("canvas");
+            var ctx = mCanvas.getContext("2d");
+//            alert(typeof ctx);
+            var width = window.innerWidth;
+            var height = window.innerHeight;
+            var circleArray = [];
+            var pageX;
+            var pageY;
+            init();
+            /**
+             * 进行canvas初始化操作
+             */
+            function init() {
+                mCanvas.width = width;
+                mCanvas.height = height;
+                mCanvas.style.backgroundColor = "black";
+                document.body.style.overflow = "hidden";
+//                alert("on");
+            }
+
+
+
+            function drawCircle(x, y) {
+
+                ctx.beginPath();
+                ctx.fillStyle = "red";
+                ctx.arc(x, y, 10, 0, 2 * Math.PI);
+                ctx.fill();
+                ctx.closePath();
+
+            }
+
+            function Circle() {
+                this.x = pageX;
+                this.y = pageY;
+                this.radius = (Math.random() * 4) + 6;//4 ~ 10
+                this.mx = Math.random() * 8 - 4; //-4 ~ 4
+                this.my = Math.random() * 4 - 6; //-6 ~ -2
+                this.gravity = 0.1;
+//                this.color = 0;
+                this.color = Math.random() * 255; // 0 ~ 255
+            }
+
+            Circle.prototype.drawC = function () {
+//                ctx.clearRect(0, 0, width, height);
+                ctx.beginPath();
+                ctx.fillStyle = 'hsl(' + this.color + ',100%,50%)';
+                ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+                ctx.fill();
+                ctx.closePath();
+//                this.my += this.gravity;
+//                this.x += this.mx;
+//                this.y += this.my;
+            };
+            //创建实心圆
+            function createCircle() {
+                circleArray.push(new Circle());
+            }
+
+            //移动圆
+            function moveCircle() {
+                for (var i = 0; i < circleArray.length; i++) {
+                    circleArray[i].my += circleArray[i].gravity;
+                    circleArray[i].x += circleArray[i].mx;
+                    circleArray[i].y += circleArray[i].my;
+//                    circleArray[i].color++;
+                }
+            }
+
+            function drawCircle2() {
+                createCircle();
+                for (var i = 0; i < circleArray.length; i++) {
+                    circleArray[i].drawC();
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                drawCircle2(pageX, pageY);
+                moveCircle();
+
+//                createCircle();
+
+                if (circleArray.length > 250) {
+                    circleArray.shift();
+                }
+
+                requestAnimationFrame(animate);
+
+            }
+
+            mCanvas.onmousemove = function (event) {
+                pageX = event.clientX;
+                pageY = event.clientY;
+
+            };
+            mCanvas.onmouseout = function () {
+                pageX = width / 2;
+                pageY = height / 2;
+//                alert("out");
+                drawCircle(pageX, pageY);
+            };
+
+            animate();
+
+
+
+//        }, false);
+        }
+    </script>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+</body>
+</html>

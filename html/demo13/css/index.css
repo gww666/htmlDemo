@@ -1,0 +1,174 @@
+.clear {
+    clear:both;
+}
+#top {
+    background: pink url(../img/bg.jpg) no-repeat 0 -80px;
+    background-size:100% ;
+    height: 222px;
+    overflow:hidden;
+}
+#top img[alt="logo"] {
+    /*margin-top: 60px;*/
+    width: 60px;
+    margin:60px auto 0 auto;
+}
+
+/*导航样式*/
+#nav {
+    height: 57px;
+    border-bottom:2px solid #e1e1e1;
+}
+#nav ul {
+    width: 500px;
+    margin:0 auto;
+    line-height: 57px;
+    display: flex;
+}
+#nav ul li {
+    padding:0 23px;
+
+}
+#nav ul .li_active {
+
+}
+#nav ul li a {
+    color: #505050;
+    font-size: 14px;
+}
+/*默认隐藏nav图标*/
+#nav .ul_img {
+    display:none;
+}
+
+/*main部分的样式*/
+.content_div {
+    width: 1130px;
+    margin: 0 auto;
+}
+#main {
+    background: #ebebeb;
+    padding-top: 35px;
+    font-family:"微软雅黑";
+}
+.main_left {
+    width: 720px;
+    background: #fff;
+    float: left;
+    height: 500px;
+}
+.main_aside {
+    margin-left: 40px;
+    width: 370px;
+    float: left;
+}
+.community {
+    width: 300px;
+    padding:22px 30px 37px 30px;
+    background: #fff;
+
+}
+.title {
+    border-bottom:1px solid #ebebeb;
+}
+.title span {
+    display: inline-block;
+    width: 92px;
+    border-bottom:2px solid #e67e22;
+    font-size: 20px;
+    color: #303030;
+    padding-bottom: 8px;
+}
+.qq, .question, .weibo {
+    font-size: 14px;
+    height: 14px;
+    line-height: 14px;
+    color: #505050;
+    margin-top: 26px;
+}
+.question, .weibo {
+    color: #e67e22;
+    background: url(../img/question.png) no-repeat;
+    padding-left: 25px;
+    margin-top: 21px;
+}
+.weibo {
+    background: url(../img/weibo.png) no-repeat;
+}
+
+/* 以上为默认样式 */
+
+/*1130px以下*/
+@media all and (max-width:1130px) {
+    /*改变main_left和main_aside的宽度*/
+    .content_div {
+        width: 940px;
+    }
+    .main_left {
+        width: 620px;
+    }
+    .main_aside {
+        width: 290px;
+        margin-left:30px;
+    }
+    .community {
+        width: 233px;
+    }
+}
+
+/*990px以下，此断点进行样式微调，隐藏aside栏样式*/
+@media all and (max-width:990px) {
+    .content_div {
+        width: 720px;
+    }
+    .main_left {
+        width: 720px;
+    }
+    .main_aside {
+        display: none;
+    }
+}
+
+
+/*765px以下，此断点进行样式微调，更改nav栏样式*/
+@media all and (max-width:765px) {
+    #nav ul {
+        display:none;
+    }
+    #nav .ul_img {
+        width: 25px;
+        margin: 0 auto;
+        display: flex;
+        align-items:center;
+        height: 57px;
+    }
+}
+
+/*!*720px~1024px*!*/
+/*@media all and (min-width:720px) and (max-width:1024px) {*/
+
+/*}*/
+/*740px以下，小于main_left的宽度+两边margin，main_left的宽度设置为90%*/
+@media all and (max-width:740px) {
+
+    .content_div {
+        width: 90%;
+
+    }
+
+    .main_left{
+        width: 100%;
+    }
+
+}
+
+
+/*665px以下，此断点进行样式微调，更改top栏的背景图片样式*/
+@media all and (max-width:665px) {
+    #top {
+        background: pink url(../img/bg.jpg) no-repeat;
+        background-size:100% 100%;
+        height: 222px;
+        overflow:hidden;
+    }
+}
+
