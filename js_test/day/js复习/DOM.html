@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #title {
+            border-bottom: 1px solid #444;
+            padding: 15px;
+            font-size: 16px;
+            font-family: "微软雅黑";
+        }
+        
+        #todo {}
+        
+        span {
+            display: inline-block;
+            margin-right: 10px;
+        }
+    </style>
+    <script src="../Utils.js"></script>
+    <script>
+        onload = function () {
+            var title = $("title");
+            var con = $("content");
+            var add = title.children[1];
+            var num = 0;
+            add.onclick = function () {
+                var div = document.createElement("div");
+                div.className = "todo";
+                div.innerHTML = "<span>somethings to do" + num + "</span>";
+                var insert = document.createElement("span");
+                insert.innerHTML = "insert";
+                var del = document.createElement("span");
+                del.innerHTML = "delete";
+                con.appendChild(div);
+                div.appendChild(insert);
+                div.appendChild(del);
+
+                //insert设置插入事件
+                //插入到当前元素前面
+                insert.onclick = insertClick;
+                function insertClick() {
+                    var newNode = this.parentNode.cloneNode(true);
+                    newNode.children[1].onclick = insertClick;
+                    newNode.children[2].onclick = delClick;
+                    // console.log(newNode);
+                    // var div1 = document.createElement("div");
+                    // div1.className = "todo";
+                    // div1.innerHTML = "<span>somethings to do" + num + "</span>";
+                    
+                    con.insertBefore(newNode, this.parentNode);
+                }
+
+                //删除事件
+                del.onclick = delClick;
+                function delClick() {
+                    con.removeChild(this.parentNode);
+                }
+                num++;
+            }
+
+            function createTodo(num) {
+                
+                return div;
+            }
+
+        }
+        
+    </script>
+</head>
+
+<body>
+    <div id="title">
+        <span>to do list</span>
+        <span>add</span>
+    </div>
+    <div id="content">
+
+    </div>
+
+</body>
+
+</html>

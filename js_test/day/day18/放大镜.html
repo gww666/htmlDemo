@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #sImg {
+            width: 220px;
+            height: 130px;
+            margin-left: 20px;
+            margin-top: 30px;
+            position: relative;
+        }
+        #sImg img {
+            width: 100%;
+            height: 100%;
+        }
+        #sArea {
+            display: none;
+            background: #ccc;
+            opacity: 0.5;
+            position: absolute;
+            left: 20px;
+            top: 30px;
+        }
+        #bImg {
+            position: absolute;
+            width: 820px;
+            height: 630px;
+        }
+        #bArea {
+            overflow: hidden;
+            position: absolute;
+            display: none;
+            width: 520px;
+            height: 330px;
+            left: 400px;
+            top: 30px;
+        }
+    </style>
+    <script src="../Utils.js"></script>
+    <script>
+        onload = function () {
+            var sImg = $("sImg");
+            var sArea = $("sArea");
+            var bImg = $("bImg");
+            var bArea = $("bArea");
+
+            //确定比例关系
+            sArea.style.width = (getStyle(sImg, "width") / getStyle(bImg, "width")) * getStyle(bArea, "width") + "px";
+            sArea.style.height = (getStyle(sImg, "height") / getStyle(bImg, "height")) * getStyle(bArea, "height") + "px";
+            console.log(getStyle(sImg, "width"));
+            
+            sImg.onmousemove = function (e) {
+                var evt = e || event;
+                sArea.style.display = "block";
+                bArea.style.display = "block";
+                var scale = bArea.offsetWidth / sArea.offsetWidth;
+                console.log(scale);
+                var x = evt.pageX - sImg.offsetLeft - sArea.offsetWidth / 2;
+                var y = evt.pageY - sImg.offsetTop - sArea.offsetHeight / 2;
+                console.log(sImg.offsetLeft);
+                if (x < 0) {
+                    x = 0;
+                } else if (x > (sImg.offsetWidth - sArea.offsetWidth)) {
+                    x = sImg.offsetWidth - sArea.offsetWidth;
+                }
+                if (y < 0) {
+                    y = 0;
+                } else if (y > (sImg.offsetHeight - sArea.offsetHeight)) {
+                    y = sImg.offsetHeight - sArea.offsetHeight;
+                }
+                sArea.style.left = x + "px";
+                sArea.style.top = y + "px";
+
+                //移动大图
+                bImg.style.left = -x * scale + "px";
+                bImg.style.top = -y * scale + "px";
+            }
+            sImg.onmouseout = function () {
+                sArea.style.display = "none";
+                bArea.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="sImg">
+        <img src="images1/timg1.jpg" alt="">
+        <div id="sArea"></div>
+    </div>
+    
+    <div id="bArea">
+        <img src="images1/timg1.jpg" alt="" id="bImg">
+    </div>
+
+</body>
+</html>

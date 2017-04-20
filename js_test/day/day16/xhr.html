@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="XMLHttpRequest.js"></script>
+    <script src="Utils.js"></script>
+    <script>
+        onload = function () {
+            var send = $("send");
+            send.onclick = function () {
+                var mXMLHttpRequest = createXMLHttpRequest();
+                mXMLHttpRequest.open("get", "server.html", true);
+                mXMLHttpRequest.send(null);
+                mXMLHttpRequest.onreadystatechange = function () {
+                    //XMLHttpRequest.readyState有5个状态值:0,1,2,3,4
+                    if (mXMLHttpRequest.readyState == 4) {
+                        //4:代表已经完成，可以进行我们的操作了
+                        if (mXMLHttpRequest.status >= 200 && mXMLHttpRequest.status < 300 || mXMLHttpRequest.status == 304) {
+                            console.log("返回请求");
+                            alert(mXMLHttpRequest.responseText);
+                        } else {
+                            console.log("返回请求");
+                            alert("error:" + mXMLHttpRequest.status);
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="button" name="" value="send" id="send">
+</body>
+</html>

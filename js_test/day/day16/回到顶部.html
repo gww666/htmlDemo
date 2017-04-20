@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>回到顶部</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            height: 2000px;
+            width: 100%;
+        }
+        #go_top {
+            background: deepskyblue;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            text-align: center;
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+        }
+    </style>
+    <script src="../Utils.js"></script>
+    <script>
+        onload = function () {
+            $("go_top").onclick = function () {
+                console.log("123");
+                // document.body.scrollTop = "100px";
+                // animation(document.documentElement, {scrollTop : 0});
+                if (document.body.scrollTop) {
+                    animation(document.body, {scrollTop : 0});
+                } else {
+                    animation(document.documentElement, {scrollTop : 0});
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="go_top">
+        
+    </div>
+</body>
+</html>

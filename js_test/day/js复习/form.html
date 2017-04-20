@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        
+        ul,
+        li {
+            list-style: none;
+        }
+        
+        body {
+            background: #444;
+            font-size: 13px;
+            color: white;
+            font-family: "微软雅黑";
+        }
+        
+        form {
+            width: 400px;
+            height: 600px;
+            margin: 10px auto;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        
+        .title {
+            font-size: 20px;
+            color: darkcyan;
+        }
+        
+        tr {
+            height: 40px;
+            width: 200px;
+        }
+        
+        .col1 {
+            width: 120px;
+            padding-left: 30px;
+        }
+        
+        input {
+            width: 200px;
+            height: 30px;
+            border-radius: 3px;
+            background: #555;
+            padding-left: 5px;
+            color: white;
+        }
+        
+        #level span {
+            float: left;
+            width: 60px;
+            height: 26px;
+            border-right: 1px solid #ddd;
+            background: white;
+            text-align: center;
+            line-height: 26px;
+        }
+        
+        #level .default {
+            background: red;
+        }
+        
+        #level .mid {
+            background: orange;
+        }
+        
+        #level .high {
+            background: greenyellow;
+        }
+        
+        .codes {
+            width: 80px;
+        }
+        
+        .regtd {
+            height: 60px;
+            padding-top: 10px;
+        }
+        
+        #reg {
+            background: green;
+            border: 1px solid black;
+            height: 40px;
+            width: 160px;
+            color: white;
+            font-size: 22px;
+            margin-left: 100px;
+        }
+        
+        #checkbox {
+            margin-left: 100px;
+            width: 15px;
+            height: 15px;
+        }
+        
+        #toast {
+            margin: 0 auto;
+            width: 400px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            background: darkmagenta;
+            border: 1px solid #999;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+    </style>
+    <script src="../Utils.js"></script>
+    <script>
+        onload = function () {
+            var toast = $("toast");
+            var username = $("username");
+            var pass = $("pass");
+            var span = $("level").getElementsByTagName("span");
+            var confirm = $("confirm");
+            var id = $("id");
+            var code = $("code");
+            var codeBtn = $("codeBtn");
+            var phone = $("phone");
+            var check = $("check");
+            var register = $("reg");
+
+            var u_reg = /^[_a-zA-Z]\w{7,}$/;
+            var p_reg = /^.{6,20}$/;
+
+            var u_flag = true;
+            var p_flag = true;
+            var c_flag = true;
+            var id_flag = true;
+            var phone_flag = true;
+            var code_flag = true;
+
+            //getCookie
+            // console.log(getCookie("用户名"));
+            // console.log(getCookie("密码"));
+            if (getCookie("用户名") && getCookie("密码")) {
+                console.log(getCookie("用户名"));
+                console.log(getCookie("密码"));
+                username.value = getCookie("用户名");
+                pass.value = getCookie("密码");
+            }
+
+            username.onkeyup = function () {
+                if (!u_reg.test(username.value)) {
+                    toast.innerHTML = "用户名不合法";
+                    // return false;
+                    u_flag = false;
+                } else {
+                    toast.innerHTML = "用户名正确";
+                    u_flag = true;
+                }
+            }
+            pass.onkeyup = function () {
+                //判断密码强度等级
+                passC();
+                if (pass.value.length <= 10 || pass.value.length > 20) {
+                    // passC();
+                    span[0].className = "default";
+                    // console.log(pass.value.length);
+
+                } else if (pass.value.length > 10 && pass.value.length <= 15) {
+                    // passC();
+                    span[1].className = "mid";
+                } else if (pass.value.length > 15 && pass.value.length <= 20) {
+                    span[2].className = "high";
+                }
+
+                function passC() {
+                    for (var i = 0; i < span.length; i++) {
+                        span[i].className = "";
+                    }
+                }
+
+                //验证密码
+                if (p_reg.test(pass.value)) {
+                    // console.log(pass.value);
+                    toast.innerHTML = "密码正确";
+                    p_flag = true;
+                } else {
+                    toast.innerHTML = "密码不合法";
+                    // return false;
+                    p_flag = false;
+                }
+            }
+            //判断重复密码
+            confirm.onkeyup = function () {
+                
+                if (confirm.value == pass.value) {
+                    toast.innerHTML = "两次密码输入正确";
+                    c_flag = true;
+                } else {
+                    toast.innerHTML = "两次密码输入不正确";
+                    c_flag = false;
+                }
+            }
+            //判断身份证
+            id.onkeyup = function () {
+                var id_reg = /^\d{17}[X|\d]$/;
+                if (id_reg.test(id.value)) {
+                    toast.innerHTML = "身份证输入正确";
+                    id_flag = true;
+                } else {
+                    toast.innerHTML = "身份证输入不合法";
+                    id_flag = false;
+                }
+            }
+
+            //判断手机号
+            phone.onkeyup = function () {
+                var phone_reg = /1(3[0-9]|4[579]|5([0-3]|[5-9])|7[35678]|8[0-9])\d{8}$/;
+                if (phone_reg.test(phone.value)) {
+                    console.log(phone.value);
+                    toast.innerHTML = "手机号输入正确";
+                    phone_flag = true;
+                } else {
+                    toast.innerHTML = "手机号不合法";
+                    phone_flag = false;
+                }
+            }
+
+            //判断验证码
+            codeBtn.onclick = function () {
+                // var arr = [];
+                var str = "";
+                while (str.length < 4) {
+                    // arr.push(parseInt(Math.random() * 10));
+                    str += parseInt(Math.random() * 10);
+                }
+                codeBtn.value = str;
+            }
+
+            code.onkeyup = function () {
+                if (code.value == codeBtn.value) {
+                    toast.innerHTML = "验证码输入正确";
+                    code_flag = true;
+                } else {
+                    toast.innerHTML = "验证码不正确";
+                    code_flag = false;
+                }
+            }
+            //十天免登陆
+            register.onclick = function () {
+                if (check.checked) {
+                    var date = new Date();
+                    date.setDate(date.getDate() + 10);
+                    // var u_name = username.value
+                    setCookie("用户名", username.value, date.getDate());
+                    // setCookie("u_name", username.value, date.getDate());
+                    setCookie("密码", pass.value, date.getDate());
+                    // setCookie("pass", pass.value, date.getDate());
+                }
+            }
+            
+            function setCookie(key, value, expires) {
+                var cookieText = encodeURIComponent(key) + "=" + encodeURIComponent(value);
+                if (expires && expires instanceof Date) {
+                    cookieText += ";" + "expires=" + expires;
+                }
+                document.cookie = cookieText; 
+            }
+            function getCookie(key) {
+                // var cookieText = document.cookie;
+                console.log(document.cookie);
+                var cookieArr = document.cookie.split("; ");
+                for (var i = 0; i < cookieArr.length; i++) {
+                    var arr = cookieArr[i].split("=");
+                    if (decodeURIComponent(arr[0]) == key) {
+                        return decodeURIComponent(arr[1]);
+                        break;
+                    }
+                }
+                return null;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        <table id="tb">
+            <tr>
+                <td colspan="2" class="title">账户详细资料</td>
+            </tr>
+            <tr>
+                <td class="col1">用户名称</td>
+                <td><input type="text" placeholder="请输入用户名" id="username"></td>
+            </tr>
+            <tr>
+                <td class="col1">登录密码</td>
+                <td><input type="password" placeholder="请输入密码" id="pass"></td>
+            </tr>
+            <tr>
+                <td class="col1">密码安全级别</td>
+                <td id="level"><span class="default">低</span><span>中</span><span>高</span></td>
+            </tr>
+            <tr>
+                <td class="col1">重复登录密码</td>
+                <td><input type="password" placeholder="重复登录密码" id="confirm"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2" class="title">个人信息资料</td>
+            </tr>
+
+            <tr>
+                <td class="col1">身份证</td>
+                <td><input type="text" placeholder="请输入身份证号码" id="id"></td>
+            </tr>
+            <tr>
+                <td class="col1">手机</td>
+                <td><input type="text" placeholder="输入中奖通知手机" id="phone"></td>
+            </tr>
+            <tr>
+                <td class="col1">验证码</td>
+                <td>
+                    <input class="codes" type="text" placeholder="输入验证码" id="code">
+                    <input id="codeBtn" type="button" style="width: 80px; background: white; font-size: 20px; margin-left: 10px; color: black;"
+                        value="3242" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="regtd">
+                    <input id="check" type="checkbox"/>10天内免登录 <br /><br />
+                    <input id="reg" type="submit" value="注册" />
+                </td>
+            </tr>
+        </table>
+        <div id="toast">提示文字</div>
+    </form>
+</body>
+</body>
+
+</html>

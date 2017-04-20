@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>猴子2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <script src="../Utils.js"></script>
+    <script>
+        onload = function () {
+            // $("img").onclick = function () {
+            //     var t = this;
+            //     setTimeout(function () {
+            //         t.src = "2.gif";
+            //     }, 100);
+            //     // linearAnimate(this, {top : 300, left : 300});
+            //     animation(this, {top : 300, left : 300}, function () {
+            //         t.src = "1.gif";
+            //     });
+
+            // }
+            //保存点的对象
+            // var pos = {
+            //     x : 0,
+            //     y : 0
+            // }
+            function Pos(x, y) {
+                this.x = x;
+                this.y = y;
+            }
+            //保存对象的数组
+            var posArr = [];
+            document.onmousedown = function (e) {
+                var evt = e || event;
+                posArr = [];
+                if (evt.button == 2) {
+                    alert("点击了鼠标右键");
+                    return false;
+                }
+                document.onmousemove = function (e) {
+                    var evt = e || event;
+                    // var posObj = new pos(evt.pageX, evt.pageY);
+                    console.log(evt.pageX + "," +  evt.pageY);
+                    
+                    posArr.push(new Pos(evt.pageX, evt.pageY));
+                }
+                document.onmouseup = function () {
+                    document.onmousemove = document.onmouseup = null;
+                    console.log(posArr.length);
+                    for (let i = 0; i <　posArr.length; i++) {
+                        $("img").index = i;
+                    }
+                    // for (let i = 0; i < posArr.length; i++) {
+                        
+                        // console.log("x:" + posArr[i].x + "y:" + posArr[i].y);
+                        // console.log("------");
+
+                        // animation($("img"), {left : posArr[$("img").index].x, top : posArr[$("img").index].y});
+                        // (function () {
+                        //     setTimeout(function () {
+                        //         $("img").style.left = posArr[$("img").index].x + "px";
+                        //         $("img").style.top = posArr[$("img").index].y + "px";
+                        //     }, 30);
+                        // })();
+                        // $("img").style.left = posArr[i].x;
+                        // $("img").style.top = posArr[i].y;
+                    // }
+                    setTimeout(function() {
+                        $("img").src = "2.gif";
+                    }, 100);
+                    var num = 0;
+                    var timer = setInterval(function () {
+                        // for (let i = 0; i < posArr.length; i++) {
+
+                        // }
+                        if (num == posArr.length) {
+                            clearInterval(timer);
+                            $("img").src = "1.gif";
+                            return false;
+                        }
+                        $("img").style.left = posArr[num].x + "px";
+                        $("img").style.top = posArr[num].y + "px";
+                        num++;
+
+                    }, 30);
+                    
+                    // posArr = [];
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <img src="1.gif" alt="" id="img">
+    
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+            width: 480px;
+            margin: 0 auto;
+        }
+        li {
+            float: left;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            text-align: center;
+            line-height: 50px;
+            margin-right: 10px;
+            border: 1px solid black;
+        }
+
+    </style>
+    <script>
+        onload = function () {
+            var ul = document.getElementsByTagName("ul")[0];
+            var li = document.getElementsByTagName("li");
+            var keyDown = {
+                0 : 97,
+                1 : 98,
+                2 : 99,
+                3 : 100,
+                4 : 65,
+                5 : 66,
+                6 : 67,
+                7 : 68
+            }
+            document.onkeypress = function (event) {
+                for (var index in keyDown) {
+                    if (event.charCode == keyDown[index]) {
+                        if (keyDown[index] >= 97) {
+                            //小写字母，进行取余操作
+                            // console.log(index % 4);
+                            li[index].style.background = "blue";
+                        } else {
+                            li[index % 4].style.background = "yellow";
+                        }
+                        
+                    }
+                }
+            }
+            onkeyup = function () {
+                for (var i = 0; i < li.length; i++) {
+                    li[i].style.background = "#fff";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <ul>
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+        <li>d</li>
+    </ul>
+</body>
+</html>

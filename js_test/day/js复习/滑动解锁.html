@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #bg {
+            width: 426px;
+            height: 640px;
+            background: url("img/iphone.jpg");
+            /*position: relative;*/
+            position: absolute;
+            left: 300px;
+        }
+        
+        #range {
+            position: absolute;
+            bottom: 32px;
+            left: 0;
+            height: 62px;
+            width: 100%;
+        }
+        
+        #range img {
+            position: absolute;
+            left: 30px;
+            /*left: 0;*/
+            top: 0;
+        }
+        #menu {
+            list-style: none;
+            border: 1px solid #ccc;
+            display: none;
+            position: absolute;
+            background: #fff;
+        }
+        #menu li {
+            font-size: 16px;
+            border-bottom: 1px solid #ccc; 
+            line-height: 30px;
+            height: 30px;
+            padding: 0 20px;
+            cursor: pointer;
+        }
+    </style>
+    <script src="../Utils.js">
+
+    </script>
+    <script>
+        onload = function () {
+            var range = $("range");
+            var bg = $("bg");
+            var img = $("img");
+            img.onmousedown = function (e) {
+                var evt = e || event;
+                evt.preventDefault();
+                // evt.returnValue = false;
+                // var disX = evt.pageX - evt.offsetX - bg.offsetLeft;
+                var disX = evt.pageX - bg.offsetLeft - img.offsetLeft;
+                range.onmousemove = function (e) {
+                    var evt = e || event;
+                    // var x = evt.pageX - disX - bg.offsetLeft;
+                    var x = evt.pageX - disX - bg.offsetLeft;
+                    console.log(x);
+                    if (x <= 30) {
+                        x = 30;
+                    }
+                    if (x >= bg.offsetWidth - 30 - img.offsetWidth) {
+                        x = bg.offsetWidth - 30 - img.offsetWidth;
+                    }
+                    img.style.left = x + "px";
+                }
+                document.onmouseup = function () {
+                    range.onmousemove = null;
+                    document.onmouseup = null;
+                }
+            }
+
+            var menu = $("menu");
+            var li = menu.getElementsByTagName("li");
+            oncontextmenu = function (evt) {
+                if (evt.button == 0) {
+                    console.log("左键");
+                }
+                if (evt.button == 2) {
+                    console.log("右键");
+                    show(evt.pageX, evt.pageY);
+                    return false;
+                }
+            }
+            document.onclick = function () {
+                hidden();
+            }
+            // menu.onclick = function (event) {
+            //     event.stopPropagation();
+            // }
+            menu.oncontextmenu = function (event) {
+                event.stopPropagation();
+                event.preventDefault();
+            }
+            var arr = ["red", "blue", "pink", "black"];
+            function addClick() {
+                for (var i = 0; i < li.length; i++) {
+                    li[i].onclick = (function(index){
+                        return function (index) {
+                            console.log(index);
+                            document.body.style.background = arr[index];
+                        }
+                    })(i); 
+                }
+            }
+            for (var i = 0; i < li.length; i++) {
+                // li[i].index = i;
+                // li[i].onclick = function () {
+
+                // }
+                    li[i].onclick = (function(index){
+                        return function () {
+                            console.log(index);
+                            document.body.style.background = arr[index];
+                        }
+                    })(i);
+
+            }
+            function show(x, y) {
+                menu.style.display = "block";
+                menu.style.left = x + "px";
+                menu.style.top = y + "px";
+                // addClick();
+            }
+            function hidden() {
+                menu.style.display = "none";
+            }
+            
+            // onmousedown = function (event) {
+            //     // console.log("click");
+            //     // return event.button;
+            //     // console.log(event.button);
+            //     if (event.button == 0) {
+            //         console.log("左键");
+            //     }
+            //     if (event.button == 2) {
+            //         console.log("右键");
+            //         // return false;
+            //     }
+            // }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="bg">
+        <div id="range">
+            <img src="img/unlock_btn.jpg" alt="" id="img">
+        </div>
+    </div>
+
+    <ul id="menu">
+        <li>red</li>
+        <li>blue</li>
+        <li>pink</li>
+        <li>black</li>
+    </ul>
+
+</body>
+
+</html>

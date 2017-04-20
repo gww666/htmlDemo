@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../Utils.js"></script>
+    <script>
+        onload = function () {
+            var ul = document.getElementsByTagName("ul")[0];
+            var li = document.getElementsByTagName("li");
+            console.log(ul.nodeType);
+            console.log(ul.childNodes);
+            console.log(ul.childNodes.length);
+            console.log("firstChild:" + ul.firstChild);
+            console.log("lastChild:" + ul.lastChild);
+            console.log("children.length" + ul.children.length);
+            console.log("cloneNode:" + ul.cloneNode(true));
+            console.log("---li---");
+            console.log(li[0].previousSibling);
+            console.log("nextSibling" + li[0].nextSibling);
+            console.log("nodeParent" + li[0].parentNode);
+            
+
+        }
+    </script>
+</head>
+<body>
+    <ul>
+        <li>sd</li>
+        fff
+        <li>sd</li>
+    </ul>
+</body>
+</html>

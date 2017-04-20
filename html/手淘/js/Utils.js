@@ -27,15 +27,6 @@ function randomColor(element) {
     //}
 }
 
-//获取随机数（根据参数是否取整），范围是[min, max)
-function getRandom(min, max, isInt) {
-    var num = Math.random() * (max - min) + min;
-    if (arguments.length == 3 && arguments[2]) {
-        return parseInt(num);
-    }
-    return num;
-}
-
 //cookie Util
 var cookieUtil = {
     //添加cookie
@@ -82,7 +73,7 @@ function getStyle(element, styleName) {
         return element[styleName];
     }
     if (window.getComputedStyle) {
-        return parseInt(getComputedStyle(element, null)[styleName]);
+        return getComputedStyle(element, null)[styleName];
     } else {
         return element.currentStyle[styleName];
     }

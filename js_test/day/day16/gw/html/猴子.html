@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>猴子</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <script src="../Utils.js"></script>
+    <script>
+        onload = function () {
+            $("img").onclick = function () {
+                var t = this;
+                setTimeout(function () {
+                    t.src = "2.gif";
+                }, 100);
+                // linearAnimate(this, {top : 300, left : 300});
+                animation(this, {top : 300, left : 300}, function () {
+                    t.src = "1.gif";
+                });
+            }
+        }
+    </script>
+</head>
+<body>
+    <img src="1.gif" alt="" id="img">
+    
+</body>
+</html>

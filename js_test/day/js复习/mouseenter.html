@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            background: red;
+            width: 300px;
+            height: 300px;
+        }
+        #cd {
+            width: 100px;
+            height: 100px;
+            background: #000;
+        }
+    </style>
+    <script src="../Utils.js">
+        
+    </script>
+    <script>
+        onload = function () {
+            // $("box").onmouseover = function () {
+            //     // console.log("over");
+            // }
+            // $("box").onmouseenter = function () {
+            //     console.log("enter");
+            // }
+            // document.onkeypress = function (event) {
+            //     console.log(event.which);
+            // }
+            // console.log(prompt());
+            // alert(prompt(1, 1));
+            // alert(prompt(1, 1));
+            if(confirm("点击确定")) {
+                alert(true);
+            } else {
+                alert(false);
+            }
+            open("opener.html", "baidu", "width=600,height=400,top=200,left=300");
+            
+        }
+        function test() {
+                console.log("fggsadsdc");
+        }
+    </script> 
+</head>
+<body>
+    <div id="box">
+        <div id="cd">
+            
+        </div>
+    </div>
+</body>
+</html>

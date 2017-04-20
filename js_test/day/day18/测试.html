@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            height: 2000px;
+            width: 100%;
+        }
+        #box1 {
+            height: 200px;
+            width: 200px;
+            background: hotpink;
+            position: relative;
+        }
+        #box2 {
+            position: absolute;
+            left: 0;
+            top: 0;
+            margin-left: 20px;
+            margin-top: 20px;
+            width: 50px;
+            height: 50px;
+            background: #000;
+        }
+        #box3 {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            margin-top: 10px;
+            margin-left: 20px;
+            background: #fff;
+        }
+    </style>
+    <script>
+        onload = function () {
+            console.log(parseInt(null)); //NaN
+            console.log(Number(null)); //0
+            var height = document.documentElement.clientHeight;
+            console.log(height);
+            var box3 = document.getElementById("box3");
+            box3.style.left = 0;
+            box3.style.top = "70px";
+        }
+    </script>
+</head>
+<body>
+    <div id="box">
+        <div id="box1">
+            <div id="box2">
+            </div>
+            <div id="box3">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

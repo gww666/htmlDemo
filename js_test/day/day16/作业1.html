@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+
+        }
+        li {
+            margin-bottom: 10px;
+            background: #ccc;
+            padding: 10px;
+            width: 200px;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 5px;
+        }
+    </style>
+    <script src="../Utils.js"></script>
+    <script>
+        onload = function () {
+            var ul = document.getElementsByTagName("ul");
+            var li = document.getElementsByTagName("li");
+            for (let i = 0; i < li.length; i++) {
+                li[i].onmouseenter = function () {
+                    animation(this, {paddingLeft : 50, paddingRight : 200});
+                }
+                li[i].onmouseleave = function () {
+                    animation(this, {paddingLeft : 10, paddingRight : 10});
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <ul>
+        <li>首页</li>
+        <li>首页</li>
+        <li>首页</li>
+        <li>首页</li>
+        <li>首页</li>
+        <li>首页</li>
+    </ul>
+</body>
+</html>

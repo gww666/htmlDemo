@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片旋转</title>
+    <script src="../../Utils.js"></script>
+    <script>
+        onload = function () {
+            var img = document.getElementsByTagName("img")[0];
+
+            var lastIndex = 0;
+            img.onmousedown = function (e) {
+                var event = EventUtil.getEvent(e);
+                event.preventDefault();
+                var downX = event.offsetX;
+                var index = 0;
+                document.onmousemove = function (e) {
+                    var event = EventUtil.getEvent(e);
+                    var disX = event.offsetX - downX;
+                    index = (parseInt(disX / 10) + 77 * 10 + lastIndex) % 77;
+                    img.src = index + ".jpg";
+//                    console.log((parseInt(disX / 10) + 77 * 10 + lastIndex) % 77);
+                };
+                document.onmouseup = function () {
+                    document.onmousemove = document.onmouseup = null;
+                    lastIndex = index;
+                };
+            };
+        }
+    </script>
+</head>
+<body>
+<img src="0.jpg" alt="">
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            width: 100px;
+            height: 100px;
+            background: #000;
+            position: absolute;
+            left: 0;
+            top: 20px;
+            /*opacity : 1;*/
+        }
+    </style>
+    <script>
+        onload = function () {
+            function $(id) {
+                return document.getElementById(id);
+            }
+            var right = document.getElementById("right");
+            var box = document.getElementById("box");
+            function getStyle(element, styleName) {
+                if (window.getComputedStyle) {
+                    return getComputedStyle(element, null)[styleName];
+                } else {
+                    return element.currentStyle[styleName];
+                }
+            }
+            
+            (function () {
+                var timer = null;
+                function animation(element, styleName, targetValue, callBack) {
+                    clearInterval(element.timer);
+                    element.timer = setInterval(function () {
+                        //判断是opacity还是普通属性
+                        var current;
+                        if (styleName == "opacity") {
+                            current =  parseInt(getStyle(element, styleName) * 100) ;
+                            console.log("opacity");
+                        } else {
+                            current = parseInt(getStyle(element, styleName));
+                        }
+                        // var current = parseInt(getStyle(element, styleName));
+                        var speed = (targetValue - current) / 20;
+                        speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+                        if (current == targetValue) {
+                            clearInterval(element.timer);
+                            if (callBack) {
+                                callBack();
+                            }
+                            return false;
+                        }
+                        if (styleName == "opacity") {
+                            element.style.opacity = (current + speed) / 100;
+                            element.style.filter = "alpha(opacity=" + (current + speed) + ")";
+                        } else {
+                            element.style[styleName] = current + speed + "px";
+                        }
+                        // element.style[styleName] = current + speed + "px";
+                    }, 16.7);
+                }
+                right.onclick = function () {
+                    animation(box, "left", 800);
+                }
+
+                $("bottom").onclick = function () {
+                    animation(box, "left", 800, function () {
+                        animation(box, "top", 800, function () {
+                            animation (box, "opacity", 10);
+                        });
+                    });
+                }
+
+                $("opacity").onclick = function () {
+                    animation(box, "opacity", 0);
+                }
+
+            })();
+        }
+    </script>
+</head>
+<body>
+    <input type="button" name="" value="right" id="right">
+    <input type="button" name="" value="bottom" id="bottom">
+    <input type="button" name="" value="opacity" id="opacity">
+    <div id="box">
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作业2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #menu {
+            position: absolute;
+            width: 300px;
+            height: 200px;
+            background: #000;
+            top: 0;
+            left: -300px;
+        }
+        #btn {
+            width: 20px;
+            height: 40px;
+            /*line-height: 60px;*/
+            padding: 10px 0;
+            text-align: center;
+            position: absolute;
+            right: -20px;
+            top: 70px;
+            background: lightpink;
+        }
+
+    </style>
+    <script src="../Utils.js"></script>
+    <script>
+        onload = function () {
+            // var ul = document.getElementsByTagName("ul");
+            // var li = document.getElementsByTagName("li");
+            // for (let i = 0; i < li.length; i++) {
+            //     li[i].onmouseenter = function () {
+            //         animation(this, {paddingLeft : 50, paddingRight : 200});
+            //     }
+            //     li[i].onmouseleave = function () {
+            //         animation(this, {paddingLeft : 10, paddingRight : 10});
+            //     }
+            // }
+            $("menu").onmouseover = function () {
+                animation($("menu"), {left : 0});
+            }
+            $("menu").onmouseout = function () {
+                animation(this, {left : -300});
+            } 
+        }
+    </script>
+</head>
+<body>
+    <div id="menu">
+        <div id="btn">
+            分享
+        </div>
+    </div>
+    
+</body>
+</html>

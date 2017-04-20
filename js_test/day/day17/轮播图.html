@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../Utils.js">        
+    </script>
+    <script>
+        onload = function () {
+            var slider = $("slider");
+            var img = slider.children;
+            var next = $("next");
+            var last = $("last");
+            var btn = $("s_img");
+            var sImg = btn.children; //小图片按钮
+            var timer = null;
+            // var length = slider.length;
+            var firstClone = slider.children[0].cloneNode(true);
+            slider.appendChild(firstClone); //克隆子节点
+            slider.style.width = img.length * 640 + "px"; //设置slider的宽度
+            var index = 0;
+            // timer = setInterval(function () {
+            //     index++;
+            //     move();
+            // }, 2000);
+            timer = setInterval(moveTimer, 2000);
+
+            //上一页和下一页的点击事件
+            next.onmouseover = last.onmouseover = function () {
+                clearTimer();
+            }
+            next.onmouseout = last.onmouseout = function () {
+                timer = setInterval(moveTimer, 2000);
+            }
+            next.onclick = function () {
+                index++;
+                move();
+            }
+            last.onclick = function () {
+                index--;
+                move();
+            }
+
+            //小图片点击事件
+            function simgActive() {
+                // if (index == sImg.length) {
+                //     index = 0;
+                // }
+                for (var i = 0; i < sImg.length; i++) {
+                    sImg[i].className = "";
+                    animation(sImg[i], {opacity : 50});
+                }
+                if (index == sImg.length) {
+                    sImg[0].className = "active";
+                    animation(sImg[0], {opacity : 100});
+                } else {
+                    sImg[index].className = "active";
+                    animation(sImg[index], {opacity : 100});
+                }
+            }
+
+            for (let j = 0; j < sImg.length; j++) {
+                sImg[j].simgIndex = j;
+                sImg[j].onclick = function () {
+                    // if (this.index == ) {
+                        
+                    // }
+                    index = this.simgIndex;
+                    simgActive();
+                    move();
+                }
+                sImg[j].onmouseover = function () {
+                    clearTimer();
+                }
+                sImg[j].onmouseout = function () {
+                    timer = setInterval(moveTimer, 2000);
+                }
+            }
+
+            //清除计时器事件
+            function clearTimer() {
+                clearInterval(timer);
+            }
+            //计时器调用的方法
+            function moveTimer() {
+                index++;
+                move();
+            }
+            //移动方法
+            function move() {
+                // console.log(index + "," + img.length);
+                if (index == -1) {
+                    // console.log("-1-1-1-1-1");
+                    slider.style.left = (-640) * (img.length - 1) + "px";
+                    index = img.length - 2;
+                    // return false;
+                }
+                if (index == img.length) {
+                    slider.style.left = 0;
+                    index = 1;
+                    // return false;
+                }
+                // slider.style.left = index * (-640) + "px";
+                animation(slider, {left : index * (-640)});
+                // animation()
+                simgActive();
+            }
+        }
+    </script>
+    <style>
+        #box {
+            overflow: hidden;
+            width: 640px;
+            height: 378px;
+            position: relative;
+            margin: 0 auto;
+        }
+        #slider {
+            /*height: 2268px;*/
+            /*width: 3840px;*/
+            height: 378px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #slider img {
+            float: left;
+        }
+        #box>span {
+            display: block;
+            width: 50px;
+            height: 25px;
+            background: #000;
+            color: white;
+            font-size: 20px;
+            line-height: 25px;
+            position: absolute;
+            text-align: center;
+            cursor: pointer;
+        }
+        #box>span:first-of-type{
+            left: 0;
+            top: 150px;
+        }
+        #box>span:last-of-type {
+            right: 0;
+            top: 150px;
+        }
+        /* 小图片的样式 */
+        #s_img {
+            position: absolute;
+            height: 40px;
+            bottom: 20px;
+            right: 50px;
+            
+        }
+        #s_img img{
+            width: 80px;
+            height: 40px;
+            float: left;
+            border: 1px solid #ccc;
+            opacity: 0.5;
+        }
+        #s_img .active {
+            border: 1px solid red;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="slider">
+            <img src="img/0.jpg" alt="">
+            <img src="img/10.jpg" alt="">
+            <img src="img/20.jpg" alt="">
+            <img src="img/30.jpg" alt="">
+            <img src="img/40.jpg" alt="">
+    </div>
+    <span id="last">last</span>
+    <span id="next">next</span>
+    <div id="s_img">
+        <img src="img/0.jpg" alt="" class="active">
+        <img src="img/10.jpg" alt="">
+        <img src="img/20.jpg" alt="">
+        <img src="img/30.jpg" alt="">
+        <img src="img/40.jpg" alt="">
+    </div>
+</body>
+</html>

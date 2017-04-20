@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            height: 100%;
+            width: 100%;
+            background: #000;
+            overflow: hidden;
+        }
+        #line {
+            width: 3px;
+            height: 60px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            border-radius: 2px;
+        }
+        div {
+            width: 2px;
+            height: 55px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            border-radius: 2px;
+        }
+        span {
+            /*background: #000;*/
+            border-radius: 50%;
+            position: absolute;
+            display: block;
+        }
+    </style>
+    <script src="../Utils.js"></script>
+    <script>
+        onload = function () {
+            var line = $("line");
+            var height = document.documentElement.clientHeight;
+            var width = document.documentElement.clientWidth;
+            var lineSpeed = 10;
+            var lineArr = [];//保存烟花轨迹对象的数组
+            var timer = null;
+            var mG = 0.1; //重力系数
+            var mAlpha = 0.02; //透明度系数，控制烟花消失的时间
+            var maxNum = 40; //烟花爆炸数量
+            var boomArr = [];
+
+            //烟花轨迹对象
+            function Line(element, x, y, speed) {
+                this.element = element;
+                // this.x = x;
+                this.x = Math.random() * (width - 100);
+                this.y = y;
+                this.ty = Math.random() * 300 + 100;
+                this.mx = Math.random() * 6 - 3; //-3 ~ 3
+                this.speed = speed;
+                // this.pos = Math.random() * (width - 100);
+                this.color = 'hsl(' + (Math.random() * 255) + ',100%,50%)';
+                //进行初始化操作
+                // this.element.style.background
+            }
+            Line.prototype.move = function() {
+                this.element.style.top = this.y + "px";
+                this.element.style.left = this.x + "px";
+                // this.element.style.background = 'hsl(' + (Math.random() * 255) + ',100%,50%)';
+                this.element.style.background = this.color;
+            }
+
+            //创建烟花轨迹对象
+            function createLine(x, y, speed) {
+                var div = document.createElement("div");
+                document.body.appendChild(div);
+                lineArr.push(new Line(div, x, y, speed));
+            }
+
+            //创建烟花轨迹对象
+            // function createLine(element, x, y, speed) {
+            //     lineArr.push(new Line(element, x, y, speed));
+            // }
+
+            //烟花运动方法
+            function drawLine() {
+                for (var i = 0; i < lineArr.length; i++) {
+                    lineArr[i].y -= lineArr[i].speed;
+                    // lineArr[i].x += lineArr[i].mx;
+                    lineArr[i].move();
+                    if (lineArr[i].y <= lineArr[i].ty) {
+                        //创建爆炸实例
+                        createBoom(lineArr[i].x, lineArr[i].y, mG);
+                        document.body.removeChild(lineArr[i].element);
+                        // lineArr.slice(i, 1);
+                        lineArr.splice(i, 1);
+                        i--;
+                    }
+                }
+            }
+            //烟花爆炸对象 
+            function Boom(element, x, y, g) {
+                this.element = element;
+                this.x = x;
+                this.y = y;
+                this.mx = Math.random() * 8 - 4; //-4 ~ 4
+                this.my = Math.random() * 8 - 4; //-4 ~ 4
+                this.g = g;
+                // this.my += this.g;
+                this.color = 'hsl(' + (Math.random() * 255) + ',100%,50%)';
+                this.alpha = 1;
+                //进行初始化样式操作
+                this.radius = Math.random() * 4 + 4; // 4 ~ 8
+                // console.log(this.radius);
+                this.element.style.width = this.radius + "px";
+                this.element.style.height = this.radius + "px";
+                this.element.style.background = this.color;
+            }
+
+            Boom.prototype.move = function () {
+                this.element.style.left = this.x + "px";
+                this.element.style.top = this.y + "px";
+                this.element.style.opacity = this.alpha;
+            }
+
+            //创建烟花爆炸实例
+            function createBoom(x, y, g) {
+                for (var i = 0; i < maxNum; i++) {
+                    var span = document.createElement("span");
+                    document.body.appendChild(span);
+                    boomArr.push(new Boom(span, x, y, g));
+                }
+            }
+
+            function drawBoom() {
+                for (var i = 0; i < boomArr.length; i++) {
+                    boomArr[i].x += boomArr[i].mx;
+                    boomArr[i].y += boomArr[i].my;
+                    boomArr[i].my += boomArr[i].g;
+                    boomArr[i].alpha -= mAlpha;
+                    boomArr[i].move();
+                    if (boomArr[i].alpha <= mAlpha) {
+                        document.body.removeChild(boomArr[i].element);
+                        boomArr.splice(i, 1);
+                        i--;
+                    }
+                }
+            }
+
+            function mAnimation() {
+                drawLine();
+                drawBoom();
+            }
+
+             //创建烟花轨迹实例
+            // createLine(line, width / 2, height - 50, lineSpeed);
+            // createLine(line, width / 2, height - 50, lineSpeed);
+            timer = setInterval(mAnimation, 16.7);
+            setInterval(function () {
+                createLine(width / 2, height - 50, lineSpeed);
+            }, 600);
+            // console.log(document.documentElement.clientHeight);
+            // console.log(window.innerHeight);
+        }
+    </script>
+</head>
+<body>
+    <!--<div id="line">
+        
+    </div>-->
+</body>
+</html>

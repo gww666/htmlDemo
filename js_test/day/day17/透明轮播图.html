@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>透明轮播图</title>
+    <style>
+        #box {
+            position: relative;
+            width: 640px;
+            height: 378px;
+        }
+        #box img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+        }
+    </style>
+    <script src="../Utils.js"></script>
+    <script>
+        onload = function () {
+            var box = $("box");
+            var img = box.children;
+            var index = 0;
+            var timer = null;
+            function opacityAnim() {
+                index++;
+                if (index == img.length) {
+                    index = 0;
+                }
+                for (var i = 0; i < img.length; i++) {
+                    animation(img[i], {opacity : 0});
+                }
+                animation(img[index], {opacity : 100});
+            }
+            function opacityTimer() {
+                timer = setInterval(opacityAnim, 2000);
+            }
+            opacityTimer();
+        }
+    </script>
+</head>
+<body>
+    <div id="box">
+        <img src="img/0.jpg" alt="" style="opacity: 1;">
+        <img src="img/15.jpg" alt="">
+        <img src="img/25.jpg" alt="">
+        <img src="img/35.jpg" alt="">
+        <img src="img/45.jpg" alt="">
+    </div>
+</body>
+</html>

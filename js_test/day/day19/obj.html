@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        onload = function () {
+            //超类
+            function Cat(name) {
+                this.name = name;
+            }
+            Cat.prototype.miaow = function () {
+                console.log(this.name);
+            };
+            Cat.prototype.eat = function () {
+                console.log("eat");
+            };
+
+            function Jfcat(name) {
+                Cat.call(this, name);
+                // this.prototype = new Cat();
+            }
+            Jfcat.prototype.talk = function () {
+                console.log("hello");
+            };
+            // console.log(Jfcat.prototype.constructor);//指向Jfcat
+            var a = new Jfcat("a");
+            console.log(typeof a);
+            console.log(a);
+            
+            Jfcat.prototype = new Cat();
+            // console.log(Jfcat.prototype.constructor);//指向Cat
+            var b = new Jfcat("b");
+            console.log(b);
+
+
+            function Tomcat(name) {
+                Cat.call(this, name);
+                // this.prototype = new Cat();
+                this.catchMouse = function () {
+                    console.log("mouse");
+                }
+            }
+            Tomcat.prototype = new Cat();
+
+            //
+            var cat1 = new Cat("cat");
+            var jfCat1 = new Jfcat("jfCat");
+            var tomCat1 = new Tomcat("tomCat");
+            
+            // cat1.miaow();
+            // jfCat1.miaow();
+            // tomCat1.miaow();
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

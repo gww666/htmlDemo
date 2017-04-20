@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>猴子2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <script src="../Utils.js"></script>
+    <script>
+        onload = function () {
+            //位置对象
+            function Pos(x, y) {
+                this.x = x;
+                this.y = y;
+            }
+            //保存对象的数组
+            var posArr = [];
+            document.onmousedown = function (e) {
+                var evt = e || event;
+                posArr = [];
+                if (evt.button == 2) {
+                    alert("点击了鼠标右键");
+                    return false;
+                }
+                document.onmousemove = function (e) {
+                    var evt = e || event;
+                    // console.log(evt.pageX + "," +  evt.pageY);
+                    //滑动过程中创建位置实例，并添加到数组里
+                    posArr.push(new Pos(evt.pageX, evt.pageY));
+                }
+                document.onmouseup = function () {
+                    document.onmousemove = document.onmouseup = null;
+                    // console.log(posArr.length);
+                    for (let i = 0; i <　posArr.length; i++) {
+                        $("img").index = i;
+                    }
+                    setTimeout(function() {
+                        $("img").src = "2.gif";
+                    }, 100);
+                    var num = 0;
+                    var timer = setInterval(function () {
+                        if (num == posArr.length) {
+                            clearInterval(timer);
+                            $("img").src = "1.gif";
+                            return false;
+                        }
+                        $("img").style.left = posArr[num].x + "px";
+                        $("img").style.top = posArr[num].y + "px";
+                        num++;
+                    }, 30);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <img src="1.gif" alt="" id="img">
+</body>
+</html>
