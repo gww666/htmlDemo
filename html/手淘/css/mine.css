@@ -1,0 +1,99 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+}
+#header {
+    /*display: flex;*/
+    width: 100vw;
+    background: #ff5000;
+    color: #fff;
+    
+}
+.h_top {
+    display: flex;
+    padding: 5vw 3.6vw 0 3.6vw;
+    justify-content: space-between;
+}
+.h_setting {
+    font-size: 4.68vw;
+}
+.tx {
+    display: flex;
+    /*justify-content: center;*/
+    flex-flow: column wrap;
+    align-items: center;
+    
+}
+.tx_img {
+    width: 15.9vw;
+    height: 15.9vw;
+    /*height: 15.9vw;*/
+}
+.tx_name {
+    font-size: 3.125vw;
+    margin: 10px 0;
+}
+.tx_exp {
+    width: 29vw;
+    height: 5.46vw;
+}
+.h_msg {
+    width: 8.28vw;
+    height: 7.8vw;
+}
+.h_bottom {
+    width: 100vw;
+}
+
+/*main部分的样式*/
+#main {
+    flex: 1;
+    overflow: auto;
+}
+.order {
+    padding-bottom: 4.06vw;
+    border-bottom: 2px solid #ccc;
+}
+.o_title {
+    display: flex;
+    padding: 5.3vw 3.6vw 6.25vw 3.6vw;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+}
+.o_title>span:first-child {
+    font-size: 5.3vw;
+}
+.o_title>span:last-child {
+    color: #c3c3c3;
+    font-size: 4.375vw;
+    background: url("../img/images/m_arrow.png") no-repeat 26.9vw center;
+    background-size: 2.18vw 3.9vw;
+    padding-right: 3vw;
+}
+.o_menu {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 4.2vw;
+}
+.o_menu dl {
+    display: flex;
+    flex-flow: column wrap;
+    /*justify-content: center;*/
+    align-items: center;
+    font-size: 3.4vw;
+}
+.o_menu dt{
+    width: 6.875vw;
+    height: 8.6vw;
+    margin-bottom: 2vw;
+}
+.o_menu dl img {
+    width: 100%;
+}
+.o_menu .img_msg {
+    width: 10vw;
+}
+
